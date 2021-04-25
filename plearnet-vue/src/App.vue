@@ -1,32 +1,32 @@
 <template>
   <div :style="bg" id="app" class="container">
-    <Header title="Hello" />
-    <router-view/>
+    <Header />
+    <router-link to="/"></router-link>
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
-        return {
-          bg: {
-            backgroundImage: "url(" + require("../static/img/bg.jpg") + ")",
-            backgroundRepeat: "no-reqpeat",
-            backgroundSize: "auto",
-          }
-          
-        }
+    return {
+      bg: {
+        backgroundImage: "url(" + require("../static/img/bg.jpg") + ")",
+        backgroundRepeat: "no-reqpeat",
+        backgroundSize: "auto",
+      },
+    };
   },
   components: {
     Header,
     Footer,
   },
-}
+};
 </script>
 
 <style>
@@ -38,9 +38,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
-html,body,#app{
+html,
+body,
+#app {
   height: 100%;
-  margin:0px;
+  margin: 0px;
 }
 
 Footer {
@@ -53,11 +55,11 @@ Footer {
   /* font-size: 12px; */
 }
 
-.btn{
+.btn {
   display: inline-block;
   background: #fff;
   color: #000;
-  border:none;
+  border: none;
   padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
@@ -75,5 +77,21 @@ Footer {
 .btn-block {
   display: block;
   width: 100%;
+}
+.user {
+  display: flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items: center;
+  height: 80%;
+}
+/* .content {
+  display: flex;
+  justify-content: space-between;
+  padding: 200px;
+} */
+.content > div {
+  color: white;
+  font-size: 50px;
 }
 </style>
