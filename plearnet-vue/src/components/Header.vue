@@ -9,13 +9,13 @@
                 <option>日期</option>
             </select>
         </div>
-        <Button />
+        <Login />
         
     </header>
 </template>
 
 <script>
-import Button from './Button'
+import Login from './Login'
 
 export default {
     name:'Header',
@@ -23,7 +23,7 @@ export default {
         title:String,
     },
     components: {
-        Button
+        Login
     }
 }
 </script>
