@@ -1,20 +1,22 @@
 <template>
-
+  <div class="home">
+    <Top />
+    <Classification />
+  </div>
 </template>
 
 <script>
-import Carousel from './components/Carousel'
-import Classification from './components/Classification'
+import Top from '../components/Carousel'
+import Classification from '../components/Classification'
 
 export default {
   name: 'Home',
-  components: {
-    // Carousel,
-    // Classification,
-  },
+  components:{
+    Top,
+    Classification,
+  }
 }
 </script>
-
-<style>
+<style scoped>
 
 </style>

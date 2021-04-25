@@ -1,8 +1,7 @@
 <template>
   <div :style="bg" id="app" class="container">
     <Header title="Hello" />
-    <Top />
-    <Classification />
+    <router-view/>
     <Footer />
   </div>
 </template>
@@ -10,8 +9,6 @@
 <script>
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Top from './components/Carousel'
-import Classification from './components/Classification'
 
 export default {
   name: 'App',
@@ -27,8 +24,6 @@ export default {
   },
   components: {
     Header,
-    Top,
-    Classification,
     Footer,
   },
 }

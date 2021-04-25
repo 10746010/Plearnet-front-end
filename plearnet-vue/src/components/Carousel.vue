@@ -2,7 +2,7 @@
   <div class="container">
     <div class="wrap-flex">
       <div class="wrap-flex-item">
-        <!-- <div class="content"></div> -->
+        
       </div>
       <div class="wrap-flex-item">
         <div class="content">
@@ -18,14 +18,11 @@
         </div>
       </div>
       <div class="wrap-flex-item">
-        <!-- <div class="content"></div> -->
+        
       </div>
     </div>
   </div>
 
-  <!-- <div class="container">
-    <div class="box"></div>
-  </div> -->
 </template>
 
 
@@ -51,7 +48,9 @@ export default defineComponent({
         { src: require("../../static/img/top9.png") },
         { src: require("../../static/img/top10.png") },
       ],
+      
     };
+    
   },
   components: {
     Carousel,
