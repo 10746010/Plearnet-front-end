@@ -1,0 +1,19 @@
+body {
+    background-image: url(../img/bg.jpg);
+    height: 100vh;
+}
+
+.text{
+    align-items: center;
+}
+
+.reg{
+    color: white;
+    text-align: center;
+}
+
+
+
+.button{
+    align-items: flex-end;
+}
