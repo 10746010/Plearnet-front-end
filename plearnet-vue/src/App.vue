@@ -44,7 +44,10 @@ body,
   height: 100%;
   margin: 0px;
 }
-
+img {
+  /* pointer-events: none; */
+  
+}
 Footer {
   position: absolute;
   right: 0;
@@ -80,8 +83,8 @@ Footer {
 }
 .user {
   display: flex;
-  flex-direction:column;
-  justify-content:flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   height: 80%;
 }
