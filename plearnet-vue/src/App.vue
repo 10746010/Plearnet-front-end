@@ -44,10 +44,6 @@ body,
   height: 100%;
   margin: 0px;
 }
-img {
-  /* pointer-events: none; */
-  
-}
 Footer {
   position: absolute;
   right: 0;
@@ -83,18 +79,29 @@ Footer {
 }
 .user {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
   height: 80%;
 }
-/* .content {
-  display: flex;
-  justify-content: space-between;
-  padding: 200px;
-} */
+.content {
+  background-color: tomato;
+  width: 60%;
+  height: 100%;
+}
 .content > div {
   color: white;
   font-size: 50px;
 }
+.user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+  width: 10%;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
 </style>
