@@ -1,13 +1,12 @@
 <template>
   <div class="message">
-    <img v-bind:src="avatar" alt="" class="avatar"/>
+    <img v-bind:src="avatar" alt="" class="avatar" />
 
     <h1>name:{{ user.name }}</h1>
-    
+
     <h1>email:{{ user.email }}</h1>
-    
+
     <h1>phone:{{ user.phone }}</h1>
-    
   </div>
 </template>
 
@@ -30,7 +29,7 @@ export default {
 .message {
   color: white;
 }
-.avatar{
+.avatar {
   width: 15%;
 }
 </style>

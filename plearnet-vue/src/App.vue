@@ -1,7 +1,7 @@
 <template>
   <div :style="bg" id="app" class="container">
     <Header />
-    <router-link to="/"></router-link>
+    <!-- <router-link to="/"></router-link> -->
     <router-view />
     <Footer />
   </div>

@@ -47,8 +47,7 @@ export default defineComponent({
         { src: require("../../static/img/top8.png") },
         { src: require("../../static/img/top9.png") },
         { src: require("../../static/img/top10.png") },
-      ],
-      
+      ],      
     };
     
   },
