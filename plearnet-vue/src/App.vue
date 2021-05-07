@@ -51,9 +51,7 @@ Footer {
   left: 0;
   text-align: center;
   color: #7a7a7a;
-  /* font-size: 12px; */
 }
-
 .btn {
   display: inline-block;
   background: #fff;
@@ -77,31 +75,8 @@ Footer {
   display: block;
   width: 100%;
 }
-.user {
-  display: flex;
-  justify-content: center;
-  height: 80%;
+img{
+  -webkit-user-drag: none;
+  user-select: none;
 }
-.content {
-  background-color: tomato;
-  width: 60%;
-  height: 100%;
-}
-.content > div {
-  color: white;
-  font-size: 50px;
-}
-.user-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  height: 100%;
-  width: 10%;
-}
-.options {
-  display: flex;
-  flex-direction: column;
-}
-
 </style>
