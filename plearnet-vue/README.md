@@ -1,5 +1,11 @@
 # plearnet-vue
 
+## CMD
+```
+npm i -g @vue/cli
+vue cli
+```
+
 ## Project setup
 ```
 npm install

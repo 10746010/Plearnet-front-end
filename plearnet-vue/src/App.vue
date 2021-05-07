@@ -1,7 +1,7 @@
 <template>
   <div :style="bg" id="app" class="container">
     <Header />
-    <router-link to="/"></router-link>
+    <!-- <router-link to="/"></router-link> -->
     <router-view />
     <Footer />
   </div>
@@ -44,7 +44,6 @@ body,
   height: 100%;
   margin: 0px;
 }
-
 Footer {
   position: absolute;
   right: 0;
@@ -52,9 +51,7 @@ Footer {
   left: 0;
   text-align: center;
   color: #7a7a7a;
-  /* font-size: 12px; */
 }
-
 .btn {
   display: inline-block;
   background: #fff;
@@ -78,20 +75,8 @@ Footer {
   display: block;
   width: 100%;
 }
-.user {
-  display: flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items: center;
-  height: 80%;
-}
-/* .content {
-  display: flex;
-  justify-content: space-between;
-  padding: 200px;
-} */
-.content > div {
-  color: white;
-  font-size: 50px;
+img{
+  -webkit-user-drag: none;
+  user-select: none;
 }
 </style>
