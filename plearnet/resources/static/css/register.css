@@ -4,7 +4,7 @@ body {
 }
 
 .text{
-    align-items: center;
+    text-align: center;
 }
 
 .reg{
@@ -15,5 +15,5 @@ body {
 
 
 .button{
-    align-items: flex-end;
+    margin-left: 100px;
 }
