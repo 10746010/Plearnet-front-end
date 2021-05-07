@@ -1,0 +1,119 @@
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notes</title>
+    <link rel="stylesheet" href="../static/css/post.css">
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+    }
+
+    .use-flexbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        border: 1px solid #000;
+    }
+    .use-flexbox>table{
+        top:0px;
+
+        font-size: 200%;
+    }
+
+    .test{
+        display: flex;
+        flex-direction: column;
+        border:5px #dd7200 solid;
+        /* border-color: #000; */
+        height: 500px;
+    }
+    .test1{
+        display: flex;
+        justify-content: space-evenly;
+        border:5px #dd3400 solid;
+        height: 100px;
+    }
+    .test1>div{
+       padding:20px;
+    }
+    .test2{
+        display: flex;
+        border:5px #25dd00 solid;
+        height: 400px;
+    }
+    
+    .test3{
+        
+        justify-content: space-evenly;
+        border:5px #b100dd solid;
+        width: 50%;
+        height: 400px;
+    }
+    .test4{
+        
+        justify-content: space-evenly;
+        border:5px #bcdd00 solid;
+        width: 50%;
+
+        height: 400px;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="site-header">
+            <div class="wrapper site-header__wrapper">
+                <a href="#" class="brand"></a>
+                <input class="search">
+                <select>
+                    <option>標題</option>
+                    <option>作者</option>
+                    <option>日期</option>
+                </select>
+            </div>
+            <H2 align="center">管理學</H2>
+        </div>
+    </header>
+
+    <div class="test">
+        <div class="test1">               
+                <div>最新</div>
+                <div>留言數最高</div>
+                <div>點讚最多</div>
+                <div>點閱率最高</div>        
+        </div>
+        <div class="test2">
+            <div class="test3">
+                1. <br>
+                2. <br>
+                3. <br>
+                4. <br>
+            </div>
+            <div class="test4">
+                5. <br>
+                6. <br>
+                7. <br>
+                8. <br>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button type="button">下一頁</button>
+
+    </div>
+    <footer class="footer">
+        123
+    </footer>
+</body>
+
+</html>
