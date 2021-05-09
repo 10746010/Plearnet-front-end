@@ -1,20 +1,22 @@
 <template>
   <header>
-    <div class="search-box">
+    <div >
       <router-link to="/"
         ><img v-bind:src="img" alt="" id="home" class="home"
-      /></router-link>
-      <Search />
+      /></router-link>      
+      
     </div>
     <div class="button-box">
+      <Search text=""/>
       <Login />
     </div>
   </header>
 </template>
 
 <script>
-import Login from "./Login";
+import Login from "./Login"
 import Search from "./Search"
+
 export default {
   name: "Header",
   data() {
@@ -40,26 +42,7 @@ header {
   align-items: center;
   padding: 3px 200px 3px 200px;
 }
-.search-box {
-  display: flex;
-  align-items: center;
-}
 
-.search-box > .search-control {
-  display: flex;
-  width: 200px;
-  height: 25px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  background-color: white;
-}
-.search-control > .search {
-  border: none;
-  outline: none;
-}
-.search-control > .search-select {
-  border-radius: 50%;
-}
 .button-box {
   display: flex;
   align-items: center;
