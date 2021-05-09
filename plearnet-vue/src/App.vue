@@ -1,15 +1,15 @@
 <template>
   <div :style="bg" id="app" class="container">
-    <Header />
+    <!-- <Header /> -->
     <!-- <router-link to="/"></router-link> -->
     <router-view />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -23,8 +23,8 @@ export default {
     };
   },
   components: {
-    Header,
-    Footer,
+    // Header,
+    // Footer,
   },
 };
 </script>
