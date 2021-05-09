@@ -1,15 +1,10 @@
 <template>
   <div :style="bg" id="app" class="container">
-    <!-- <Header /> -->
-    <!-- <router-link to="/"></router-link> -->
     <router-view />
-    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -23,8 +18,7 @@ export default {
     };
   },
   components: {
-    // Header,
-    // Footer,
+
   },
 };
 </script>
@@ -44,14 +38,14 @@ body,
   height: 100%;
   margin: 0px;
 }
-Footer {
+/* Footer {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   text-align: center;
   color: #7a7a7a;
-}
+} */
 .btn {
   display: inline-block;
   background: #fff;

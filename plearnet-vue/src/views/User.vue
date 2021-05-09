@@ -31,7 +31,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: white;
-  height: 100%;
+  /* height: 100%; */
   width: 10%;
 }
 .content {
