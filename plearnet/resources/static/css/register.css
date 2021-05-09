@@ -1,0 +1,19 @@
+body {
+    background-image: url(../img/bg.jpg);
+    height: 100vh;
+}
+
+.text{
+    text-align: center;
+}
+
+.reg{
+    color: white;
+    text-align: center;
+}
+
+
+
+.button{
+    margin-left: 100px;
+}
