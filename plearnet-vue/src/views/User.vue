@@ -1,29 +1,46 @@
 <template>
   <div class="user">
-    <div class="content">
-      <Self />
-    </div>
-    <!-- <router-view/>  -->
     <div class="user-button">
-      <Button />
+      <UserButton />
+    </div>
+    <div class="content">
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import Button from '../components/Button'
-import Self from '../components/Self'
-
+import UserButton from "../components/UserButton";
 
 export default {
-  name: 'User',
-  components:{
-    Button,
-    Self
+  name: "User",
+  components: {
+    UserButton,
   },
-
-}
+};
 </script>
 <style scoped>
-
+.user {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+.user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  /* height: 100%; */
+  width: 10%;
+}
+.content {
+  background-color: tomato;
+  width: 60%;
+  height: 100%;
+}
+.content > div {
+  color: white;
+  font-size: 50px;
+}
 </style>
