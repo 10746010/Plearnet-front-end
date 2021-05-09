@@ -1,5 +1,4 @@
 <template>
-
   <router-link to="/user/self"><img v-bind:src="lop" alt="" id="lop" /></router-link>
   <!-- <router-link to="/user/self"><button class="btn">登入</button></router-link> -->
   <!-- <Test text="Add Task" color="red" /> -->
@@ -9,7 +8,7 @@
 // import Test from './Test'
 
 export default {
-  name: "Login",
+  name: "AccountButton",
   data() {
     return {
       lop: require("../../static/img/lop.png"),     
@@ -29,3 +28,5 @@ export default {
     width:70px;
 }
 </style>
+
+// Used by Header

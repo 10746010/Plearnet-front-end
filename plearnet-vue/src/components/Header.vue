@@ -8,13 +8,13 @@
     </div>
     <div class="button-box">
       <Search text=""/>
-      <Login />
+      <AccountButton />
     </div>
   </header>
 </template>
 
 <script>
-import Login from "./Login"
+import AccountButton from "./AccountButton"
 import Search from "./Search"
 
 export default {
@@ -29,7 +29,7 @@ export default {
   },
 
   components: {
-    Login,
+    AccountButton,
     Search
   },
 };

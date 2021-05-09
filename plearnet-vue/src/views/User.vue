@@ -1,7 +1,7 @@
 <template>
   <div class="user">
     <div class="user-button">
-      <Button />
+      <UserButton />
     </div>
     <div class="content">
       <router-view />
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Button from "../components/Button";
+import UserButton from "../components/UserButton";
 
 export default {
   name: "User",
   components: {
-    Button,
+    UserButton,
   },
 };
 </script>
