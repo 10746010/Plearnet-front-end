@@ -1,25 +1,20 @@
 <template>
   <div :style="bg" id="app" class="container">
-    <router-view />
+    <div class="wrapper">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "App",
   data() {
     return {
-      bg: {
-        backgroundImage: "url(" + require("../static/img/bg.jpg") + ")",
-        backgroundRepeat: "no-reqpeat",
-        backgroundSize: "auto",
-      },
+    
     };
   },
-  components: {
-
-  },
+  components: {},
 };
 </script>
 
@@ -35,9 +30,21 @@ export default {
 html,
 body,
 #app {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  background: url(../static/img/bg.jpg) no-repeat;
 }
+
+/* html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} */
 /* Footer {
   position: absolute;
   right: 0;
@@ -46,7 +53,7 @@ body,
   text-align: center;
   color: #7a7a7a;
 } */
-.btn {
+/* .btn {
   display: inline-block;
   background: #fff;
   color: #000;
@@ -68,9 +75,11 @@ body,
 .btn-block {
   display: block;
   width: 100%;
-}
-img{
+} */
+img {
   -webkit-user-drag: none;
   user-select: none;
+  vertical-align: middle;
+  /* border:0px; */
 }
 </style>
