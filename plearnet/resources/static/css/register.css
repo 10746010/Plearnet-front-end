@@ -1,19 +1,37 @@
 body {
     background-image: url(../img/bg.jpg);
     height: 100vh;
+    color: white;
 }
 
 .text{
-    text-align: center;
+    display: flex;
 }
 
 .reg{
-    color: white;
-    text-align: center;
+    text-align: left;
+    font-size: 50px;
 }
 
-
+.registertext{
+    text-align: left;
+    margin-left: 60px;
+}
 
 .button{
     margin-left: 100px;
+}
+
+.inputbox{
+    padding-top: 100px;
+}
+
+.right{
+    position: relative;
+    top: -200px;
+    right: -200px;
+}
+
+.left{
+    margin-left: 20px;
 }
