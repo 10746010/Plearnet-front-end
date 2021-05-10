@@ -4,15 +4,15 @@ body {
 }
 
 .login {
-    text-align: center;
+    text-align: left;
 }
 
 .account {
-    align-items: center;
+    align-items: left;
 }
 
 .password {
-    align-items: center;
+    align-items: left;
 }
 
 .loginImg {
@@ -20,7 +20,35 @@ body {
 }
 
 .title {
-    text-align: center;
+    text-align: left;
     color: white;
+    font-size: 50px;
 }
 
+.text{
+    text-align:start;
+    margin-left: 60px;
+}
+
+.imgBg{
+    position: relative;
+    top: -500px;
+    right: -600px;
+}
+
+.inputbox{
+    text-align: left;
+    padding-top: 100px;
+}
+
+.content{
+    display: flex;
+}
+
+.left{
+    margin-left: 50px;
+}
+
+.registerImg{
+    margin-left: 120px;
+}
