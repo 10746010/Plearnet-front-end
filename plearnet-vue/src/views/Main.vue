@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div class="wrapper">
     <Header />
-     <router-view />
+    <router-view />
   </div>
 </template>
 
@@ -10,15 +10,12 @@ import Header from "../components/Header";
 
 
 export default {
-  name: 'Main',
-  components:{
+  name: "Main",
+  components: {
     Header,
-  }
-}
+  },
+};
 </script>
 <style scoped>
-.main {
-  height: 100%;
-  margin: 0px;
-}
+
 </style>

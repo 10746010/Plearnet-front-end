@@ -6,8 +6,11 @@ import Like from '../components/Like.vue'
 import History from '../components/History.vue'
 import Self from '../components/Self.vue'
 
+import Test from '../components/Test.vue'
+
+
 const routes = [
-  {
+  {    
     path: '/',
     name: 'Main',
     component: Main,
@@ -33,7 +36,12 @@ const routes = [
           }
         ]
       }
-    ]
+    ],    
+  },
+  {
+    path:'/test/',
+    name:'Test',
+    component:Test,
   }
 ]
 

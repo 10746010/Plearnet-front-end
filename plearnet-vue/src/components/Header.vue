@@ -2,7 +2,7 @@
   <header>
     <div >
       <router-link to="/"
-        ><img v-bind:src="img" alt="" id="home" class="home"
+        ><img v-bind:src="img" alt="" class="home"
       /></router-link>      
       
     </div>
@@ -50,6 +50,6 @@ header {
 }
 .home {
   width: 50px;
-  margin: 3px 20px 0px 0px;
+  /* margin: 3px 20px 0px 0px; */
 }
 </style>
