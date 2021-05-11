@@ -1,9 +1,11 @@
 <template>
   <div class="options">
-    <button class="btn">update</button>
-    <router-link to="/user/update"><img v-bind:src="update" alt="" /></router-link>
-    <router-link to="/user/like"><img v-bind:src="like" alt="" /></router-link>
-    <router-link to="/user/history"><img v-bind:src="history" alt="" /></router-link>
+    <router-link to="/user/update"><button class="btn">上傳</button></router-link>
+    <router-link to="/user/like"><button class="btn">收藏</button></router-link>
+    <router-link to="/user/history"><button class="btn">紀錄</button></router-link>
+    <router-link to="/user/paint"><button class="btn">塗鴉</button></router-link>
+    <router-link to="/user/self"><button class="btn">設定</button></router-link>
+
   </div>
 </template>
 

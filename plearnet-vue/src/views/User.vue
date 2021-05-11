@@ -35,12 +35,12 @@ export default {
   width: 10%;
 }
 .content {
-  background-color: tomato;
+  /* background-color: tomato; */
   width: 60%;
   height: 100%;
 }
-.content > div {
+/* .content > div {
   color: white;
   font-size: 50px;
-}
+} */
 </style>
