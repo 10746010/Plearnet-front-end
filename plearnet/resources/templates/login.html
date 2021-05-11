@@ -11,25 +11,42 @@
 <body>
     <div class="login">
         <form name="formLogin">
-            <div class="title">
-                <h1>Plearnet</h1>
-                <br>
-                <label>登入</label>
-            </div>
-            <div class="account">
-                <br>
-                <input type="text" placeholder="請輸入帳號" value="">
+            <div class="contents">
+                <div class="left">
+                    <div class="title">
+                        Plearnet
+                        <br>
+                    </div>
+                    <div class="text">
+                        <label>登入</label>
+                    </div>
+                    <div class="inputbox">
+                        <div class="account">
+                            <br>
+                            <input type="text" placeholder="請輸入帳號" value="">
+                        </div>
+
+                        <div class="password">
+                            <br>
+                            <input type="password" placeholder="請輸入密碼" value="">
+                        </div>
+                        <div class="loginImg">
+                            <img src="../static/img/lb.png" width="100px">
+                        </div>
+                        <div class="registerImg">
+                            <a href="../templates/register.html">
+                                <img src="../static/img/registerbutton.png" width="80px">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="imgBg">
+                            <img src="../static/img/loginBg.png" width="1000px">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="password">
-                <br>
-                <input type="password" placeholder="請輸入密碼" value="">
-            </div>
-
-            <div class="loginImg">
-                <a href="../templates/register.html"><img src="../static/img/lb.png" width="100" height="100"
-                        id="lb"></a>
-            </div>
         </form>
     </div>
 </body>
