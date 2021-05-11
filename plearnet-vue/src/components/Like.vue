@@ -1,25 +1,23 @@
 <template>
   <div>
-    <div>Hello</div>
-    <div>Here</div>
-    <div>is</div>
-    <div>Like</div>
+    <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
   </div>
 </template>
 
 <script>
+import ListContent from "./ListContent"
+
 export default {
   name: "Like",
-  components: {},
+  components: {
+    ListContent
+  },
 };
 </script>
 <style scoped>
-.content {
-  display: flex;
-  justify-content: space-between;
-}
-.content > div {
-  color: white;
-  font-size: 100px;
-}
+
 </style>

@@ -1,16 +1,21 @@
 <template>
   <div>
-    <h1>Hi</h1>
-    <h1>Here</h1>
-    <h1>is</h1>
-    <h1>History</h1>
+    <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
+    <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
   </div>
 </template>
 
 <script>
+import ListContent from "./ListContent"
+
 export default {
   name: "History",
-  components: {},
+  components: {
+    ListContent
+  },
 };
 </script>
 <style scoped>
