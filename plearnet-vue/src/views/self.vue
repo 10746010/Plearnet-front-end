@@ -2,24 +2,24 @@
   <div class="self">
     <div class="top">
       <div class="icon">
-        <img src="../static/img/icon.png" width="50" />
+        <img src="../../static/img/icon.png" width="50" />
       </div>
     </div>
     <div class="content">
       <div class="left">
         <div>
-          <img src="../static/img/update.png" width="50" />
+          <img src="../../static/img/update.png" width="50" />
         </div>
         <div>
-          <img src="../static/img/like.png" width="50" />
+          <img src="../../static/img/like.png" width="50" />
         </div>
         <div>
-          <img src="../static/img/history.png" width="50" />
+          <img src="../../static/img/history.png" width="50" />
         </div>
       </div>
       <div class="right">
         <div class="img">
-          <img src="../static/img/lop.png" width="150" />
+          <img src="../../static/img/lop.png" width="150" />
         </div>
         <div class="text">
           <p><label>name</label></p>
