@@ -24,14 +24,14 @@
               <img src="../static/img/lb.png" width="100px" />
             </div>
             <div class="registerImg">
-              <a href="../templates/register.html">
-                <img src="../static/img/registerbutton.png" width="80px" />
-              </a>
+              <router-link to="/register">
+              <img src="../../static/img/registerbutton.png" width="80px">
+              </router-link>
             </div>
           </div>
           <div class="right">
             <div class="imgBg">
-              <img src="../static/img/loginBg.png" width="1000px" />
+              <img src="../../static/img/loginBg.png" width="1000px" />
             </div>
           </div>
         </div>

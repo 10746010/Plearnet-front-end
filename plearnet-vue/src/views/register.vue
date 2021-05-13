@@ -20,17 +20,18 @@
           <br />
         </div>
         <div class="button">
-          <img src="../static/img/registerbutton.png" width="100px" />
+          <img src="../../static/img/registerbutton.png" width="100px" />
         </div>
       </div>
       <div class="right">
-        <img src="../static/img/loginBg.png" width="1000px" />
+        <img src="../../static/img/loginBg.png" width="1000px" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 </script>
 <style scoped>
 .text {
