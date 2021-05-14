@@ -31,7 +31,6 @@
 </template>
 
 <script>
-
 </script>
 <style scoped>
 .text {

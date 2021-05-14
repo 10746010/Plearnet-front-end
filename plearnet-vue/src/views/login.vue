@@ -21,11 +21,11 @@
               <input type="password" placeholder="請輸入密碼" value="" />
             </div>
             <div class="loginImg">
-              <img src="../static/img/lb.png" width="100px" />
+              <img src="../../static/img/lb.png" width="100px" />
             </div>
             <div class="registerImg">
               <router-link to="/register">
-              <img src="../../static/img/registerbutton.png" width="80px">
+                <img src="../../static/img/registerbutton.png" width="80px" />
               </router-link>
             </div>
           </div>
