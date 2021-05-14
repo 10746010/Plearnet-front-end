@@ -3,36 +3,33 @@
     <form name="formLogin">
       <div class="contents">
         <div class="left">
-          <div class="title">
-            Plearnet
-            <br />
-          </div>
+          <div class="title">Plearnet</div>
           <div class="text">
             <label>登入</label>
           </div>
           <div class="inputbox">
             <div class="account">
-              <br />
               <input type="text" placeholder="請輸入帳號" value="" />
             </div>
-
             <div class="password">
-              <br />
               <input type="password" placeholder="請輸入密碼" value="" />
             </div>
             <div class="loginImg">
-              <img src="../../static/img/lb.png" width="100px" />
+              <img src="../../static/img/lb.png" style="width: 100px" />
             </div>
             <div class="registerImg">
               <router-link to="/register">
-                <img src="../../static/img/registerbutton.png" width="80px" />
+                <img
+                  src="../../static/img/registerbutton.png"
+                  style="width: 80px"
+                />
               </router-link>
             </div>
           </div>
-          <div class="right">
-            <div class="imgBg">
-              <img src="../../static/img/loginBg.png" width="1000px" />
-            </div>
+        </div>
+        <div class="right">
+          <div class="imgBg">
+            <img src="../../static/img/icon.png" style="width: 1000px" />
           </div>
         </div>
       </div>
@@ -52,6 +49,7 @@
 }
 
 .password {
+  margin-top: 30px;
   align-items: left;
 }
 
@@ -68,12 +66,13 @@
 .text {
   text-align: start;
   margin-left: 60px;
+  color: white;
 }
 
 .imgBg {
   position: relative;
-  top: -500px;
-  right: -600px;
+  top: -200px;
+  right: -5px;
 }
 
 .inputbox {
@@ -81,15 +80,14 @@
   padding-top: 100px;
 }
 
-.content {
+.contents {
   display: flex;
 }
 
 .left {
-  margin-left: 50px;
-}
-
-.registerImg {
   margin-left: 120px;
+}
+.registerImg {
+  margin-left: 130px;
 }
 </style>

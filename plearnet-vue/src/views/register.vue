@@ -1,30 +1,32 @@
 <template>
   <div class="register">
-    <div class="text">
-      <div class="left">
-        <div class="reg">
-          Plearnet
-          <br />
+    <div class="contents">
+      <div class="text">
+        <div class="left">
+          <div class="reg">Plearnet</div>
+          <div class="registertext">
+            <label>註冊</label>
+          </div>
+          <div class="inputbox">
+            <input type="e-mail" placeholder="電子信箱" />
+            <br />
+            <br />
+            <input type="password" placeholder="密碼" />
+            <br />
+            <br />
+            <input type="password" placeholder="確認密碼" />
+            <br />
+          </div>
+          <div class="button">
+            <img
+              src="../../static/img/registerbutton.png"
+              style="width: 100px"
+            />
+          </div>
         </div>
-        <div class="registertext">
-          <label>註冊</label>
+        <div class="right">
+          <img src="../../static/img/icon.png" style="width: 1000px" />
         </div>
-        <div class="inputbox">
-          <input type="e-mail" placeholder="電子信箱" />
-          <br />
-          <br />
-          <input type="password" placeholder="密碼" />
-          <br />
-          <br />
-          <input type="password" placeholder="確認密碼" />
-          <br />
-        </div>
-        <div class="button">
-          <img src="../../static/img/registerbutton.png" width="100px" />
-        </div>
-      </div>
-      <div class="right">
-        <img src="../../static/img/loginBg.png" width="1000px" />
       </div>
     </div>
   </div>
@@ -33,6 +35,9 @@
 <script>
 </script>
 <style scoped>
+.register {
+  color: white;
+}
 .text {
   display: flex;
 }
@@ -49,6 +54,7 @@
 
 .button {
   margin-left: 100px;
+  margin-top: 10px;
 }
 
 .inputbox {
@@ -58,10 +64,12 @@
 .right {
   position: relative;
   top: -200px;
-  right: -200px;
+  right: -5px;
 }
-
+.contents {
+  display: flex;
+}
 .left {
-  margin-left: 20px;
+  margin-left: 120px;
 }
 </style>
