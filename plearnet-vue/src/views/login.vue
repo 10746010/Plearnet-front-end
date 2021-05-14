@@ -29,7 +29,9 @@
         </div>
         <div class="right">
           <div class="imgBg">
-            <img src="../../static/img/icon.png" style="width: 1000px" />
+            <router-link to="/">
+              <img src="../../static/img/icon.png" style="width: 1000px" />
+            </router-link>
           </div>
         </div>
       </div>

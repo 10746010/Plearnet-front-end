@@ -25,7 +25,9 @@
           </div>
         </div>
         <div class="right">
-          <img src="../../static/img/icon.png" style="width: 1000px" />
+          <router-link to="/">
+            <img src="../../static/img/icon.png" style="width: 1000px" />
+          </router-link>
         </div>
       </div>
     </div>
