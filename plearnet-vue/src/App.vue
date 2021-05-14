@@ -1,8 +1,6 @@
 <template>
   <div :style="bg" id="app" class="container">
-    <div class="wrapper">
       <router-view />
-    </div>
   </div>
 </template>
 
@@ -45,15 +43,8 @@ body,
   margin: 0;
   padding: 0;
 } */
-/* Footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  color: #7a7a7a;
-} */
-/* .btn {
+
+.btn {
   display: inline-block;
   background: #fff;
   color: #000;
@@ -75,7 +66,7 @@ body,
 .btn-block {
   display: block;
   width: 100%;
-} */
+}
 img {
   -webkit-user-drag: none;
   user-select: none;
