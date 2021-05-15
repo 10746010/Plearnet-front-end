@@ -6,11 +6,10 @@ import Like from '../components/Like.vue'
 import History from '../components/History.vue'
 import Self from '../components/Self.vue'
 import Paint from '../components/Paint.vue'
-import Test from '../components/Test.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
-
+import AccountInput from '../components/AccountInput.vue'
 
 const routes = [
   {
@@ -46,21 +45,23 @@ const routes = [
       }
     ],
   },
+  {    
+    path: '/accountinput/',
+    name: 'accountinput',
+    component: AccountInput,
+  },
   {
     path: '/login/',
     name: 'login',
     component: Login,
-  },
-  {
-    path: '/test/',
-    name: 'Test',
-    component: Test,
-  },
+  },  
   {
     path: '/register/',
     name: 'register',
     component: Register,
   },
+
+  
 ]
 
 const router = createRouter({

@@ -1,12 +1,12 @@
 <template>
-  <header>
-    <div >
+  <header :style="{'flex-flow':type}">
+    <div>
       <router-link to="/"
         ><img v-bind:src="img" alt="" class="home"
       /></router-link>      
       
     </div>
-    <div class="button-box">
+    <div class="button-box" :style="{display:display_type}">
       <Search text=""/>
       <AccountButton />
     </div>
@@ -27,7 +27,10 @@ export default {
       show: false,
     };
   },
-
+  props: {
+    type:String,
+    display_type:String
+  },
   components: {
     AccountButton,
     Search

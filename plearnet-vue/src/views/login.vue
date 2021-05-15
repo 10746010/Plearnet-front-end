@@ -1,22 +1,51 @@
 <template>
-  <div class="login">
-    <form name="formLogin">
-      <div class="contents">
-        <div class="left">
+  <div>
+    <Header type="row-reverse" display_type="none" />
+
+    <div class="login">
+      <form name="formLogin">
+        <div class="contents">
           <div class="title">Plearnet</div>
           <div class="text">
             <label>登入</label>
           </div>
           <div class="inputbox">
-            <div class="account">
-              <input type="text" placeholder="請輸入帳號" value="" />
-            </div>
-            <div class="password">
-              <input type="password" placeholder="請輸入密碼" value="" />
-            </div>
+            
+            <!-- 帳號 -->
+            <AccountInput top_num="295px" left_num="480px" placeholder_text="請輸入帳號"/>
+            <!-- <div class="account">
+              <div class="login_background">
+                <img :src="loginBackgroundg" alt="" />
+              </div>
+              <div class="account_input">
+                <input
+                  type="text"
+                  placeholder="請輸入帳號"
+                  value=""
+                  id="input"
+                />
+              </div>
+            </div> -->
+            <!-- 密碼 -->
+            <AccountInput top_num="445px" left_num="480px" placeholder_text="請輸入帳號"/>
+            <!-- <div class="password">
+              <div class="login_background">
+                <img :src="loginBackgroundg" alt="" />
+              </div>
+              <div class="password_input">
+                <input
+                  type="password"
+                  placeholder="請輸入密碼"
+                  value=""
+                  id="input"
+                />
+              </div>
+            </div> -->
+            <!-- 登入按鈕 -->
             <div class="loginImg">
               <img src="../../static/img/lb.png" style="width: 100px" />
             </div>
+            <!-- 註冊按鈕  -->
             <div class="registerImg">
               <router-link to="/register">
                 <img
@@ -27,69 +56,91 @@
             </div>
           </div>
         </div>
-        <div class="right">
-          <div class="imgBg">
-            <router-link to="/">
-              <img src="../../static/img/icon.png" style="width: 1000px" />
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from "../components/Header";
+
+import AccountInput from "../components/AccountInput"
+
+export default {
+  name: "Login",
+  data() {
+    return {
+      loginBackgroundg: require("../../static/img/login_ap.png"),
+      // loginBackgroundg: {
+      //   backgroundImage:
+      //     "url(" + require("../../static/img/login_ap.png") + ") ",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "300px 100px",
+      // },
+    };
+  },
+  components: {
+    Header,
+    AccountInput
+  },
+};
 </script>
 <style scoped>
-.login {
-  text-align: left;
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.account {
-  align-items: left;
+/* .inputbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#input {
+  border: none;
+  outline: none;
+}
+.login_background > img {
+  width: 500px;
+  height: 150px;
 }
 
-.password {
-  margin-top: 30px;
-  align-items: left;
+.account_input {
+  position: absolute;
+  z-index: 1;
+  top: 295px;
+  left: 480px;
 }
+
+.password_input {
+  position: absolute;
+  z-index: 1;
+  top: 445px;
+  left: 480px;
+} */
 
 .loginImg {
-  margin-left: 90px;
+  margin-left: 350px;
 }
 
 .title {
-  text-align: left;
   color: white;
   font-size: 50px;
 }
 
 .text {
   text-align: start;
-  margin-left: 60px;
   color: white;
 }
 
-.imgBg {
-  position: relative;
-  top: -200px;
-  right: -5px;
-}
-
 .inputbox {
-  text-align: left;
   padding-top: 100px;
 }
 
-.contents {
-  display: flex;
-}
-
-.left {
-  margin-left: 120px;
-}
 .registerImg {
-  margin-left: 130px;
+  margin-left: 400px;
 }
 </style>
