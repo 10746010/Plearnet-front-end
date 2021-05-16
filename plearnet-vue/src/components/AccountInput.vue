@@ -3,7 +3,7 @@
     <div class="input_background">
       <img :src="inputBackgroundg" alt="" />
     </div>
-    <div class="input" :style="{top: top_num,left: left_num}">
+    <div class="input">
       <input type="text" :placeholder="placeholder_text" value="" id="input" />
     </div>
   </div>
@@ -29,10 +29,13 @@ export default {
 .input_background > img {
   width: 500px;
   height: 150px;
+  margin:-30px 0px;
 }
 .input {
-  position: absolute;
+  position: relative;
   z-index: 1;  
+  top:-60px;
+  left:88px;
 }
 #input {
   border: none;
