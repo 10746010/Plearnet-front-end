@@ -1,18 +1,18 @@
 <template>
-    <div class="AccountInput">
-      <div class="input_background">
-        <img :src="inputBackgroundg" alt="" />
-      </div>
-      <div class="input">
-        <input
-          :type="account_type"
-          :placeholder="placeholder_text"
-          id="input"
-          ref="input"
-          required
-        />
-      </div>
+  <div class="AccountInput">
+    <div class="input_background">
+      <img :src="inputBackgroundg" alt="" />
     </div>
+    <div class="input">
+      <input
+        :type="account_type"
+        :placeholder="placeholder_text"
+        :value="model_input"
+        @input="$emit('update:model_input', $event.target.value)"
+        required
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -26,16 +26,8 @@ export default {
   props: {
     placeholder_text: String,
     account_type: String,
+    model_input: String,
   },
-  methods:{
-    focusInput() {
-      this.$refs.input.focus()
-    }
-  },
-  mounted() {
-    this.focusInput()
-  },
-  emits: ['update:firstName', 'update:lastName'],
   components: {},
 };
 </script>
