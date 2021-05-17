@@ -4,40 +4,34 @@
 
     <form @submit.prevent="login" name="formLogin">
       <div class="contents">
-
         <div class="title">Plearnet</div>
         <div class="text">
           <label>登入</label>
         </div>
 
         <div class="inputbox">
-
+          <!-- <AccountInput
+            account_type="text"
+            placeholder_text="test"
+            :model_input="userName"
+            @update:model_input="userName = $event"
+          /> -->
           <!-- 帳號 -->
-          <div class="input_background">
-            <img :src="inputBackgroundg" alt="" />
-          </div>
-          <div class="input">
-            <input
-              type="text"
-              placeholder="請輸入帳號"
-              id="input"
-              v-model="userName"
-              required
-            />
-          </div>
+           <AccountInput
+            account_type="text"
+            placeholder_text="請輸入帳號"
+            :model_input="userName"
+            @update:model_input="userName = $event"
+          />
+
           <!-- 密碼 -->
-          <div class="input_background">
-            <img :src="inputBackgroundg" alt="" />
-          </div>
-          <div class="input">
-            <input
-              type="password"
-              placeholder="請輸入密碼"
-              id="input"
-              v-model="password"
-              required
-            />
-          </div>
+          <AccountInput
+            account_type="password"
+            placeholder_text="請輸入密碼"
+            :model_input="password"
+            @update:model_input="password = $event"
+          />
+
           <!-- 登入按鈕 -->
           <div class="loginImg">
             <button type="submit">
@@ -53,19 +47,16 @@
               />
             </router-link>
           </div>
-
         </div>
-
       </div>
-
     </form>
-
   </div>
 </template>
 
 <script>
 import Header from "../components/Header";
 
+import AccountInput from "../components/AccountInput";
 
 export default {
   name: "Login",
@@ -88,6 +79,7 @@ export default {
   },
   components: {
     Header,
+    AccountInput,
   },
 };
 </script>
@@ -121,21 +113,6 @@ export default {
   margin-left: 400px;
 }
 
-.input_background > img {
-  width: 500px;
-  height: 150px;
-  margin: -30px 0px;
-}
-.input {
-  position: relative;
-  z-index: 1;
-  top: -60px;
-  left: 88px;
-}
-#input {
-  border: none;
-  outline: none;
-}
 button {
   background-color: unset;
   border: none;
