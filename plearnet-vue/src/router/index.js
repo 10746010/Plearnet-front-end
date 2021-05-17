@@ -6,60 +6,84 @@ import Like from '../components/Like.vue'
 import History from '../components/History.vue'
 import Self from '../components/Self.vue'
 import Paint from '../components/Paint.vue'
-import Test from '../components/Test.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
 
+import App from '../App.vue'
+
+
 
 const routes = [
-  {
+  {    
     path: '/',
-    name: 'Main',
-    component: Main,
+    name: 'App',
+    component: App,
+    // App畫面底下有Main 或著可以連到 Login、Register
     children: [
-
       {
         path: '/',
-        component: Home,
-      }, {
-        path: '/user/',
-        component: User,
+        component: Main,
+      //   Main畫面底下有Home 或著到使ㄓ
         children: [
           {
-            path: 'like',
-            component: Like
+            path: '/',
+            component: Home,
           },
           {
-            path: 'self',
-            component: Self,
+            path: '/user/',
+            component: User,
+            meta:{
+              requiresAuth:true
+            },
+            children: [
+              {
+                path: 'like',
+                component: Like,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'self',
+                component: Self,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'history',
+                component: History,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'paint',
+                component: Paint,
+                meta:{
+                  isLogin:true
+                },
+              }
+            ]
           },
-          {
-            path: 'history',
-            component: History
-          },
-          {
-            path: 'paint',
-            component: Paint
-          }
-        ]
-      }
-    ],
+        ],
+      },
+      {
+        path: '/login/',
+        name: 'Login',
+        component: Login,
+      },
+      {
+        path: '/register/',
+        name: 'Register',
+        component: Register,
+      },     
+    ]
   },
   {
-    path: '/login/',
-    name: 'login',
-    component: Login,
-  },
-  {
-    path: '/test/',
-    name: 'Test',
-    component: Test,
-  },
-  {
-    path: '/register/',
-    name: 'register',
-    component: Register,
+    path: '/:pathMatch(.*)*',
+    redirect: "/"
   },
 ]
 

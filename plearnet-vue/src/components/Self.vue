@@ -7,7 +7,10 @@
     <h1>email:{{ user.email }}</h1>
 
     <h1>phone:{{ user.phone }}</h1>
-  </div>
+    <div>
+      <button class="btn" @click.prevent="logout">登出</button>
+    </div>
+  </div>  
 </template>
 
 <script>
@@ -22,6 +25,12 @@ export default {
         phone: "0912345678",
       },
     };
+  },
+   methods: {
+    logout() {
+      localStorage.removeItem("token");
+      this.$router.push("/login");
+    },
   },
 };
 </script>
