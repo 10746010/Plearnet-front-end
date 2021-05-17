@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Header />
-    <router-view />
+    <router-view :isLogin="isLogin"/>
   </div>
 </template>
 
@@ -11,6 +11,12 @@ import Header from "../components/Header";
 
 export default {
   name: "Main",
+  data() {
+    return {
+      img: require("../../static/img/icon.png"),
+
+    }
+  },
   components: {
     Header,
   },

@@ -9,59 +9,82 @@ import Paint from '../components/Paint.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
-import AccountInput from '../components/AccountInput.vue'
+
+import App from '../App.vue'
+
+
 
 const routes = [
-  {
+  {    
     path: '/',
-    name: 'Main',
-    component: Main,
+    name: 'App',
+    component: App,
+    // App畫面底下有Main 或著可以連到 Login、Register
     children: [
-
       {
         path: '/',
-        component: Home,
-      }, {
-        path: '/user/',
-        component: User,
+        component: Main,
+      //   Main畫面底下有Home 或著到使ㄓ
         children: [
           {
-            path: 'like',
-            component: Like
+            path: '/',
+            component: Home,
           },
           {
-            path: 'self',
-            component: Self,
+            path: '/user/',
+            component: User,
+            meta:{
+              requiresAuth:true
+            },
+            children: [
+              {
+                path: 'like',
+                component: Like,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'self',
+                component: Self,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'history',
+                component: History,
+                meta:{
+                  requiresAuth:true
+                },
+              },
+              {
+                path: 'paint',
+                component: Paint,
+                meta:{
+                  isLogin:true
+                },
+              }
+            ]
           },
-          {
-            path: 'history',
-            component: History
-          },
-          {
-            path: 'paint',
-            component: Paint
-          }
-        ]
-      }
-    ],
-  },
-  {    
-    path: '/accountinput/',
-    name: 'accountinput',
-    component: AccountInput,
+        ],
+      },
+      {
+        path: '/login/',
+        name: 'Login',
+        component: Login,
+      },
+      {
+        path: '/register/',
+        name: 'Register',
+        component: Register,
+      },     
+    ]
   },
   {
-    path: '/login/',
-    name: 'login',
-    component: Login,
-  },  
-  {
-    path: '/register/',
-    name: 'register',
-    component: Register,
+    path: '/:pathMatch(.*)*',
+    redirect: "/"
   },
-
-  
 ]
 
 const router = createRouter({
