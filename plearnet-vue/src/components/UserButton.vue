@@ -1,4 +1,6 @@
 <template>
+<!-- 使用者的按鈕框 -->
+
   <div class="options">
     <router-link to="/user/update"><button class="btn">上傳</button></router-link>
     <router-link to="/user/like"><button class="btn">收藏</button></router-link>

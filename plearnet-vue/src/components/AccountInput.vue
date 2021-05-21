@@ -1,10 +1,12 @@
 <template>
+<!-- 登入和註冊用的文字輸入框 -->
   <div class="AccountInput">
     <div class="input_background">
       <img :src="inputBackgroundg" alt="" />
     </div>
     <div class="input">
       <input
+        id="input_css"
         :type="account_type"
         :placeholder="placeholder_text"
         :value="model_input"
@@ -43,7 +45,7 @@ export default {
   top: -60px;
   left: 88px;
 }
-#input {
+#input_css {
   border: none;
   outline: none;
 }
