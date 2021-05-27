@@ -1,7 +1,7 @@
 <template>
-<!-- 登入和註冊用的文字輸入框 -->
+<!-- Accountinput.vue，文字輸入框 -->
   <div class="AccountInput">
-    <div class="input_background">
+    <div class="input_background" >
       <img :src="inputBackgroundg" alt="" />
     </div>
     <div class="input">

@@ -1,5 +1,5 @@
 <template>
-  <!-- 使用者的個人資訊 -->
+  <!--Self.vue,是使用者的個人資訊 -->
 
   <div class="message">
     <img v-bind:src="avatar" alt="" class="avatar" />
@@ -49,7 +49,7 @@ export default {
 }
 
 .user_info {
-  margin-left: 30px;
+  margin-left: 28px;
 }
 
 .logout_button {
@@ -57,5 +57,31 @@ export default {
   justify-content: flex-end;
   position: relative;
   right: 200px;
+}
+
+
+.btn {
+  display: inline-block;
+  background: rgb(243, 235, 121);
+  color: rgb(33, 10, 161);
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight:bold;
+  font-family: inherit;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-block {
+  display: block;
+  width: 100%;
 }
 </style>

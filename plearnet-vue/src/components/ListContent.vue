@@ -1,4 +1,5 @@
 <template>
+<!-- ListContent.vue -->
   <div class="list" >
     <div class="head-frame" :style="{background: headcolor}"/>
     <button :style="{ background: color }" class="btn">{{ text }}</button>
