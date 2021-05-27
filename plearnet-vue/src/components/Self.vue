@@ -12,12 +12,14 @@
     </div>
 
     <div class="logout_button">
-      <button class="btn" @click.prevent="logout">登出</button>
+      <Button @click.prevent="logout" color="rgb(243, 235, 121)" text="登出" />
     </div>
   </div>
 </template>
 
 <script>
+import Button from "./Button";
+
 export default {
   name: "Self",
   data() {
@@ -35,6 +37,9 @@ export default {
       localStorage.removeItem("token");
       this.$router.push("/login");
     },
+  },
+  components: {
+    Button,
   },
 };
 </script>
@@ -59,29 +64,4 @@ export default {
   right: 200px;
 }
 
-
-.btn {
-  display: inline-block;
-  background: rgb(243, 235, 121);
-  color: rgb(33, 10, 161);
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight:bold;
-  font-family: inherit;
-}
-.btn:focus {
-  outline: none;
-}
-.btn:active {
-  transform: scale(0.98);
-}
-.btn-block {
-  display: block;
-  width: 100%;
-}
 </style>
