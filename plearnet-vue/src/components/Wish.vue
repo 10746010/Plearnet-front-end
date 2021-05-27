@@ -1,7 +1,7 @@
 <template>
   <!-- Wish.vue -->
-  <div class="wish">
-    <form @submit.prevent="wish" name="formWish">
+  <div class="wish" :class="{ '--exceeded': newWishCharacterCount > 50 }">
+    <form @submit.prevent="wish" name="formWish" >
       <div class="input">
         <input
           id="input"
@@ -11,10 +11,14 @@
         />
       </div>
 
-      <div class="wanna">
+      <div class="wanna" >
+        <label for="wanna" 
+          >{{ newWishCharacterCount }}/50</label
+        >
+
         <textarea
           id="wanna"
-          v-model="message"
+          v-model="newWishContent"
           placeholder="詳細描述想增設的理由"
         ></textarea>
       </div>
@@ -31,9 +35,20 @@ import Button from "./Button";
 
 export default {
   name: "Wish",
+  data() {
+    return {
+      text: "",
+      newWishContent: "",
+    };
+  },
   methods: {
     send() {
-     alert('已送出');
+      alert("已送出");
+    },
+  },
+  computed: {
+    newWishCharacterCount() {
+      return this.newWishContent.length;
     },
   },
   components: {
@@ -43,32 +58,52 @@ export default {
 </script>
 <style scoped>
 .wish {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.wish.--exceeded{
+    color: red;
+}
+.wish.--exceeded button{
+    background-color: red!important;;
+    border: none;
+    color: white;
+    pointer-events: none;
 }
 .input {
-  margin: 0px 0px 10px 20px;
+    margin: 0px 0px 10px 20px;
 }
 #input {
-  border-radius: 9px;
-  width: 450px;
-  height: 25px;
-  background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 9px;
+    width: 450px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .wanna {
-  margin: 10px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 0px 20px;
+    /* color:white */
 }
-#wanna {
-  border-radius: 9px;
-  width: 450px;
-  height: 250px;
-  background-color: rgba(255, 255, 255, 0.8);
+/* .wanna.--exceeded{
+    color: red;
 }
-
-.button {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  right: 200px;
+.wanna.--exceeded.button{
+    background-color: red;
+    border: none;
+    color: white;
+} */
+#wanna{
+    border-radius: 9px;
+    width: 450px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.button{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 200px;
 }
 </style>
