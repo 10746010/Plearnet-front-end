@@ -1,11 +1,14 @@
 <template>
+<!-- ListContent.vue -->
   <div class="list" >
     <div class="head-frame" :style="{background: headcolor}"/>
-    <button :style="{ background: color }" class="btn">{{ text }}</button>
+    <Button :color="color" :text="text"/>
   </div>
 </template>
 
 <script>
+import Button from "./Button";
+
 export default {
   name: "ListContent",
   data() {
@@ -16,7 +19,9 @@ export default {
     color: String,
     headcolor:String,
   },
-  components: {},
+  components: {
+    Button
+  },
 };
 </script>
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <!-- 使用者的個人資訊 -->
+  <!--Self.vue,是使用者的個人資訊 -->
 
   <div class="message">
     <img v-bind:src="avatar" alt="" class="avatar" />
@@ -12,12 +12,14 @@
     </div>
 
     <div class="logout_button">
-      <button class="btn" @click.prevent="logout">登出</button>
+      <Button @click.prevent="logout" color="rgb(243, 235, 121)" text="登出" />
     </div>
   </div>
 </template>
 
 <script>
+import Button from "./Button";
+
 export default {
   name: "Self",
   data() {
@@ -36,6 +38,9 @@ export default {
       this.$router.push("/login");
     },
   },
+  components: {
+    Button,
+  },
 };
 </script>
 <style scoped>
@@ -49,7 +54,7 @@ export default {
 }
 
 .user_info {
-  margin-left: 30px;
+  margin-left: 28px;
 }
 
 .logout_button {
@@ -57,5 +62,6 @@ export default {
   justify-content: flex-end;
   position: relative;
   right: 200px;
+  top: -75px;
 }
 </style>

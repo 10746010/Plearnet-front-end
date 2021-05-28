@@ -1,5 +1,5 @@
 <template>
-<!-- 登入按鈕 -->
+<!--AccountButton.vue， 登入按鈕 -->
   <div>
     <!-- 檢查有沒有登入 -->
     <div v-if="notLogin">

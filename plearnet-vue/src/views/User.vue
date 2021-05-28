@@ -1,4 +1,5 @@
 <template>
+<!-- User.vue -->
   <div class="user">
     <div class="user-button">
       <UserButton />
@@ -21,8 +22,11 @@ export default {
 </script>
 <style scoped>
 .user {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center;   */
+  position: absolute;
+  left:18%;
   height: 80%;
   width: 100%;
 }
@@ -30,17 +34,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  /* height: 100%; */
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
   width: 10%;
+  float:left;
 }
 .content {
-  /* background-color: tomato; */
   width: 60%;
   height: 100%;
 }
-/* .content > div {
-  color: white;
-  font-size: 50px;
-} */
+
+
+
 </style>

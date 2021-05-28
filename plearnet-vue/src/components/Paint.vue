@@ -1,4 +1,5 @@
 <template>
+<!-- Paint.vue -->
   <div>
     <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
