@@ -66,7 +66,7 @@ export default {
     color: red;
 }
 .wish.--exceeded button{
-    background-color: red!important;;
+    background-color: red!important;
     border: none;
     color: white;
     pointer-events: none;
@@ -84,16 +84,7 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 10px 0px 0px 20px;
-    /* color:white */
 }
-/* .wanna.--exceeded{
-    color: red;
-}
-.wanna.--exceeded.button{
-    background-color: red;
-    border: none;
-    color: white;
-} */
 #wanna{
     border-radius: 9px;
     width: 450px;

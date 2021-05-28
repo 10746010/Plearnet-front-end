@@ -62,6 +62,6 @@ export default {
   justify-content: flex-end;
   position: relative;
   right: 200px;
+  top: -75px;
 }
-
 </style>

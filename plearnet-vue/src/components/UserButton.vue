@@ -3,7 +3,7 @@
 
   <div class="options">
     <!-- 上傳 -->
-    <router-link to="/user/update">
+    <router-link to="/update">
       <div class="img">
         <img v-bind:src="update" alt="" />
         <Button color="rgba(255, 255, 255, 0)" text="上傳" />

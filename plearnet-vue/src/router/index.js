@@ -9,6 +9,9 @@ import Paint from '../components/Paint.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Wish from '../components/Wish.vue'
+import Update from '../components/Update.vue'
+
+
 
 import App from '../App.vue'
 
@@ -29,6 +32,10 @@ const routes = [
           {
             path: '/',
             component: Home,
+          },
+          {
+            path: '/update',
+            component: Update,
           },
           {
             path: '/user/',
