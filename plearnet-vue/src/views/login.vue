@@ -1,38 +1,54 @@
 <template>
   <div class="login">
-    <form name="formLogin">
+    <form @submit.prevent="login" name="formLogin">
       <div class="contents">
+        <!-- 左邊 -->
         <div class="left">
-          <div class="title">
-            Plearnet
-            <br />
-          </div>
+          <router-link to="/" style="text-decoration:none">
+          <div class="title">Plearnet</div>
+          </router-link>
           <div class="text">
             <label>登入</label>
           </div>
-          <div class="inputbox">
-            <div class="account">
-              <br />
-              <input type="text" placeholder="請輸入帳號" value="" />
-            </div>
 
-            <div class="password">
-              <br />
-              <input type="password" placeholder="請輸入密碼" value="" />
-            </div>
+          <div class="inputbox">
+            <!-- 帳號 -->
+            <AccountInput
+              account_type="text"
+              placeholder_text="請輸入帳號"
+              :model_input="userName"
+              @update:model_input="userName = $event"
+            />
+
+            <!-- 密碼 -->
+            <AccountInput
+              account_type="password"
+              placeholder_text="請輸入密碼"
+              :model_input="password"
+              @update:model_input="password = $event"
+            />
+
+            <!-- 登入按鈕 -->
             <div class="loginImg">
-              <img src="../../static/img/lb.png" width="100px" />
+              <button type="submit">
+                <img src="../../static/img/lb.png" style="width: 100px" />
+              </button>
             </div>
+            <!-- 註冊按鈕  -->
             <div class="registerImg">
               <router-link to="/register">
-                <img src="../../static/img/registerbutton.png" width="80px" />
+                <img
+                  src="../../static/img/registerbutton.png"
+                  style="width: 80px"
+                />
               </router-link>
             </div>
           </div>
-          <div class="right">
-            <div class="imgBg">
-              <img src="../../static/img/loginBg.png" width="1000px" />
-            </div>
+        </div>
+        <!-- 右邊 -->
+        <div class="right">
+          <div class="imgBg">
+              <img src="../../static/img/icon.png" style="width: 1000px" />
           </div>
         </div>
       </div>
@@ -41,55 +57,75 @@
 </template>
 
 <script>
+import AccountInput from "../components/AccountInput";
+
+export default {
+  name: "Login",
+  data() {
+    return {
+      inputBackgroundg: require("../../static/img/login_ap.png"),
+      userName: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      if (this.userName == "test1" && this.password == "1234") {
+        localStorage.setItem("token", "ImLogin");
+        this.$router.push("/");
+      } else {
+        alert("login failed");
+      }
+    },
+  },
+  components: {
+    AccountInput,
+  },
+};
 </script>
 <style scoped>
-.login {
-  text-align: left;
-}
-
-.account {
-  align-items: left;
-}
-
-.password {
-  align-items: left;
+.contents {
+  display: flex;
 }
 
 .loginImg {
-  margin-left: 90px;
+  margin-left: 350px;
 }
 
 .title {
-  text-align: left;
   color: white;
   font-size: 50px;
 }
 
 .text {
   text-align: start;
-  margin-left: 60px;
+  color: white;
+}
+
+.inputbox {
+  padding-top: 100px;
+}
+
+.registerImg {
+  margin-left: 400px;
+}
+
+button {
+  background-color: unset;
+  border: none;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 120px;
+  z-index: 1;
 }
 
 .imgBg {
   position: relative;
-  top: -500px;
-  right: -600px;
-}
-
-.inputbox {
-  text-align: left;
-  padding-top: 100px;
-}
-
-.content {
-  display: flex;
-}
-
-.left {
-  margin-left: 50px;
-}
-
-.registerImg {
-  margin-left: 120px;
+  top: -100px;
+  right: -5px;
 }
 </style>

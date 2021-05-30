@@ -1,67 +1,83 @@
 <template>
   <div class="register">
-    <div class="text">
+    <div class="contents">
+      <!-- 左邊 -->
       <div class="left">
-        <div class="reg">
-          Plearnet
-          <br />
-        </div>
+        <router-link to="/" style="text-decoration: none">
+          <div class="reg">Plearnet</div>
+        </router-link>
         <div class="registertext">
           <label>註冊</label>
         </div>
         <div class="inputbox">
-          <input type="e-mail" placeholder="電子信箱" />
-          <br />
-          <br />
-          <input type="password" placeholder="密碼" />
-          <br />
-          <br />
-          <input type="password" placeholder="確認密碼" />
-          <br />
-        </div>
-        <div class="button">
-          <img src="../../static/img/registerbutton.png" width="100px" />
+          <AccountInput placeholder_text="電子信箱" />
+          <AccountInput placeholder_text="密碼" />
+          <AccountInput placeholder_text="確認密碼" />
+
+          <div class="button">
+            <img
+              src="../../static/img/registerbutton.png"
+              style="width: 100px"
+            />
+          </div>
         </div>
       </div>
+      <!-- 右邊 -->
       <div class="right">
-        <img src="../../static/img/loginBg.png" width="1000px" />
+        <div class="imgBg">
+          <img src="../../static/img/icon.png" style="width: 1000px" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import AccountInput from "../components/AccountInput";
+
+export default {
+  name: "Register",
+  data() {
+    return {};
+  },
+  components: {
+    AccountInput,
+  },
+};
 </script>
 <style scoped>
-.text {
+.contents {
   display: flex;
 }
 
+.register {
+  color: white;
+}
+
 .reg {
-  text-align: left;
+  color: white;
   font-size: 50px;
 }
 
-.registertext {
-  text-align: left;
-  margin-left: 60px;
-}
-
 .button {
-  margin-left: 100px;
+  margin-left: 350px;
 }
 
 .inputbox {
   padding-top: 100px;
 }
 
-.right {
-  position: relative;
-  top: -200px;
-  right: -200px;
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 120px;
+  z-index: 1;
 }
 
-.left {
-  margin-left: 20px;
+.imgBg {
+  position: relative;
+  top: -100px;
+  right: -5px;
 }
 </style>

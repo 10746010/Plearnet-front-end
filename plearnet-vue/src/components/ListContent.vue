@@ -1,11 +1,14 @@
 <template>
+<!-- ListContent.vue -->
   <div class="list" >
     <div class="head-frame" :style="{background: headcolor}"/>
-    <button :style="{ background: color }" class="btn">{{ text }}</button>
+    <Button :color="color" :text="text"/>
   </div>
 </template>
 
 <script>
+import Button from "./Button";
+
 export default {
   name: "ListContent",
   data() {
@@ -16,7 +19,9 @@ export default {
     color: String,
     headcolor:String,
   },
-  components: {},
+  components: {
+    Button
+  },
 };
 </script>
 <style scoped>
@@ -28,29 +33,6 @@ export default {
 }
 .head-frame{
     width: 50px;
-    /* background-color: white; */
 }
-/* .btn {
-  display: inline-block;
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-.btn:focus {
-  outline: none;
-}
-.btn:active {
-  transform: scale(0.98);
-}
-.btn-block {
-  display: block;
-  width: 100%;
-} */
+
 </style>
