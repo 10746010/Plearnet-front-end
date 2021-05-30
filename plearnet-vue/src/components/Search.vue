@@ -1,4 +1,5 @@
 <template>
+<!-- Search.vue -->
   <div class="search-box">
     <div class="search-control" :style="{ display: text }">
       <input class="search" :placeholder="prompt + selected" />

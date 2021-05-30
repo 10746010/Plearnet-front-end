@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Header />
-    <router-view :isLogin="isLogin"/>
+    <router-view />
   </div>
 </template>
 

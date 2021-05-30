@@ -1,4 +1,6 @@
 <template>
+<!-- Classification.vue -->
+
   <div class="wrapper">
     <div class="flex-classification">
       <div>
