@@ -1,4 +1,4 @@
-ㄑ<html lang="zh-TW">
+<html lang="zh-TW">
 
 <head>
     <meta charset="utf-8">
@@ -20,27 +20,6 @@
       </header>
     </template>
     
-    <script>
-    import AccountButton from "./AccountButton"
-    import Search from "./Search"
-    
-    export default {
-      name: "Header",
-      data() {
-        return {
-          img: require("../../static/img/icon.png"),
-          prompt: "請輸入",
-          selected: "標題",
-          show: false,
-        };
-      },
-    
-      components: {
-        AccountButton,
-        Search
-      },
-    };
-    </script>
     
     <style scoped>
     header {
@@ -105,38 +84,10 @@
         height: 400px;
     }
     
-    .test3{
-        
-        justify-content: space-evenly;
-        border:5px #b100dd solid;
-        width: 50%;
-        height: 400px;
-    }
-    .test4{
-        
-        justify-content: space-evenly;
-        border:5px #bcdd00 solid;
-        width: 50%;
-
-        height: 400px;
-    }
+  
 </style>
 
 <body>
-    <header class="header">
-        <div class="site-header">
-            <div class="wrapper site-header__wrapper">
-                <a href="#" class="brand"></a>
-                <input class="search">
-                <select>
-                    <option>標題</option>
-                    <option>作者</option>
-                    <option>日期</option>
-                </select>
-            </div>
-            <H2 align="center">管理學</H2>
-        </div>
-    </header>
 
     <div class="test">
         <div class="test1">               
