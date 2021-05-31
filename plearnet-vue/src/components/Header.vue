@@ -1,4 +1,6 @@
 <template>
+<!-- Header.vue -->
+
   <header :style="{'flex-flow':type}">
     <div>
       <router-link to="/"
