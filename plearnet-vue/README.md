@@ -2,7 +2,8 @@
 
 ## CMD
 ```
-npm i -g @vue/cli
+w
+<!-- cd到專案底下然後npm install -->
 vue cli
 ```
 

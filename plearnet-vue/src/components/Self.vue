@@ -12,7 +12,7 @@
     </div>
 
     <div class="logout_button">
-      <Button @click.prevent="logout" color="rgb(243, 235, 121)" text="登出" />
+      <Button @click.prevent="logout" color="linear-gradient(90deg,#e5e603, #fff59b)" text="登出" />
     </div>
   </div>
 </template>
@@ -63,5 +63,9 @@ export default {
   position: relative;
   right: 200px;
   top: -75px;
+  z-index: 0;
+}
+.btn{
+  border-radius: 30px;
 }
 </style>

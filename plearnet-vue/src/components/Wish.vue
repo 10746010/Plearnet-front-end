@@ -24,7 +24,7 @@
       </div>
 
       <div class="button">
-        <Button @click.prevent="send" color="rgb(243, 235, 121)" text="送出" />
+        <Button @click.prevent="send" color="linear-gradient(90deg,#e5e603, #fff59b)" text="送出" />
       </div>
     </form>
   </div>
@@ -96,5 +96,8 @@ export default {
     justify-content: flex-end;
     position: relative;
     right: 200px;
+}
+.btn{
+  border-radius: 30px;
 }
 </style>
