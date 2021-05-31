@@ -34,11 +34,36 @@
         <img v-bind:src="insert_file" alt="" />
         <img v-bind:src="insert_text" alt="" />
       </div>
-      <!-- 預覽 -->
-      <div class="preview">
-        {{ newUpdateContent }}
-      </div>
     </form>
+    <!-- 預覽 -->
+    <div class="preview_box">
+      <div class="upload">
+        <button
+          :style="{
+            backgroundImage: 'url(' + preview + ')',
+            backgroundSize: '150px 100px',
+            backgroundRepeat: 'no-repeat'
+          }"
+          class="preview_img"
+        >
+          <input
+            type="file"
+            id="uppic"
+            accept="image/*"
+            @change="previewImage"
+            class="uppic"
+          />
+        </button>
+      </div>
+      <!-- <div class="content_box">  -->
+              <textarea              
+              :value=newUpdateContent
+              placeholder="筆記預覽"
+              class="content_box"
+            />
+        <!-- {{ newUpdateContent }}         -->
+      <!-- </div> -->
+    </div>
   </div>
 </template>
 
@@ -55,7 +80,23 @@ export default {
       insert_file: require("../../static/img/insert_file.png"),
       insert_text: require("../../static/img/insert_text.png"),
       insert_video: require("../../static/img/insert_video.png"),
+      preview: require("../../static/img/insert_image.png"),
+      image: null,
     };
+  },
+
+  methods: {
+    previewImage: function (event) {
+      var input = event.target;
+      if (input.files) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          this.preview = e.target.result;
+        };
+        this.image = input.files[0];
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
   },
   computed: {
     newUpdateCharacterCount() {
@@ -151,14 +192,42 @@ export default {
   border: 2px #e9f4ac solid;
   border-radius: 20px;
 }
-.preview {
+.preview_box {
   position: relative;
   right: 300px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   width: 800px;
-  height: 300px;
+  height: 500px;
   color: black;
+  z-index: 0;
+}
+
+.upload{
+  margin: 10px;
+}
+.uppic {
+  height: 6rem;
+  width: 9rem;
+  margin: 0px 0px 0px -5px;
+  opacity: 0;
+}
+
+.preview_img {
+  width: 150px;
+  height: 100px;
+}
+.content_box{
+  width: 700px;
+  height: 350px;
+  margin: 0px 0px 0px 10px;
   padding: 5px;
+  background: #f5e17e;
+}
+.content_box::placeholder {
+  color: #00135e;
+  font-size: 5em;
+  font-weight: bold;
+  text-align:center;
 }
 </style>
