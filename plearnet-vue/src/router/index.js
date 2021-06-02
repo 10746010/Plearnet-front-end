@@ -70,7 +70,7 @@ const routes = [
                 path: 'paint',
                 component: Paint,
                 meta: {
-                  isLogin: true
+                  requiresAuth: true
                 },
               },
               {
@@ -106,5 +106,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+
 
 export default router
