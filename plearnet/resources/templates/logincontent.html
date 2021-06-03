@@ -32,15 +32,41 @@
         .top-label {
             position: absolute;
             margin-left: 500px;
-            background-color: rgb(239, 243, 9);
             top: 10px;
             height: 20;
             width: 200px;
-            text-align: center;
-            line-height: 55px;
-            font-size: 35px;
-            color: blue;
+
+
         }
+
+        .triangle-left {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 34.6px 20px 0;
+            border-color: transparent #7CFC00 transparent transparent;
+            display: inline-block;
+        }
+
+        .rectangle {
+            width: 80px;
+            height: 40px;
+            background: #7CFC00;
+            display: inline-block;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .triangle-right {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 0 20px 34.6px;
+            border-color: transparent transparent transparent #7CFC00;
+            display: inline-block;
+        }
+
+
 
         .container-1 input#search {
             width: 200px;
@@ -57,7 +83,6 @@
 
         .bottom-label {
             margin-left: 500px;
-            background-color: rgb(239, 243, 9);
             height: 10;
             width: 200px;
             position: relative;
@@ -73,74 +98,81 @@
             background-color: rgb(51, 8, 245);
             border-bottom: solid 2px #ffe603;
             height: 60px;
-            width: 1280px;
+            width: 2560px;
             top: 70px;
-            text-align: center;
+            text-align: left;
             line-height: 55px;
             font-size: 25px;
+            font-family: Microsoft JhengHei;
             color: rgb(241, 229, 57);
         }
 
         .right-block {
-            height: 350px;
-            width: 620px;
-            position: fixed;
-            width: 550;
-            height: 600;
+            display: flex;
+            height: 1080px;
+            width: 1260px;
+            position: relative ;        
             top: 150px;
             right: 10px;
+            flex-direction: column;
+            align-content:space-around;
             background-color: rgb(35, 211, 44);
         }
 
         .left-block {
-            height: 350px;
-            width: 620px;
-            position: fixed;
-            width: 550;
-            height: 600;
-            top: 150px;
+            display: flex;
+            height: 1080px;
+            width: 1260px;
+            position: relative ;
+            top: 300px;
             left: 10px;
+            flex-direction: column;
+            align-content:space-around;
             background-color: rgb(35, 211, 44);
         }
 
         .num-1 {
             height: 85px;
-            width: 620px;
+            width: 1260px;
             line-height: 80px;
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-2 {
             height: 85px;
-            width: 620px;
+            width: 1260px;
             line-height: 80px;
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-3 {
             height: 85px;
-            width: 620px;
+            width: 1260px;
             line-height: 80px;
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-4 {
             height: 85px;
-            width: 620px;
+            width: 1260px;
             line-height: 80px;
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-5 {
@@ -150,7 +182,8 @@
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-6 {
@@ -160,7 +193,8 @@
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-7 {
@@ -170,7 +204,8 @@
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
 
         .num-8 {
@@ -180,7 +215,8 @@
             font-size: 60px;
             color: rgb(0, 0, 0);
             font-weight: bold;
-            border-bottom: solid 2px #000000;
+            font-family: monospace;
+            border-bottom: solid 2px rgb(0, 0, 0);
         }
     </style>
 
@@ -193,7 +229,13 @@
         <div class="container-1">
             <input type="search" id="search" placeholder="Search..." />
         </div>
-        <div class="top-label">管理學</div>
+        <div class="top-label">
+            <div class="triangle-left"> </div>
+            <div class="rectangle"></div>
+            <div class="triangle-right"> </div>
+
+
+        </div>
     </div>
 
     <div class="Horizontal-line">最新 留言數最高 點讚最多 點閱率最高 </div>
@@ -239,7 +281,11 @@
     </div>
     <div class="bottom">
         <img src="../static/img/backtofront.png" style="float:right" width="90" height="50">
-        <div class="bottom-label"> 1/1 </div>
+        <div class="bottom-label">
+            <div class="triangle-left"> </div>
+            <div class="rectangle"></div>
+            <div class="triangle-right"> </div>
+        </div>
     </div>
     </div>
 </body>
