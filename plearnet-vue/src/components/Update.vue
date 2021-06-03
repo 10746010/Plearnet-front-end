@@ -1,4 +1,5 @@
 <template>
+  <!-- Udate.vue -->
   <div class="update" :class="{ '--exceeded': newUpdateCharacterCount > 25 }">
     <form @submit.prevent="update" name="formUpdate">
       <!-- 輸入標題跟描述和上傳按鈕 -->
@@ -42,7 +43,7 @@
           :style="{
             backgroundImage: 'url(' + preview + ')',
             backgroundSize: '150px 100px',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
           }"
           class="preview_img"
         >
@@ -56,12 +57,12 @@
         </button>
       </div>
       <!-- <div class="content_box">  -->
-              <textarea              
-              :value=newUpdateContent
-              placeholder="筆記預覽"
-              class="content_box"
-            />
-        <!-- {{ newUpdateContent }}         -->
+      <textarea
+        :value="newUpdateContent"
+        placeholder="筆記預覽"
+        class="content_box"
+      />
+      <!-- {{ newUpdateContent }}         -->
       <!-- </div> -->
     </div>
   </div>
@@ -133,9 +134,6 @@ export default {
 .input_box {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 0px;
-  right: 300px;
 }
 .updateContent {
   display: flex;
@@ -178,13 +176,13 @@ export default {
   height: 60px;
   border: 2px #d1a72e solid;
   position: relative;
-  top: 75px;
+  top: 85px;
+  left: 90px;
   text-align: center;
 }
-.insert {
-  position: relative;
-  right: 315px;
-}
+/* .insert {
+
+} */
 .insert > img {
   width: 150px;
   margin: 20px;
@@ -193,8 +191,6 @@ export default {
   border-radius: 20px;
 }
 .preview_box {
-  position: relative;
-  right: 300px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   width: 800px;
@@ -203,7 +199,7 @@ export default {
   z-index: 0;
 }
 
-.upload{
+.upload {
   margin: 10px;
 }
 .uppic {
@@ -217,7 +213,7 @@ export default {
   width: 150px;
   height: 100px;
 }
-.content_box{
+.content_box {
   width: 700px;
   height: 350px;
   margin: 0px 0px 0px 10px;
@@ -228,6 +224,6 @@ export default {
   color: #00135e;
   font-size: 5em;
   font-weight: bold;
-  text-align:center;
+  text-align: center;
 }
 </style>

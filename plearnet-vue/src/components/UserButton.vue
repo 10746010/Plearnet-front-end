@@ -78,7 +78,9 @@ export default {
   flex-direction: column;
   text-align: center;
 }
+
 img {
+  /* display: flex; */
   width: 50px;
 }
 
