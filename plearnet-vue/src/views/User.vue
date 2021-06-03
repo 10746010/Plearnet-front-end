@@ -31,7 +31,7 @@ export default {
 .user-button {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  width: 10%;
+  /* width: 10%; */
   z-index: 1;
   min-height: 320px;
   max-height: 320px;
