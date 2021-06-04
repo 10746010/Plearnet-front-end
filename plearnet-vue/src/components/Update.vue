@@ -163,11 +163,11 @@ export default {
 
 /* 新的文章的標題的整體 */
 
-.input_box {
-  /* position: relative;
+/* .input_box {
+  position: relative;
   top: 0px;
-  right: 50px; */
-}
+  right: 50px;
+} */
 
 /* 新增文章的標題 */
 #newPlearnetTitle {
