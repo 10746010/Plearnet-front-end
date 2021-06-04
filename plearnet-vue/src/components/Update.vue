@@ -1,17 +1,19 @@
 <template>
   <!-- Udate.vue -->
   <div class="update" :class="{ '--exceeded': newPlearnetCharacterCount > 25 }">
-    <form
-      @submit.prevent="createNewPlearnet"
-      name="formUpdate" 
-    >
+    <form @submit.prevent="createNewPlearnet" name="formUpdate">
       <!-- 輸入標題跟描述和上傳按鈕 -->
       <div class="new-plearnet__box">
         <!-- 輸入標題跟描述 -->
         <div class="input_box">
           <!-- 輸入標題 -->
           <div class="new-plearnet__title">
-            <input id="newPlearnetTitle" v-model="newPlearnetTitle" placeholder="輸入標題" required />
+            <input
+              id="newPlearnetTitle"
+              v-model="state.newPlearnetTitle"
+              placeholder="輸入標題"
+              required
+            />
           </div>
           <!-- 描述 -->
           <div class="new-plearnet__content">
@@ -21,7 +23,7 @@
             <textarea
               id="newPlearnetContent"
               rows="4"
-              v-model="newPlearnetContent"
+              v-model="state.newPlearnetContent"
               placeholder="描述"
             ></textarea>
           </div>
@@ -31,45 +33,45 @@
       </div>
       <!-- 四種功能 -->
       <div class="insert">
-        <img v-bind:src="insert_video" alt="" />
-        <img v-bind:src="insert_image" alt="" />
-        <img v-bind:src="insert_file" alt="" />
-        <img v-bind:src="insert_text" alt="" />
+        <img v-bind:src="state.insert_video" alt="" />
+        <img v-bind:src="state.insert_image" alt="" />
+        <img v-bind:src="state.insert_file" alt="" />
+        <img v-bind:src="state.insert_text" alt="" />
       </div>
 
       <!-- 預覽 -->
       <div class="preview__box">
-        <div class="upload">
-          <button
-            :style="{
-              backgroundImage: 'url(' + preview + ')',
-              backgroundSize: '150px 100px',
-              backgroundRepeat: 'no-repeat',
-            }"
-            class="preview__img"
-          >
-            <input
-              type="file"
-              id="previeButton"
-              accept="image/*"
-              @change="previewImage"
-              class="previe__button"
-            />
-          </button>
-        </div>
+      <div class="upload">
+        <button
+          :style="{
+            backgroundImage: 'url(' + state.preview + ')',
+            backgroundSize: '150px 100px',
+            backgroundRepeat: 'no-repeat',
+          }"
+          class="preview__img"
+        >
+          <input
+            type="file"
+            id="previeButton"
+            accept="image/*"
+            @change="previewImage"
+            class="previe__button"
+          />
+        </button>
+      </div>
         <textarea
          id="previewPlearnetContent"
-          :value="newPlearnetContent"
+          :value="state.newPlearnetContent"
           placeholder="筆記預覽"
           class="preview-plearnet__content"
         />
       </div>
       <div class="user-profile__plearnets-wrapper">
         <PlearnetItem
-        v-for="plearnet in user.plearnets"
-        :key="plearnet.id"
-        :username="user.username"
-        :plearnet="plearnet"
+          v-for="plearnet in state.user.plearnets"
+          :key="plearnet.id"
+          :username="state.user.username"
+          :plearnet="plearnet"
         />
       </div>
     </form>
@@ -78,14 +80,25 @@
 
 <script>
 import Button from "./Button";
-import PlearnetItem from "./PlearnetItem"
+import PlearnetItem from "./PlearnetItem";
+
+import { reactive, computed } from "vue";
+import { useRoute } from "vue-router";
+import { users } from "../assets/users";
 
 export default {
   name: "Update",
-  data() {
-    return {
-      
+  props: {},
+  components: {
+    Button,
+    PlearnetItem,
+  },
+  setup() {
+    const route = useRoute();
 
+    const userId = computed(() => route.params.userId);
+
+    const state = reactive({
       insert_image: require("../../static/img/insert_image.png"),
       insert_file: require("../../static/img/insert_file.png"),
       insert_text: require("../../static/img/insert_text.png"),
@@ -95,49 +108,47 @@ export default {
 
       newPlearnetTitle: "",
       newPlearnetContent: "",
-      user: {
-        username: "test1",
-        plearnets: [{ id: 1,title:"Plearnet learning", content: "Plearnets is Amazing!" }],
-      },
-    };
-  },
 
-  methods: {
-    previewImage: function (event) {
+      user: users[userId.value - 1] || users[0],
+    });
+
+    const newPlearnetCharacterCount = computed(
+      () => state.newPlearnetContent.length
+    );
+
+    function createNewPlearnet() {
+      state.user.plearnets.unshift({
+        id: state.user.plearnets.length + 1,
+        title: state.newPlearnetTitle,
+        content: state.newPlearnetContent,
+      });
+    }
+
+    function previewImage(event) {
       var input = event.target;
       if (input.files) {
         var reader = new FileReader();
         reader.onload = (e) => {
-          this.preview = e.target.result;
+          this.state.preview = e.target.result;
         };
-        this.image = input.files[0];
+        this.state.image = input.files[0];
         reader.readAsDataURL(input.files[0]);
       }
-    },
-    createNewPlearnet() {
-      this.user.plearnets.unshift({
-        id: this.user.plearnets.length + 1,
-        title: this.newPlearnetTitle,
-        content: this.newPlearnetContent,
-      });
-    },
-  },
-  computed: {
-    newPlearnetCharacterCount() {
-      return this.newPlearnetContent.length;
-    },
-  },
-  props: {},
-  components: {
-    Button,
-    PlearnetItem
+    }
+
+    return {
+      state,
+      newPlearnetCharacterCount,
+      createNewPlearnet,
+      previewImage,
+    };
   },
 };
 </script>
 <style scoped>
 /* 新增的文章 */
-.user-profile__plearnets-wrapper{
-  color:black
+.user-profile__plearnets-wrapper {
+  color: black;
 }
 /* 整個畫面 */
 .update {
@@ -197,7 +208,6 @@ export default {
   width: 500px;
   font-size: 3em;
 }
-
 
 ::placeholder {
   color: #f8fc8e;
