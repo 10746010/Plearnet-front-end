@@ -1,10 +1,14 @@
 <template>
 <!-- Search.vue -->
-  <div class="search-box">
-    <div class="search-control" :style="{ display: text }">
+<!-- 放搜尋的地方 -->
+  <div class="search__box">
+    <!-- 搜尋框的背景 -->
+    <div class="search__control" :style="{ display: text }">
+      <!-- 搜尋 -->
       <input class="search" :placeholder="prompt + selected" />
-      <div class="search-select">
-        <button @click="show = !show" class="search-class">▼</button>
+      <!-- 搜尋的種類選擇 -->
+      <div class="search__select">
+        <button @click="show = !show" class="search__select">▼</button>
         <transition
           @enter="enter"
           @leave="leave"
@@ -79,11 +83,13 @@ export default {
 </script>
 
 <style scoped>
-.search-box {
+/* 放搜尋的地方 */
+.search__box {
   display: flex;
   align-items: center;
 }
-.search-box > .search-control {
+/* 搜尋框的背景 */
+.search__box > .search__control {
   display: flex;
   width: 200px;
   height: 25px;
@@ -91,14 +97,17 @@ export default {
   border-radius: 20px;
   background-color: white;
 }
-.search-control > .search {
+/* 搜尋 */
+.search__control > .search {
   border: none;
   outline: none;
 }
-.search-control > .search-select {
+
+/* 搜尋的種類選擇 */
+.search__control > .search__select {
   border-radius: 50%;
 }
-
+/* 種類選擇的動畫 */
 .v-leave {
   opacity: 1;
 }
@@ -136,7 +145,7 @@ button {
   position: absolute;
   right: 275px;
 }
-.search-class {
+.search__select {
   border-radius: 100px;
 }
 </style>

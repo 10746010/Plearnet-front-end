@@ -1,7 +1,8 @@
 <template>
 <!-- ListContent.vue -->
   <div class="list" >
-    <div class="head-frame" :style="{background: headcolor}"/>
+    <!-- 標題圖片 -->
+    <div class="title__img" :style="{background: headcolor}"/>
     <Button :color="color" :text="text"/>
   </div>
 </template>
@@ -31,7 +32,8 @@ export default {
     margin:0px 0px 5px 5px;
     padding:8px;
 }
-.head-frame{
+/* 標題圖片 */
+.title__img{
     width: 50px;
 }
 

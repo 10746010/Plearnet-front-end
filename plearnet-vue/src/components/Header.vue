@@ -8,7 +8,8 @@
       /></router-link>      
       
     </div>
-    <div class="button-box" :style="{display:display_type}">
+    <!-- 放搜尋框及使用者按鈕的地方 -->
+    <div class="user-search__box" :style="{display:display_type}">
       <Search text=""/>
       <AccountButton />
     </div>
@@ -47,8 +48,8 @@ header {
   align-items: center;
   padding: 3px 200px 3px 200px;
 }
-
-.button-box {
+/* 放搜尋框及使用者按鈕的地方 */
+.user-search__box {
   display: flex;
   align-items: center;
   justify-content: center;
