@@ -1,24 +1,18 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "name": "test",
-      "test": "name",
-      "id": 2
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+  "register": {
+    "username": "testaaa",
+    "account": "a",
+    "password": "a",
+    "password_confirm": "a",
+    "email": "a@a.com"
+  },
+  "login": {
+    "account": "a",
+    "password": "a"
+  },
+  "plearnets": {
+    "id": 1,
+    "title": "first test",
+    "content": "This is Amazing!"
   }
 }

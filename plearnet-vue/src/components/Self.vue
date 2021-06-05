@@ -2,25 +2,25 @@
   <!--Self.vue,是使用者的個人資訊 -->
 
   <div class="message">
-    <img v-bind:src="avatar" alt="" class="avatar" />
+    <img v-bind:src="state.avatar" alt="" class="avatar" />
     <!-- 使用者的資訊 -->
     <div class="user__info">
       <input id="info" value="個人資料" readonly />
     </div>
-    <div class="user__info" v-if="!infoUpdate">
-      <input id="userInfo" v-model="user.info.name" readonly />
-      <input id="userInfo" v-model="user.info.email" readonly />
-      <input id="userInfo" v-model="user.info.phone" readonly />
+    <div class="user__info" v-if="!state.infoUpdate">
+      <input id="userInfo" v-model="state.user.info.name" readonly />
+      <input id="userInfo" v-model="state.user.info.email" readonly />
+      <input id="userInfo" v-model="state.user.info.phone" readonly />
     </div>
     <div class="user__info" v-else>
-      <input id="userInfo" v-model="user.info.name" />
-      <input id="userInfo" v-model="user.info.email" />
-      <input id="userInfo" v-model="user.info.phone" />
+      <input id="userInfo" v-model="state.user.info.name" />
+      <input id="userInfo" v-model="state.user.info.email" />
+      <input id="userInfo" v-model="state.user.info.phone" />
     </div>
 
     <!-- 登出的按鈕 -->
     <div class="logout__button">
-      <div v-if="!infoUpdate">
+      <div v-if="!state.infoUpdate">
         <Button
           @click.prevent="update"
           color="linear-gradient(90deg,#e5e603, #fff59b)"
@@ -45,45 +45,68 @@
 
 <script>
 import Button from "./Button";
+import { useRouter } from "vue-router";
+import { reactive } from "vue";
+import axios from "axios";
 
 export default {
   name: "Self",
-  data() {
-    return {
+  components: {
+    Button,
+  },
+  setup() {
+    const state = reactive({
       avatar: require("../../static/img/lop.png"),
       user: {
         info: {
-          name: "test1",
-          email: "test@gmail.com",
+          name: "",
+          email: "",
           phone: "0912345678",
         },
       },
       infoUpdate: false,
-    };
-  },
-  methods: {
-    logout() {
+    });
+
+    const router = useRouter();
+
+    axios
+      .get("register")
+      .then((res) => {
+        state.user.info.name = res.data.username;
+        state.user.info.email = res.data.email;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  
+    const logout = async () => {
       localStorage.removeItem("token");
-      this.$router.push("/login");
-    },
-    update() {
-      if (!this.infoUpdate) {
-        this.infoUpdate = true;
+      await router.push("/login");
+    };
+
+    const update = async () => {
+      if (!state.infoUpdate) {
+        state.infoUpdate = true;
       } else {
         window.alert("已修改完成");
-        this.user.info;
-        this.infoUpdate = false;
-        this.user.info = {
-          name: this.user.info.name,
-          email: this.user.info.email,
-          phone: this.user.info.phone,
-        };
+        state.infoUpdate = false;
+        await axios.post("register", {
+          username: state.user.info.name,
+          account: "a",
+          password: "a",
+          password_confirm: "a",
+          email: state.user.info.email,
+        });
+     
       }
-    },
+    };
+    return {
+      state,
+      logout,
+      update,
+    };
   },
-  components: {
-    Button,
-  },
+ 
 };
 </script>
 <style scoped>
@@ -107,9 +130,9 @@ export default {
   margin: 10px;
 }
 
-#info{
-  color:#131d50;
-   margin: 10px;
+#info {
+  color: #131d50;
+  margin: 10px;
 }
 
 /* 登出的按鈕 */
