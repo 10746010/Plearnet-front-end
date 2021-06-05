@@ -4,8 +4,8 @@
       <div class="contents">
         <!-- 左邊 -->
         <div class="left">
-          <router-link to="/" style="text-decoration:none">
-          <div class="title">Plearnet</div>
+          <router-link to="/" style="text-decoration: none">
+            <div class="title">Plearnet</div>
           </router-link>
           <div class="text">
             <label>登入</label>
@@ -16,16 +16,16 @@
             <AccountInput
               account_type="text"
               placeholder_text="請輸入帳號"
-              :model_input="userName"
-              @update:model_input="userName = $event"
+              :model_input="state.account"
+              @update:model_input="state.account = $event"
             />
-            
+
             <!-- 密碼 -->
             <AccountInput
               account_type="password"
               placeholder_text="請輸入密碼"
-              :model_input="password"
-              @update:model_input="password = $event"
+              :model_input="state.password"
+              @update:model_input="state.password = $event"
             />
 
             <!-- 登入按鈕 -->
@@ -48,7 +48,7 @@
         <!-- 右邊 -->
         <div class="right">
           <div class="imgBg">
-              <img src="../../static/img/icon.png" style="width: 1000px" />
+            <img src="../../static/img/icon.png" style="width: 1000px" />
           </div>
         </div>
       </div>
@@ -58,29 +58,47 @@
 
 <script>
 import AccountInput from "../components/AccountInput";
+import { useRouter } from "vue-router";
+import { reactive } from "vue";
+
+import axios from "axios";
 
 export default {
   name: "Login",
-  data() {
-    return {
-      inputBackgroundg: require("../../static/img/login_ap.png"),
-      userName: "",
-      password: "",
-    };
-  },
-  methods: {
-    login() {
-      if (this.userName == "test1" && this.password == "1234") {
-        localStorage.setItem("token", "ImLogin");
-        this.$router.push("/");
-      } else {
-        alert("login failed");
-      }
-    },
-  },
   components: {
     AccountInput,
   },
+  setup() {
+    const state = reactive({
+      inputBackgroundg: require("../../static/img/login_ap.png"),
+      account: "",
+      password: "",
+    });
+
+    const router = useRouter();    
+  
+    const login = async () => {
+      const response = await axios.get("register")
+       .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        return err;
+      });
+      if(state.account == response.account && state.password == response.password){
+        localStorage.setItem("token", "ImLogin");
+        await router.push("/");
+      } else {
+        alert('帳號密碼錯誤');
+      }
+    };
+
+    return {
+      state,
+      login,
+    };
+  },
+ 
 };
 </script>
 <style scoped>

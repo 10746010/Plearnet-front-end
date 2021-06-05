@@ -1,6 +1,7 @@
 <template>
   <!-- Udate.vue -->
   <div class="update" :class="{ '--exceeded': newPlearnetCharacterCount > 25 }">
+
     <form @submit.prevent="createNewPlearnet" name="formUpdate">
       <!-- 輸入標題跟描述和上傳按鈕 -->
       <div class="new-plearnet__box">
@@ -135,6 +136,7 @@ export default {
         reader.readAsDataURL(input.files[0]);
       }
     }
+
 
     return {
       state,

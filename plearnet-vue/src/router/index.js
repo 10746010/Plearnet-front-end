@@ -11,7 +11,7 @@ import Register from '../views/Register.vue'
 import Wish from '../components/Wish.vue'
 import Update from '../components/Update.vue'
 
-
+import Test from '../components/Test.vue'
 
 import App from '../App.vue'
 
@@ -93,6 +93,11 @@ const routes = [
         path: '/register/',
         name: 'Register',
         component: Register,
+      },
+      {
+        path: '/test/',
+        name: 'Test',
+        component: Test,
       },
     ]
   },
