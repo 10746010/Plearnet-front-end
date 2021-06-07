@@ -40,7 +40,7 @@ const routes = [
             component: Update,
           },
           {
-            path: '/plearnet',
+            path: '/plearnet/:page',
             component: Plearnet,
           },
           {

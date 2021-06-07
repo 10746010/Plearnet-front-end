@@ -26,8 +26,8 @@
               <div class="tag-like">點讚最多</div>
               <div class="tag-read">點閱率最高</div>
             </div>
-            <PlearnetArticleItem v-for="n in 4" :key="n"
-            :title_img="n" title="測試" favorite="☆" />   
+            <PlearnetArticleItem v-for="article in state.left_data" :key="article.id"
+            :title_img="article.id" :title="article.title" favorite="☆" />   
           </div>
         </div>
       </div>
@@ -54,8 +54,8 @@
               <div class="tag-like">點讚最多</div>
               <div class="tag-read">點閱率最高</div>
             </div>
-            <PlearnetArticleItem v-for="n in 4" :key="n"
-            :title_img="n" title="測試" favorite="☆" />
+            <PlearnetArticleItem v-for="article in state.right_data" :key="article.id"
+            :title_img="article.id" :title="article.title" favorite="☆" />   
           </div>
         </div>
       </div>
@@ -66,6 +66,8 @@
 <script>
 import PlearnetArticleItem from "../components/PlearnetArticleItem.vue";
 import { reactive } from "vue";
+import { useRoute } from  "vue-router";
+import axios from 'axios';
 
 export default {
   name: "Plearnet",
@@ -74,7 +76,27 @@ export default {
     PlearnetArticleItem,
   },
   setup() {
-    const state = reactive({});
+    const state = reactive({
+        data:[],
+        left_data:[],
+        right_data:[],
+        now_page:null
+    });
+
+    const route = useRoute();
+
+    state.now_page = route.params.page
+
+    axios.get('plearnets')
+        .then(function (response) {
+            console.log(response.data)
+           state.data = response.data.splice((state.now_page-1)*8,8)          
+           state.left_data = state.data.splice(0,4),
+           state.right_data = state.data.splice(0,4)
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
 
     return {
       state,
