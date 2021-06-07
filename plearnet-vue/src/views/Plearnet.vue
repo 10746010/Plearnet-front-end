@@ -89,8 +89,8 @@ export default {
 
     axios.get('plearnets')
         .then(function (response) {
-            console.log(response.data)
-           state.data = response.data.splice((state.now_page-1)*8,8)          
+            // console.log(response.data.reverse())
+           state.data = response.data.reverse().splice((state.now_page-1)*8,8)          
            state.left_data = state.data.splice(0,4),
            state.right_data = state.data.splice(0,4)
         })

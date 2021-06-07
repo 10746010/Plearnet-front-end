@@ -115,7 +115,7 @@ export default {
           content:state.newPlearnetContent
       });  
       alert('已發布文章')
-      await router.push('/plearnet')   
+      await router.push('/plearnet/1')   
     }
 
     function previewImage(event) {
