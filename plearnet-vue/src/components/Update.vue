@@ -66,38 +66,28 @@
           placeholder="筆記預覽"
           class="preview-plearnet__content"
         />
-      </div>
-      <div class="user-profile__plearnets-wrapper">
-        <PlearnetItem
-          v-for="plearnet in state.user.plearnets"
-          :key="plearnet.id"
-          :username="state.user.username"
-          :plearnet="plearnet"
-        />
-      </div>
+      </div>     
     </form>
   </div>
 </template>
 
 <script>
 import Button from "./Button";
-import PlearnetItem from "./PlearnetItem";
+
 
 import { reactive, computed } from "vue";
-import { useRoute } from "vue-router";
-import { users } from "../assets/users";
+import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
   name: "Update",
   props: {},
   components: {
     Button,
-    PlearnetItem,
+
   },
   setup() {
-    const route = useRoute();
-
-    const userId = computed(() => route.params.userId);
+    const router = useRouter(); 
 
     const state = reactive({
       insert_image: require("../../static/img/insert_image.png"),
@@ -110,19 +100,22 @@ export default {
       newPlearnetTitle: "",
       newPlearnetContent: "",
 
-      user: users[userId.value - 1] || users[0],
+
     });
 
     const newPlearnetCharacterCount = computed(
       () => state.newPlearnetContent.length
     );
 
-    function createNewPlearnet() {
-      state.user.plearnets.unshift({
-        id: state.user.plearnets.length + 1,
-        title: state.newPlearnetTitle,
-        content: state.newPlearnetContent,
-      });
+  
+
+    const createNewPlearnet = async () => {
+        await axios.post("plearnets", {
+          title:state.newPlearnetTitle,
+          content:state.newPlearnetContent
+      });  
+      alert('已發布文章')
+      await router.push('/plearnet/1')   
     }
 
     function previewImage(event) {

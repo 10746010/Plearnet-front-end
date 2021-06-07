@@ -11,6 +11,8 @@ import Register from '../views/Register.vue'
 import Wish from '../components/Wish.vue'
 import Update from '../components/Update.vue'
 
+import Plearnet from '../views/Plearnet.vue'
+
 import Test from '../components/Test.vue'
 
 import App from '../App.vue'
@@ -36,6 +38,10 @@ const routes = [
           {
             path: '/update',
             component: Update,
+          },
+          {
+            path: '/plearnet/:page',
+            component: Plearnet,
           },
           {
             path: '/user/',

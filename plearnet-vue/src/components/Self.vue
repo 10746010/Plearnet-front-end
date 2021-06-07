@@ -70,10 +70,15 @@ export default {
     const router = useRouter();
 
     axios
-      .get("register")
+      .get("register",{
+        params: {
+          id: localStorage.getItem("token")
+        }
+      })
       .then((res) => {
-        state.user.info.name = res.data.username;
-        state.user.info.email = res.data.email;
+        console.log(res)
+        state.user.info.name = res.data[0].username;
+        state.user.info.email = res.data[0].email;
       })
       .catch((err) => {
         console.log(err);

@@ -4,7 +4,7 @@ import router from './router'
 import './axios'
 
 router.beforeEach((to, from, next) => {
-  const isLogin = localStorage.getItem('token') == 'ImLogin';
+  const isLogin = localStorage.getItem('token');
   if (to.meta.requiresAuth) {
     if (isLogin) {
       next()
