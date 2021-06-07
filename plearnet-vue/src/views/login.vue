@@ -76,17 +76,23 @@ export default {
     });
 
     const router = useRouter();    
-  
+    console.log(router)
     const login = async () => {
-      const response = await axios.get("register")
+      const response = await axios.get("register",{
+        params: {
+          account:state.account
+        }
+      })
        .then((res) => {
-        return res.data;
+        //  console.log(res.data[0])
+        return res.data[0];
       })
       .catch((err) => {
         return err;
       });
+      console.log(response)
       if(state.account == response.account && state.password == response.password){
-        localStorage.setItem("token", "ImLogin");
+        localStorage.setItem("token", response.id);
         await router.push("/");
       } else {
         alert('帳號密碼錯誤');

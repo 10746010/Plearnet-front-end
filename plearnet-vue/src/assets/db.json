@@ -1,11 +1,30 @@
 {
-  "register": {
-    "username": "testaaa",
-    "account": "a",
-    "password": "a",
-    "password_confirm": "a",
-    "email": "a@a.com"
-  },
+  "register": [
+    {
+      "username": "testaaa",
+      "account": "a",
+      "password": "a",
+      "password_confirm": "a",
+      "email": "a@a.com",
+      "id": "1"
+    },
+    {
+      "username": "bb",
+      "account": "b",
+      "password": "b",
+      "password_confirm": "b",
+      "email": "b@b.com",
+      "id": "NSuXRKC"
+    },
+    {
+      "username": "c",
+      "account": "c",
+      "password": "c",
+      "password_confirm": "c",
+      "email": "c@c.com",
+      "id": "Gg6MPqk"
+    }
+  ],
   "login": {
     "account": "a",
     "password": "a"
