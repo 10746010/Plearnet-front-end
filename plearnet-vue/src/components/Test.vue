@@ -34,16 +34,7 @@ export default {
         console.log(error);
       });
 
-    // axios.post('http://localhost:3000/users',{
-    //   email:'test2@gmai.com',
-    //   password:"1234"
-    // })
-    // .then(function (response){
-    //   console.log(response);
-    // })
-    // .catch(function(error){
-    //   console.log(error);
-    // })
+   
 
     const state = reactive({});
 
