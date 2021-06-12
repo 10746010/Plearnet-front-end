@@ -1,5 +1,6 @@
 <template>
-  <div :style="bg" id="app" class="container">
+  <div :style="bg" id="app">
+    
       <router-view />
   </div>
 </template>
@@ -28,27 +29,19 @@ export default {
 html,
 body,
 #app {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   height: 100%;
   margin: 0;
   padding: 0;
   background: url(../static/img/bg.jpg) no-repeat;
+  background-attachment:fixed;
 }
-
-/* html {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
 
 img {
   -webkit-user-drag: none;
   user-select: none;
   vertical-align: middle;
-  /* border:0px; */
+
 }
 </style>

@@ -34,7 +34,7 @@ export default {
     });
 
     state.notLogin = !localStorage.getItem("token")
-    console.log(state.notLogin)
+    // console.log(state.notLogin)
     return {
       state,
     };

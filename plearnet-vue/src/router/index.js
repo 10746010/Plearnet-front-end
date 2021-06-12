@@ -15,102 +15,203 @@ import Plearnet from '../views/Plearnet.vue'
 
 import Test from '../components/Test.vue'
 
-import App from '../App.vue'
 
+import AtricleBox from '../components/AtricleBox.vue'
+import AtricleItem from '../components/AtricleItem.vue'
 
 
 const routes = [
   {
     path: '/',
-    name: 'App',
-    component: App,
-    // App畫面底下有Main 或著可以連到 Login、Register
+    name: 'Main',
+    component: Main,
+    // Main畫面底下有Home 或著到使用者
     children: [
       {
-        path: '/',
-        component: Main,
-        //   Main畫面底下有Home 或著到使用者
+        path: '',
+        component: Home,
+      },
+      {
+        path: '/update',
+        component: Update,
+      },
+      {
+        path: '/non-academic/:forum',
+        component: Plearnet,
+        // props: true
+      },
+      {
+        path: '/testa',
+        component: AtricleBox,
+      },
+      {
+        path: '/testb',
+        component: AtricleItem,
+      },
+      {
+        path: '/user/',
+        component: User,
+        meta: {
+          requiresAuth: true
+        },
+        // 使用者底下有like,history...等等router
         children: [
           {
-            path: '/',
-            component: Home,
-          },
-          {
-            path: '/update',
-            component: Update,
-          },
-          {
-            path: '/plearnet/:page',
-            component: Plearnet,
-          },
-          {
-            path: '/user/',
-            component: User,
+            path: 'like',
+            component: Like,
             meta: {
               requiresAuth: true
             },
-            //   使用者底下有like,history...等等router
-            children: [
-              {
-                path: 'like',
-                component: Like,
-                meta: {
-                  requiresAuth: true
-                },
-              },
-              {
-                path: 'self',
-                component: Self,
-                meta: {
-                  requiresAuth: true
-                },
-              },
-              {
-                path: 'history',
-                component: History,
-                meta: {
-                  requiresAuth: true
-                },
-              },
-              {
-                path: 'paint',
-                component: Paint,
-                meta: {
-                  requiresAuth: true
-                },
-              },
-              {
-                path: 'wish',
-                component: Wish,
-                meta: {
-                  requiresAuth: true
-                },
-              },
-            ]
           },
-        ],
+          {
+            path: 'self',
+            component: Self,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'history',
+            component: History,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'paint',
+            component: Paint,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'wish',
+            component: Wish,
+            meta: {
+              requiresAuth: true
+            },
+          },
+        ]
       },
-      {
-        path: '/login/',
-        name: 'Login',
-        component: Login,
-      },
-      {
-        path: '/register/',
-        name: 'Register',
-        component: Register,
-      },
-      {
-        path: '/test/',
-        name: 'Test',
-        component: Test,
-      },
-    ]
+    ],
+  },
+  {
+    path: '/login/',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register/',
+    name: 'Register',
+    component: Register,
+  },
+  {
+    path: '/test/',
+    name: 'Test',
+    component: Test,
   },
   {
     path: '/:pathMatch(.*)*',
     redirect: "/"
   },
+    // path: '/',
+    // name: 'App',
+    // component: App,
+    // App畫面底下有Main 或著可以連到 Login、Register
+    // children: [
+    //   {
+    //     path: '',
+    //     component: Main,
+    //   Main畫面底下有Home 或著到使用者
+    // children: [
+    //   {
+    //     path: '',
+    //     component: Home,
+    //   },
+    //   {
+    //     path: '/update',
+    //     component: Update,
+    //   },
+    //   {
+    //     path: '/plearnet/:page',
+    //     component: Plearnet,
+    //   },
+    //   {
+    //     path: '/testa',
+    //     component: AtricleBox,
+    //   },
+    //   {
+    //     path: '/testb',
+    //     component: AtricleItem,
+    //   },
+    //   {
+    //     path: '/user/',
+    //     component: User,
+    //     meta: {
+    //       requiresAuth: true
+    //     },
+    //       使用者底下有like,history...等等router
+    //     children: [
+    //       {
+    //         path: 'like',
+    //         component: Like,
+    //         meta: {
+    //           requiresAuth: true
+    //         },
+    //       },
+    //       {
+    //         path: 'self',
+    //         component: Self,
+    //         meta: {
+    //           requiresAuth: true
+    //         },
+    //       },
+    //       {
+    //         path: 'history',
+    //         component: History,
+    //         meta: {
+    //           requiresAuth: true
+    //         },
+    //       },
+    //       {
+    //         path: 'paint',
+    //         component: Paint,
+    //         meta: {
+    //           requiresAuth: true
+    //         },
+    //       },
+    //       {
+    //         path: 'wish',
+    //         component: Wish,
+    //         meta: {
+    //           requiresAuth: true
+    //         },
+    //       },
+    //     ]
+    //   },
+    // ],
+    //     },
+    //     {
+    //       path: '/login/',
+    //       name: 'Login',
+    //       component: Login,
+    //     },
+    //     {
+    //       path: '/register/',
+    //       name: 'Register',
+    //       component: Register,
+    //     },
+    //     {
+    //       path: '/test/',
+    //       name: 'Test',
+    //       component: Test,
+    //     },
+    //   ]
+    // },
+    // {
+    //   path: '/:pathMatch(.*)*',
+    //   redirect: "/"
+    // },
 ]
 
 const router = createRouter({

@@ -2,7 +2,7 @@
 
 ## CMD
 ```
-w
+npm i -g @vue/cli
 <!-- cd到專案底下然後npm install -->
 vue cli
 ```
@@ -29,6 +29,7 @@ npm run lint
 
 ### json-server
 ```
+npm install -g json-server
 json-server --watch db.json
 ```
 
