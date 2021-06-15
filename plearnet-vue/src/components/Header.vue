@@ -43,11 +43,14 @@ export default {
 
 <style scoped>
 header {
+  position: relative;
+  z-index: 1;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3px 200px 3px 200px;
+
   /* background-attachment:fixed; */
 }
 /* 放搜尋框及使用者按鈕的地方 */

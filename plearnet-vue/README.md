@@ -33,5 +33,11 @@ npm install -g json-server
 json-server --watch db.json
 ```
 
+### three.js
+```
+npm install three
+<!-- 擴充點擊功能 -->
+npm install three.interactive
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

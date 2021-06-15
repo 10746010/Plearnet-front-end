@@ -11,7 +11,7 @@ import Register from '../views/Register.vue'
 import Wish from '../components/Wish.vue'
 import Update from '../components/Update.vue'
 
-import Plearnet from '../views/Plearnet.vue'
+// import Plearnet from '../views/Plearnet.vue'
 
 import Test from '../components/Test.vue'
 
@@ -37,12 +37,8 @@ const routes = [
       },
       {
         path: '/non-academic/:forum',
-        component: Plearnet,
-        // props: true
-      },
-      {
-        path: '/testa',
         component: AtricleBox,
+        // props: true
       },
       {
         path: '/testb',

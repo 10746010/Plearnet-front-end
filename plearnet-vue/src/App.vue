@@ -31,11 +31,11 @@ body,
 #app {
   /* display: flex;
   flex-direction: column; */
-  height: 100%;
+  /* height: 100%; */
   margin: 0;
   padding: 0;
-  background: url(../static/img/bg.jpg) no-repeat;
-  background-attachment:fixed;
+  /* background: url(../static/img/bg.jpg) no-repeat;
+  background-attachment:fixed; */
 }
 
 img {
