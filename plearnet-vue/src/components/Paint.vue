@@ -1,6 +1,6 @@
 <template>
 <!-- Paint.vue -->
-  <div>
+  <div class="paint">
     <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
@@ -20,5 +20,8 @@ export default {
 };
 </script>
 <style scoped>
-
+.paint{
+  position: relative;
+  z-index: 1;
+}
 </style>

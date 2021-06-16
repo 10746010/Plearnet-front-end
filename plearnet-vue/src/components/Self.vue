@@ -117,6 +117,8 @@ export default {
   display: flex;
   flex-direction: column;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 /* 大頭像 */
 .avatar__box {

@@ -158,6 +158,8 @@ export default {
   align-items: center;
   width: 100%;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .update.--exceeded {

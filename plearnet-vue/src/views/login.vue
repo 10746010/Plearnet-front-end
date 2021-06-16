@@ -1,101 +1,90 @@
 <template>
   <div class="login">
-    <form @submit.prevent="login" name="formLogin">
-      <div class="contents">
-        <!-- 左邊 -->
-        <div class="left">
-          <router-link to="/" style="text-decoration: none">
-            <div class="title">Plearnet</div>
-          </router-link>
-          <div class="text">
-            <label>登入</label>
-          </div>
-
-          <div class="inputbox">
-            <!-- 帳號 -->
-            <AccountInput
-              account_type="text"
-              placeholder_text="請輸入帳號"
-              :model_input="state.account"
-              @update:model_input="state.account = $event"
-            />
-
-            <!-- 密碼 -->
-            <AccountInput
-              account_type="password"
-              placeholder_text="請輸入密碼"
-              :model_input="state.password"
-              @update:model_input="state.password = $event"
-            />
-
-            <!-- 登入按鈕 -->
-            <div class="loginImg">
-              <button type="submit">
-                <img src="../../static/img/lb.png" style="width: 100px" />
-              </button>
-            </div>
-            <!-- 註冊按鈕  -->
-            <div class="registerImg">
-              <router-link to="/register">
-                <img
-                  src="../../static/img/registerbutton.png"
-                  style="width: 80px"
-                />
-              </router-link>
-            </div>
-          </div>
+    <div class="content">
+      <div class="back">
+        <button>＜</button>
+        <div>
+          <h1>login</h1>
         </div>
-        <!-- 右邊 -->
-        <div class="right">
-          <div class="imgBg">
-            <img src="../../static/img/icon.png" style="width: 1000px" />
-          </div>
-        </div>
+        <div style="width: 10%" />
       </div>
-    </form>
+
+      <form @submit.prevent="login" name="formLogin" class="form-login">
+        <div class="account">
+          <!-- 帳號 -->
+          <label>account</label>
+          <AccountInput
+            account_type="text"
+            placeholder_text="請輸入帳號"
+            :model_input="state.account"
+            @update:model_input="state.account = $event"
+          />
+        </div>
+        <div class="password">
+          <!-- 密碼 -->
+          <label>password</label>
+          <AccountInput
+            account_type="password"
+            placeholder_text="請輸入密碼"
+            :model_input="state.password"
+            @update:model_input="state.password = $event"
+          />
+        </div>
+        <div class="button">
+          <Button color="linear-gradient(#0e2289, #90e5f2)" text="登入" />
+        </div>
+      </form>
+      <div class="register">
+        <router-link to="/register" ><Button color="rgba(255, 255, 255, 0)" text="註冊帳號"/></router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import AccountInput from "../components/AccountInput";
+import AccountInput from "../components/AccountInput.vue";
 import { useRouter } from "vue-router";
 import { reactive } from "vue";
-
+import Button from "../components/Button.vue";
 import axios from "axios";
 
 export default {
   name: "Login",
   components: {
     AccountInput,
+    Button,
   },
   setup() {
     const state = reactive({
-      inputBackgroundg: require("../../static/img/login_ap.png"),
       account: "",
       password: "",
     });
 
-    const router = useRouter();    
-    console.log(router)
+    const router = useRouter();
+    console.log(router);
     const login = async () => {
-      const response = await axios.get("register",{
-        params: {
-          account:state.account
-        }
-      })
-       .then((res) => {
-        //  console.log(res.data[0])
-        return res.data[0];
-      })
-      .catch((err) => {
-        return err;
-      });
-      console.log(response)
-      if(state.account == response.account && state.password == response.password){
+      const response = await axios
+        .get("register", {
+          params: {
+            account: state.account,
+          },
+        })
+        .then((res) => {
+          //  console.log(res.data[0])
+          return res.data[0];
+        })
+        .catch((err) => {
+          return err;
+        });
+      console.log(response);
+      if (
+        state.account == response.account &&
+        state.password == response.password
+      ) {
         localStorage.setItem("token", response.id);
-        await router.push("/");
+        router.push("/");
       } else {
-        alert('帳號密碼錯誤');
+        alert("帳號密碼錯誤");
       }
     };
 
@@ -104,52 +93,85 @@ export default {
       login,
     };
   },
- 
 };
 </script>
 <style scoped>
-.contents {
-  display: flex;
-}
-
-.loginImg {
-  margin-left: 350px;
-}
-
-.title {
-  color: white;
-  font-size: 50px;
-}
-
-.text {
-  text-align: start;
-  color: white;
-}
-
-.inputbox {
-  padding-top: 100px;
-}
-
-.registerImg {
-  margin-left: 400px;
-}
-
-button {
-  background-color: unset;
-  border: none;
-}
-
-.left {
+.login {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-left: 120px;
+  height: 100vh;
+}
+/* 放內容 */
+.content {
+  width: 400px;
+  height: 450px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffad;
+  position: relative;
   z-index: 1;
 }
 
-.imgBg {
+/* 表單 */
+.form-login {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  top: -100px;
-  right: -5px;
+  top: -10%;
+}
+
+.contents > button {
+  height: 30px;
+  position: relative;
+  right: 70px;
+}
+
+/* 標題和回上一頁 */
+.back {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.back > button {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: white;
+  font-size: 30px;
+}
+.button {
+  width: 75%;
+}
+.btn {
+  color: white;
+  width: 100%;
+  margin: 0;
+}
+
+/* 帳號 */
+.account {
+  margin: 0 0 30px 0;
+  width: 75%;
+}
+
+.password {
+  margin: 0 0 30px 0;
+  width: 75%;
+}
+/* 註冊 */
+.register > a>.btn {
+  color: #707579;
+  position: relative;
+  left: 120px;
+  top: -110px;
 }
 </style>

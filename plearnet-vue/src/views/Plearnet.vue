@@ -57,7 +57,6 @@ export default {
         canvas: canvas,
       });
       renderer.setSize(sizes.width, sizes.height);
-      //   document.body.appendChild(renderer.domElement);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       //  背景
       renderer.setClearColor(new THREE.Color("#21282a"), 1);

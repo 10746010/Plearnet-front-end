@@ -61,6 +61,8 @@ export default {
     display: flex;
     flex-direction: column;
     color: white;
+    position: relative;
+    z-index: 1;
 }
 .wish.--exceeded{
     color: red;

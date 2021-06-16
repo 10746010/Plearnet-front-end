@@ -15,22 +15,18 @@ import Plearnet from '../views/Plearnet.vue'
 
 import Test from '../components/Test.vue'
 
-
+import AccountBackground from '../components/AccountBackground.vue'
 // import AtricleBox from '../components/AtricleBox.vue'
 // import AtricleItem from '../components/AtricleItem.vue'
 
 
 const routes = [
   {
-    path: '/',
+    path: '/main',
     name: 'Main',
     component: Main,
     // Main畫面底下有Home 或著到使用者
-    children: [
-      {
-        path: '',
-        component: Home,
-      },
+    children: [      
       {
         path: '/update',
         component: Update,
@@ -95,14 +91,25 @@ const routes = [
     ],
   },
   {
-    path: '/login/',
-    name: 'Login',
-    component: Login,
+    path: '/',
+    name:'Home',
+    component: Home,
   },
   {
-    path: '/register/',
-    name: 'Register',
-    component: Register,
+    path: '/login',
+    component: AccountBackground,
+    children: [
+      {
+        path: '',
+        name: 'Login',
+        component: Login,
+      },
+      {
+        path: '/register/',
+        name: 'Register',
+        component: Register,
+      },
+    ]
   },
   {
     path: '/test/',

@@ -1,11 +1,7 @@
 <template>
-<!-- Accountinput.vue，文字輸入框 -->
-<!-- 輸入框 -->
+  <!-- Accountinput.vue，文字輸入框 -->
+  <!-- 輸入框 -->
   <div class="account-input">
-    <!-- 輸入框的背景 -->
-    <div class="account-input__background" >
-      <img :src="inputBackgroundg" alt="" />
-    </div>
     <div class="input">
       <!-- 輸入帳號密碼的輸入框 -->
       <input
@@ -24,9 +20,7 @@
 export default {
   name: "AccountInput",
   data() {
-    return {
-      inputBackgroundg: require("../../static/img/login_ap.png"),
-    };
+    return {};
   },
   props: {
     placeholder_text: String,
@@ -38,20 +32,16 @@ export default {
 </script>
 <style scoped>
 /* 輸入框的背景 */
-.account-input__background > img {
-  width: 500px;
-  height: 150px;
-  margin: -30px 0px;
-}
 .input {
   position: relative;
   z-index: 1;
-  top: -60px;
-  left: 88px;
 }
 /* 輸入帳號密碼的輸入框 */
 #inputCss {
   border: none;
   outline: none;
+  height: 30px;
+  border-radius: 5px;
+  width: 100%;
 }
 </style>

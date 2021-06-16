@@ -54,6 +54,8 @@ export default {
   /* align-items: center; */
   height: 80%;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 .user-button {
   background-color: #434880;

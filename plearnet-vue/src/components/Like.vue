@@ -1,7 +1,7 @@
 <template>
 <!-- Like.vue -->
 
-  <div>
+  <div class="like">
     <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="green" color="white" text="需要文字嗎?"/>
@@ -21,5 +21,8 @@ export default {
 };
 </script>
 <style scoped>
-
+.like{
+  position: relative;
+  z-index: 1;
+}
 </style>
