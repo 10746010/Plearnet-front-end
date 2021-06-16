@@ -24,7 +24,7 @@ export default {
   name: "Header",
   data() {
     return {
-      img: require("../../static/img/icon.png"),
+      img: require("../../static/img/logo.png"),
       prompt: "請輸入",
       selected: "標題",
       show: false,

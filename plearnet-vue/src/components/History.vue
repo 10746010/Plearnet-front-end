@@ -1,7 +1,7 @@
 <template>
 <!-- History.vue -->
 
-  <div>
+  <div class="history">
     <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
     <ListContent headcolor="red" color="white" text="需要文字嗎?"/>
@@ -21,4 +21,8 @@ export default {
 };
 </script>
 <style scoped>
+.history{
+  position: relative;
+  z-index: 1;
+}
 </style>

@@ -5,7 +5,7 @@
     <!-- 上傳 -->
     <router-link to="/update">
       <div class="img">
-        <img v-bind:src="update" alt="" />
+        <img v-bind:src="upload" alt="" />
         <Button color="rgba(255, 255, 255, 0)" text="上傳" />
       </div>
     </router-link>
@@ -57,7 +57,7 @@ export default {
       like: require("../../static/img/like.png"),
       lop: require("../../static/img/lop.png"),
       history: require("../../static/img/history.png"),
-      update: require("../../static/img/update.png"),
+      upload: require("../../static/img/upload.png"),
       paint: require("../../static/img/paint.png"),
       set: require("../../static/img/set.png"),
       wish: require("../../static/img/wish.png"),

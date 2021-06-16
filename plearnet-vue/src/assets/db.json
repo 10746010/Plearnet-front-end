@@ -31,6 +31,14 @@
       "password_confirm": "c",
       "email": "c@c.com",
       "id": "bOfIvZB"
+    },
+    {
+      "username": "d",
+      "account": "d",
+      "password": "d",
+      "password_confirm": "d",
+      "email": "d@d.com",
+      "id": "RWWEJaX"
     }
   ],
   "login": {
@@ -179,19 +187,22 @@
       "forum": "test",
       "content": "test",
       "like": 0,
-      "watched": 0,
+      "watched": 1,
       "id": 15
     }
   ],
-  "message": [{
-    "id": 1,
-    "username": "1123123",
-    "content":"nice",
-    "atricle":"2"
-  },{
-    "id": 2,
-    "username": "1123123",
-    "content":"this is cool",
-    "atricle":"2"
-  }]
+  "message": [
+    {
+      "id": 1,
+      "username": "1123123",
+      "content": "nice",
+      "atricle": "2"
+    },
+    {
+      "id": 2,
+      "username": "1123123",
+      "content": "this is cool",
+      "atricle": "2"
+    }
+  ]
 }
