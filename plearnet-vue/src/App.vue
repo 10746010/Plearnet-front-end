@@ -1,7 +1,6 @@
 <template>
   <div :style="bg" id="app">
-    
-      <router-view />
+    <router-view />
   </div>
 </template>
 
@@ -9,11 +8,10 @@
 export default {
   name: "App",
   data() {
-    return {
-    
-    };
+    return {};
   },
   components: {},
+
 };
 </script>
 
@@ -42,6 +40,5 @@ img {
   -webkit-user-drag: none;
   user-select: none;
   vertical-align: middle;
-
 }
 </style>

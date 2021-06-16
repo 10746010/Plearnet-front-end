@@ -10,14 +10,14 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Wish from '../components/Wish.vue'
 import Update from '../components/Update.vue'
-
-// import Plearnet from '../views/Plearnet.vue'
+import Atricle from '../views/Atricle.vue'
+import Plearnet from '../views/Plearnet.vue'
 
 import Test from '../components/Test.vue'
 
 
-import AtricleBox from '../components/AtricleBox.vue'
-import AtricleItem from '../components/AtricleItem.vue'
+// import AtricleBox from '../components/AtricleBox.vue'
+// import AtricleItem from '../components/AtricleItem.vue'
 
 
 const routes = [
@@ -36,13 +36,16 @@ const routes = [
         component: Update,
       },
       {
-        path: '/non-academic/:forum',
-        component: AtricleBox,
-        // props: true
+        path: '/:type/:forum',
+        component: Plearnet,
       },
+      // {
+      //   path: '/academic/:forum',
+      //   component: Plearnet,
+      // },
       {
-        path: '/testb',
-        component: AtricleItem,
+        path: '/testa',
+        component: Atricle,
       },
       {
         path: '/user/',
