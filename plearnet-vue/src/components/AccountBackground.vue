@@ -137,6 +137,8 @@ export default {
         requestAnimationFrame(animate);
         renderer.render(scene, camera);
         sphere.rotation.y += 0.001;
+        sphere.rotation.x += 0.001;
+
          group.rotation.x = -mouse.y * 0.3;
         group.rotation.y = mouse.x * 0.5;
       }
