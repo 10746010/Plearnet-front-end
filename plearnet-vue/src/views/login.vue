@@ -2,7 +2,7 @@
   <div class="login">
     <div class="content">
       <div class="back">
-        <button>＜</button>
+        <button @click.passive="back">＜</button>
         <div>
           <h1>login</h1>
         </div>
@@ -35,7 +35,9 @@
         </div>
       </form>
       <div class="register">
-        <router-link to="/register" ><Button color="rgba(255, 255, 255, 0)" text="註冊帳號"/></router-link>
+        <router-link to="/register"
+          ><Button color="rgba(255, 255, 255, 0)" text="註冊帳號"
+        /></router-link>
       </div>
     </div>
   </div>
@@ -61,7 +63,7 @@ export default {
     });
 
     const router = useRouter();
-    console.log(router);
+
     const login = async () => {
       const response = await axios
         .get("register", {
@@ -88,9 +90,13 @@ export default {
       }
     };
 
+    const back = async () => {
+      router.push("/");
+    };
     return {
       state,
       login,
+      back,
     };
   },
 };
@@ -129,11 +135,11 @@ export default {
   top: -10%;
 }
 
-.contents > button {
+/* .content > button {
   height: 30px;
   position: relative;
   right: 70px;
-}
+} */
 
 /* 標題和回上一頁 */
 .back {
@@ -141,6 +147,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 3;
 }
 .back > button {
   background-color: rgba(255, 255, 255, 0);
@@ -168,7 +176,7 @@ export default {
   width: 75%;
 }
 /* 註冊 */
-.register > a>.btn {
+.register > a > .btn {
   color: #707579;
   position: relative;
   left: 120px;

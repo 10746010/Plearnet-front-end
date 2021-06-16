@@ -8,6 +8,7 @@
 
 <script>
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default {
   name: "AccountBackground",
@@ -23,7 +24,7 @@ export default {
     initThree() {
       // Canvas
       const canvas = document.querySelector("canvas");
-      canvas.style.filter = "blur(10px)";
+      canvas.style.filter = "blur(6px)";
 
       const camera = new THREE.PerspectiveCamera(
         75,
@@ -78,7 +79,7 @@ export default {
       });
 
       const sphere = new THREE.Mesh(geometry, material);
-      // sphere.position.z = -1
+
       scene.add(sphere);
 
       const atmosphereMaterial = new THREE.ShaderMaterial({
@@ -107,7 +108,6 @@ export default {
       scene.add(atmosphere);
 
       scene.position.y = -15;
-      scene.position.z = -1;
 
       // function createSkyBox(scene) {
 
@@ -131,6 +131,9 @@ export default {
         y: undefined,
       };
 
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.08;
       camera.position.z = 15;
 
       function animate() {
@@ -139,8 +142,10 @@ export default {
         sphere.rotation.y += 0.001;
         sphere.rotation.x += 0.001;
 
-         group.rotation.x = -mouse.y * 0.3;
+        group.rotation.x = -mouse.y * 0.3;
         group.rotation.y = mouse.x * 0.5;
+
+        controls.update();
       }
       animate();
 
@@ -163,7 +168,7 @@ export default {
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-          // 星球跟著滑鼠轉動
+        // 星球跟著滑鼠轉動
         mouse.x = (event.clientX / innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / innerHeight) * 2 + 1;
       });

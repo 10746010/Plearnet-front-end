@@ -150,7 +150,7 @@ export default {
         ].join("\n"),
         uniforms: {
           globeTexture: {
-            value: new THREE.TextureLoader().load("/earth.jpg"),
+            value: new THREE.TextureLoader().load("/pluto.jpg"),
           },
         },
       });
