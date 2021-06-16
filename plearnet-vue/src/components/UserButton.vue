@@ -83,5 +83,7 @@ img {
   /* display: flex; */
   width: 50px;
 }
-
+.btn{
+  color:#fffeff;
+}
 </style>

@@ -1,7 +1,7 @@
 {
   "register": [
     {
-      "username": "testaaa",
+      "username": "1123123",
       "account": "a",
       "password": "a",
       "password_confirm": "a",
@@ -71,7 +71,7 @@
       "forum": "test",
       "content": "123123",
       "like": 8,
-      "watched": 12,
+      "watched": 13,
       "id": 4
     },
     {
@@ -134,7 +134,7 @@
       "forum": "nottest",
       "content": "123123",
       "like": 0,
-      "watched": 0,
+      "watched": 3,
       "id": 11
     },
     {
@@ -152,7 +152,7 @@
       "forum": "test",
       "content": "123123",
       "like": 0,
-      "watched": 0,
+      "watched": 1,
       "id": 12
     },
     {
@@ -170,8 +170,28 @@
       "forum": "test",
       "content": "123123",
       "like": 9,
-      "watched": 1,
+      "watched": 2,
       "id": 14
+    },
+    {
+      "title": "15",
+      "type": "academic",
+      "forum": "test",
+      "content": "test",
+      "like": 0,
+      "watched": 0,
+      "id": 15
     }
-  ]
+  ],
+  "message": [{
+    "id": 1,
+    "username": "1123123",
+    "content":"nice",
+    "atricle":"2"
+  },{
+    "id": 2,
+    "username": "1123123",
+    "content":"this is cool",
+    "atricle":"2"
+  }]
 }

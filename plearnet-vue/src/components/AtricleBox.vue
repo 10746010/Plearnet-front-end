@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <button @click.prevent="change('id')">最新</button>
-    <button @click.prevent="change('like')">最多讚</button>
-    <button @click.prevent="change('watched')">最多點閱</button>
+  <div class="atricle">
+    <div class="sortButton">
+      <button @click.prevent="change('id')">最新</button>
+      <button @click.prevent="change('like')">最多讚</button>
+      <button @click.prevent="change('watched')">最多點閱</button>
+    </div>
 
     <div class="box">
       <span class="left_right_rotating"></span>
@@ -14,7 +16,7 @@
           v-for="article in state.data"
           :key="article.id"
           :text="article"
-          @click.prevent="watch(article.id,article.watched)"
+          @click.prevent="watch(article.id, article.watched)"
         />
       </div>
     </div>
@@ -43,7 +45,7 @@ export default {
 
     const router = useRouter();
     const route = useRoute();
-// 檢查滾動
+    // 檢查滾動
     function scrollHandle() {
       const scrollHeight = document.body.scrollHeight;
       const scrollTop =
@@ -60,22 +62,22 @@ export default {
     onUnmounted(() => {
       window.removeEventListener("scroll", scrollHandle, false);
     });
-// 點擊文章
-const watch = async (id,watch) =>{
-  axios.patch(`plearnets/${id}`,{
-    "watched":watch+=1,
-  })
-  await router.go(0);
+    // 點擊文章
+    const watch = async (id, watch) => {
+      axios.patch(`plearnets/${id}`, {
+        watched: (watch += 1),
+      });
+      await router.go(0);
+    };
 
-}
-    
     // 按鈕按下去後切換選擇的排序方法
     const change = async (now) => {
       state.choose = now;
       await router.push(`testa?choose=${state.choose}`);
       await router.go(0);
     };
-
+    let nowForum = route.params.forum
+    let nowType = route.params.type
     let readyLoad = true;
     function load() {
       // 排序方法
@@ -83,11 +85,14 @@ const watch = async (id,watch) =>{
         state.choose = route.query.choose;
       }
 
+
       if (readyLoad) {
         readyLoad = false;
         axios
           .get("plearnets", {
             params: {
+              type:nowType,
+              forum:nowForum,
               _sort: state.choose,
               _order: "desc",
               // _order: "asc",
@@ -114,7 +119,7 @@ const watch = async (id,watch) =>{
     return {
       state,
       change,
-      watch
+      watch,
     };
   },
 };
@@ -122,11 +127,11 @@ const watch = async (id,watch) =>{
 <style scoped>
 .box {
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 100%;
-  background: #111845ed;
-  box-shadow: 0 20px 50px rgb(23, 32, 90);
-  border: 2px solid #2a3cad;
+  background: #073335ed;
+  box-shadow: 0 20px 50px rgb(23 86 90);
+  border: 2px solid #2aad86;
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -158,7 +163,7 @@ const watch = async (id,watch) =>{
   position: absolute;
   width: 100%;
   height: 2px;
-  background: #50dfdb;
+  background: #ffffff;
   animation: animate-left-right 4s linear infinite;
 }
 
@@ -192,7 +197,7 @@ const watch = async (id,watch) =>{
   position: absolute;
   width: 2px;
   height: 100%;
-  background: #50dfdb;
+  background: #ffffff;
   animation: animate-top-bottom 10s linear infinite;
 }
 
@@ -221,5 +226,17 @@ const watch = async (id,watch) =>{
     transform: scaleY(0);
     transform-origin: bottom;
   }
+}
+
+.atricle {
+  position: relative;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sortButton{
+  display: flex;
 }
 </style>
