@@ -2,7 +2,7 @@
   <div class="register">
     <div class="content">
       <div class="back">
-        <button>＜</button>
+        <button @click.prevent="back">＜</button>
         <div>
           <h1>register</h1>
         </div>
@@ -82,7 +82,7 @@ export default {
   name: "Register",
   components: {
     AccountInput,
-    Button
+    Button,
   },
   setup() {
     const state = reactive({
@@ -106,10 +106,13 @@ export default {
 
       await router.push("/login");
     };
-
+    const back = async () => {
+      router.push("/login");
+    };
     return {
       state,
       createNewAccount,
+      back,
     };
   },
 };
@@ -143,6 +146,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 3;
 }
 .back > button {
   background-color: rgba(255, 255, 255, 0);
