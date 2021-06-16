@@ -2,43 +2,50 @@
   <!--Self.vue,是使用者的個人資訊 -->
 
   <div class="message">
-    <img v-bind:src="state.avatar" alt="" class="avatar" />
-    <!-- 使用者的資訊 -->
-    <div class="user__info">
-      <input id="info" value="個人資料" readonly />
-    </div>
-    <div class="user__info" v-if="!state.infoUpdate">
-      <input id="userInfo" v-model="state.user.info.name" readonly />
-      <input id="userInfo" v-model="state.user.info.email" readonly />
-      <input id="userInfo" v-model="state.user.info.phone" readonly />
-    </div>
-    <div class="user__info" v-else>
-      <input id="userInfo" v-model="state.user.info.name" />
-      <input id="userInfo" v-model="state.user.info.email" />
-      <input id="userInfo" v-model="state.user.info.phone" />
+    <div class="avatar__box">
+      <img v-bind:src="state.avatar" alt="" class="avatar" />
+      <label>暱稱</label>
+      <div v-if="!state.infoUpdate">
+        <input id="nickname" v-model="state.user.username" readonly />
+      </div>
+      <div v-else>
+        <input id="nickname" v-model="state.user.username" />
+      </div>
+
+      <!-- <Button color="rgba(255, 255, 255, 0.5)" /> -->
     </div>
 
-    <!-- 登出的按鈕 -->
-    <div class="logout__button">
-      <div v-if="!state.infoUpdate">
+    <!-- 使用者的資訊 -->
+
+    <div class="info">
+      <div v-if="!state.infoUpdate" class="change__button">
         <Button
           @click.prevent="update"
           color="linear-gradient(90deg,#e5e603, #fff59b)"
-          text="修改資料"
+          text="修改個人資料"
         />
       </div>
-      <div v-else>
+      <div v-else class="change__button">
         <Button
           @click.prevent="update"
           color="linear-gradient(90deg,#e5e603, #fff59b)"
           text="確定"
         />
       </div>
-      <Button
-        @click.prevent="logout"
-        color="linear-gradient(90deg,#e5e603, #fff59b)"
-        text="登出"
-      />
+      <div class="info__content">
+        <div class="info__user">
+          <div class="info__title">暱稱</div>
+          <div class="info__message">{{ state.user.username }}</div>
+        </div>
+        <div class="info__user">
+          <div class="info__title">帳號</div>
+          <div class="info__message">{{ state.user.account }}</div>
+        </div>
+        <div class="info__user">
+          <div class="info__title">信箱</div>
+          <div class="info__message">{{ state.user.email }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -58,32 +65,29 @@ export default {
     const state = reactive({
       avatar: require("../../static/img/lop.png"),
       user: {
-        info: {
-          name: "",
-          email: "",
-          phone: "0912345678",
-        },
+        username: "",
+        account: "",
+        email: "",
       },
       infoUpdate: false,
     });
-
     const router = useRouter();
-
+    const token = localStorage.getItem("token");
     axios
-      .get("register",{
+      .get("register", {
         params: {
-          id: localStorage.getItem("token")
-        }
+          id: token,
+        },
       })
       .then((res) => {
-        console.log(res)
-        state.user.info.name = res.data[0].username;
-        state.user.info.email = res.data[0].email;
+        (state.user.username = res.data[0].username),
+          (state.user.account = res.data[0].account),
+          (state.user.email = res.data[0].email);
       })
       .catch((err) => {
         console.log(err);
       });
-  
+
     const logout = async () => {
       localStorage.removeItem("token");
       await router.push("/login");
@@ -95,14 +99,9 @@ export default {
       } else {
         window.alert("已修改完成");
         state.infoUpdate = false;
-        await axios.post("register", {
-          username: state.user.info.name,
-          account: "a",
-          password: "a",
-          password_confirm: "a",
-          email: state.user.info.email,
+        await axios.patch(`register/${token}`, {
+          username: state.user.username,
         });
-     
       }
     };
     return {
@@ -111,7 +110,6 @@ export default {
       update,
     };
   },
- 
 };
 </script>
 <style scoped>
@@ -120,36 +118,79 @@ export default {
   flex-direction: column;
   color: white;
 }
+/* 大頭像 */
+.avatar__box {
+  display: flex;
+  align-items: center;
+}
+.avatar__box > label {
+  margin: 0 0 0 10px;
+  font-size: 28px;
+}
 .avatar {
   width: 15%;
+  border-radius: 100px;
+  border: 2px solid #ffffff;
+}
+
+/* 暱稱 */
+#nickname {
+  border-radius: 30px;
+  height: 30px;
+  text-align: center;
 }
 /* 使用者的資訊 */
-.user__info {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  z-index: 1;
-  /* margin: 28px; */
-}
-#userInfo {
-  margin: 10px;
+
+
+.info {
+  width: 800px;
+  height: 300px;
+  /* background: linear-gradient(#a4d6db, #748e7a78); */
+  /* border-radius: 20px; */
 }
 
-#info {
-  color: #131d50;
-  margin: 10px;
-}
-
-/* 登出的按鈕 */
-.logout__button {
+/* 更改資訊 */
+.change__button {
   display: flex;
   justify-content: flex-end;
   position: relative;
-  right: 200px;
-  top: -50px;
-  z-index: 0;
+  left: 170px;
 }
+
+/* 使用者資訊 */
+.info__content {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#a4d6db, #748e7a78);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.info__user {
+  display: flex;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.info__user > div {
+  border: 1px solid #ffffff;
+  height: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info__title {
+  width: 10%;
+}
+.info__message {
+  width: 100%;
+}
+
 .btn {
   border-radius: 30px;
+  position: relative;
+  width: 177px;
+  height: 36px;
+  right: 182px;
 }
 </style>

@@ -24,10 +24,12 @@ export default {
 </script>
 <style scoped>
 .wrapper {
-  height: 100%;
-  display: flex;
+  height: 100vh;
+  position: relative;
+  background: #030b2f;
+  /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
-  justify-content: center;
+  /* justify-content: center; */
 }
 </style>

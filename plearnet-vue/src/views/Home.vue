@@ -181,7 +181,12 @@ export default {
 
       // 群組
       const group = new THREE.Group();
+      const group2 = new THREE.Group();
+      const group3 = new THREE.Group();
+
       const groupTwo = new THREE.Group();
+      const groupTwo2 = new THREE.Group();
+      const groupTwo3 = new THREE.Group();
 
       //文字
       const ambientLight = new THREE.AmbientLight(0xaaaaaa);
@@ -192,35 +197,59 @@ export default {
         const geometrySetting = {
           font: font,
           size: 0.15,
-          height: 0.05,
+          height: 0.01,
           curveSegments: 20,
           bevelEnabled: false,
           bevelThickness: 0.01,
           bevelSize: 0.1,
           bevelSegments: 2,
         };
-        let textGeoGame = new THREE.TextGeometry("學術", geometrySetting);
-        let textGeoStop = new THREE.TextGeometry("非學術", geometrySetting);
+        let textGeoClassification = new THREE.TextGeometry("學術", geometrySetting);
+        let textGeoNonClassification = new THREE.TextGeometry("非學術", geometrySetting);
 
-        let textMatGame = new THREE.MeshLambertMaterial({ color: 0xffffff });
-        let textMatStop = new THREE.MeshLambertMaterial({ color: 0xffffff });
+        let textMatClassification = new THREE.MeshLambertMaterial({ color: 0xffffff });
+        let textMatNonClassification = new THREE.MeshLambertMaterial({ color: 0xffffff });
 
-        let textGame = new THREE.Mesh(textGeoGame, textMatGame);
-        let textStop = new THREE.Mesh(textGeoStop, textMatStop);
+        let textClassification = new THREE.Mesh(textGeoClassification, textMatClassification);
+        let textClassification2 = new THREE.Mesh(textGeoClassification, textMatClassification);
+        let textClassification3 = new THREE.Mesh(textGeoClassification, textMatClassification);
 
-        textGame.position.set(-0.15, 0, 0.5);
-        textStop.position.set(-0.35, 0, 0.5);
+        let textNonClassification = new THREE.Mesh(textGeoNonClassification, textMatNonClassification);
+        let textNonClassification2 = new THREE.Mesh(textGeoNonClassification, textMatNonClassification);
+        let textNonClassification3 = new THREE.Mesh(textGeoNonClassification, textMatNonClassification);
 
-        group.add(textGame);
-        groupTwo.add(textStop);
+        textClassification.position.set(-0.15, 0, 0.5);
+        textClassification2.position.set(-0.15, 0, 0.5);
+        textClassification3.position.set(-0.15, 0, 0.5);
+
+        textNonClassification.position.set(-0.35, 0, 0.5);
+        textNonClassification2.position.set(-0.35, 0, 0.5);
+        textNonClassification3.position.set(-0.35, 0, 0.5);
+
+
+
+        group.add(textClassification);
+        group2.add(textClassification2);
+        group3.add(textClassification3);
+
+        groupTwo.add(textNonClassification);
+        groupTwo2.add(textNonClassification2);
+        groupTwo3.add(textNonClassification3);
       });
       // group.scale.set(1);
       // groupTwo.scale.set(1);
 
       group.position.x = -1;
-      groupTwo.position.x = 1;
+      group2.position.x = -1;
+      group3.position.x = -1;
 
-      scene.add(group, groupTwo);
+      groupTwo.position.x = 1;
+      groupTwo2.position.x = 1;
+      groupTwo3.position.x = 1;
+
+
+
+      scene.add(group,group2,group3, groupTwo,groupTwo2,groupTwo3);
 
       scene.add(sphere, sphereTwo, particlesMesh);
 
@@ -246,7 +275,9 @@ export default {
       );
 
       interactionManager.add(sphere);
-      sphere.addEventListener("click", () => {});
+      sphere.addEventListener("click", () => {
+        router.push("/academic/test");
+      });
       interactionManager.add(sphereTwo);
       sphereTwo.addEventListener("click", () => {
         router.push("/non-academic/test");
@@ -280,7 +311,15 @@ export default {
         atmosphere.scale.set(0);
         // 文字
         group.rotation.y = 0.5 * elapsedTime;
+        group2.rotation.y = 2+ 0.5 * elapsedTime;
+        group3.rotation.y = 4+ 0.5 * elapsedTime;
+
+
         groupTwo.rotation.y = -0.5 * elapsedTime;
+        groupTwo2.rotation.y = -2 + -0.5 * elapsedTime;
+        groupTwo3.rotation.y = -4 + -0.5 * elapsedTime;
+
+
         // 觸碰到星球後atmosphere才放大
         for (const intersect of intersects) {
           atmosphere.scale.set(1.1, 1.1, 1.1);
