@@ -1,13 +1,13 @@
 <template>
   <!-- Udate.vue -->
   <div class="update" :class="{ '--exceeded': newPlearnetCharacterCount > 25 }">
-    <form
-      @submit.prevent="createNewPlearnet"
-      name="formUpdate"
-      class="formUpdate"
-    >
-      <!-- 輸入標題跟描述和上傳按鈕 -->
-      <div class="letf__box">
+    <div class="letf__box">
+      <form
+        @submit.prevent="createNewPlearnet"
+        name="formUpdate"
+        class="formUpdate"
+      >
+        <!-- 輸入標題跟描述和上傳按鈕 -->
         <h1>上傳筆記</h1>
 
         <div class="new-plearnet__box">
@@ -58,39 +58,39 @@
         </div>
         <!-- 上傳 -->
         <Button color="rgba(56,14,201,255)" text="上傳" />
-      </div>
+      </form>
+    </div>
 
-      <div class="right__box">
-        <!-- 預覽 -->
-        <div class="upload">
-          <button
-            :style="{
-              backgroundImage: 'url(' + state.preview + ')',
-              backgroundSize: '300px 40px',
-              backgroundRepeat: 'no-repeat',
-            }"
-            class="preview__img"
-          >
-            <input
-              type="file"
-              id="previeButton"
-              accept="image/*"
-              @change="previewImage"
-              class="previe__button"
-            />
-          </button>
-        </div>
-
-        <div class="preview__box">
-          <textarea
-            id="previewPlearnetContent"
-            :value="state.newPlearnetContent"
-            placeholder="筆記預覽"
-            class="preview-plearnet__content"
+    <div class="right__box">
+      <!-- 預覽 -->
+      <div class="upload">
+        <button
+          :style="{
+            backgroundImage: 'url(' + state.preview + ')',
+            backgroundSize: '300px 40px',
+            backgroundRepeat: 'no-repeat',
+          }"
+          class="preview__img"
+        >
+          <input
+            type="file"
+            id="previeButton"
+            accept="image/*"
+            @change="previewImage"
+            class="previe__button"
           />
-        </div>
+        </button>
       </div>
-    </form>
+
+      <div class="preview__box">
+        <textarea
+          id="previewPlearnetContent"
+          :value="state.newPlearnetContent"
+          placeholder="筆記預覽"
+          class="preview-plearnet__content"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -132,13 +132,13 @@ export default {
     const createNewPlearnet = async () => {
       await axios.post("plearnets", {
         title: state.newPlearnetTitle,
-        username:usernameid,
+        username: usernameid,
         type: state.selected,
         forum: "test",
         content: state.newPlearnetContent,
         like: 0,
         watched: 0,
-        favorite:0,
+        favorite: 0,
       });
       alert("已發布文章");
       await router.push(`/${state.selected}/test`);
@@ -173,7 +173,8 @@ export default {
 /* 整個畫面 */
 .update {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: center;
   align-items: center;
   width: 100%;
   color: white;
@@ -192,14 +193,14 @@ export default {
 }
 /* form */
 .formUpdate {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 /* 左邊發文的地方 */
 .letf__box {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 30%;
 }
 /* 放標題、內容、按鈕的div */
 .new-plearnet__box {
@@ -255,7 +256,8 @@ export default {
   outline: none;
   color: #000000;
   height: 300px;
-  width: 500px;
+  /* width: 500px; */
+  width: 100%;
   font-size: 3em;
   border-radius: 15px;
 }
@@ -281,7 +283,7 @@ export default {
 }
 
 .insert > img {
-  width: 150px;
+  width: 15%;
   margin: 0 10px 0px 10px;
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px #e9f4ac solid;
@@ -290,12 +292,14 @@ export default {
 /* 右邊 */
 .right__box {
   width: 50%;
+  margin: 0 0 0 30px;
 }
 /* 放預覽的整體 */
 .preview__box {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
-  width: 800px;
+  /* width: 800px; */
+  width: 70%;
   height: 500px;
   color: black;
   z-index: 0;
@@ -313,9 +317,12 @@ export default {
   margin: 10px;
 }
 .previe__button {
-  height: 2rem;
-  width: 9rem;
-  margin: 0px 0px 0px -5px;
+  height: 2.4rem;
+  width: 18.6rem;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+  top: -1px;
+  right: 7px;
   opacity: 0;
 }
 /* 預覽的圖片 */
@@ -326,9 +333,10 @@ export default {
 
 /* 預覽內容的地方 */
 .preview-plearnet__content {
-  width: 700px;
+  /* width: 700px; */
+  width: 80%;
   height: 350px;
-  margin: 0px 0px 0px 10px;
+  /* margin: 0px 0px 0px 10px; */
   padding: 5px;
   background: #b4b4c0;
   border: 1px solid #dbdada;
