@@ -2,7 +2,14 @@
   <!-- Atricle.vue -->
   <div class="content__box">
     <div class="atricle__box">
-      <div class="atricle__title">{{ state.atricle }}</div>
+      <div class="back">
+        <button @click.passive="back">＜</button>
+        <div class="title">
+          <div class="atricle__title">{{ state.atricle }}</div>
+        </div>
+        <div style="width: 10%" />
+      </div>
+
       <div class="atricle__content">{{ state.content }}</div>
     </div>
 
@@ -63,7 +70,7 @@ export default {
       .get("message", {
         params: {
           atricle: nowId,
-          _sort:'id',
+          _sort: "id",
           _order: "desc",
         },
       })
@@ -85,10 +92,13 @@ export default {
       });
       router.go(0);
     };
-
+    const back = async () => {
+      router.back(-1);
+    };
     return {
       state,
       submit,
+      back,
     };
   },
   components: { Button },
@@ -115,9 +125,11 @@ export default {
   height: 80%;
 }
 /* 文章標題 */
-
+.title{
+  width: 100%;
+}
 .atricle__title {
-  width: 80%;
+  width: 100%;
   height: 40px;
   background-color: #ffffff;
   border-radius: 20px;
@@ -179,4 +191,18 @@ export default {
 /* .user-message > .message-content{
     justify-content: flex-end;
 } */
+.back {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.back > button {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: white;
+  font-size: 30px;
+}
 </style>

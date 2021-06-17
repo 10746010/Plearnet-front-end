@@ -91,7 +91,7 @@
       "forum": "test",
       "content": "2",
       "like": 10,
-      "watched": 13,
+      "watched": 14,
       "id": 3,
       "favorite": 0
     },
@@ -203,7 +203,7 @@
       "forum": "test",
       "content": "123123",
       "like": 9,
-      "watched": 18,
+      "watched": 22,
       "id": 14,
       "favorite": 0
     },
