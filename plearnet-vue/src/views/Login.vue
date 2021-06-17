@@ -63,6 +63,7 @@ export default {
     });
 
     const router = useRouter();
+        console.log(router)
 
     const login = async () => {
       const response = await axios
@@ -78,20 +79,20 @@ export default {
         .catch((err) => {
           return err;
         });
-      console.log(response);
+
       if (
         state.account == response.account &&
         state.password == response.password
       ) {
         localStorage.setItem("token", response.id);
-        router.push("/");
+        router.push('/');
       } else {
         alert("帳號密碼錯誤");
       }
     };
 
     const back = async () => {
-      router.push("/");
+      router.push('/');
     };
     return {
       state,

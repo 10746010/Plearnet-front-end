@@ -12,7 +12,7 @@ import Wish from '../components/Wish.vue'
 import Update from '../components/Update.vue'
 import Atricle from '../views/Atricle.vue'
 import Plearnet from '../views/Plearnet.vue'
-
+import UploadHistory from '../components/UploadHistory.vue'
 import Test from '../components/Test.vue'
 
 import AccountBackground from '../components/AccountBackground.vue'
@@ -40,7 +40,7 @@ const routes = [
       //   component: Plearnet,
       // },
       {
-        path: '/testa',
+        path: '/:type/:forum/:id',
         component: Atricle,
       },
       {
@@ -82,6 +82,13 @@ const routes = [
           {
             path: 'wish',
             component: Wish,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'upload-history',
+            component: UploadHistory,
             meta: {
               requiresAuth: true
             },

@@ -12,11 +12,22 @@
       <span class="top_bottom_rotating"></span>
       <span class="top_bottom_rotating"></span>
       <div class="content">
-        <ArticleItem
-          v-for="article in state.data"
-          :key="article.id"
-          :text="article"
-          @click.prevent="watch(article.id, article.watched)"
+        <AtricleItem
+          v-for="atricle in state.data"
+          :key="atricle.id"
+          :text="atricle.title"
+          :like="atricle.like"
+          :watched="atricle.watched"
+          :favorite="atricle.favorite"
+          @click.prevent="
+            watch(
+              atricle.id,
+              atricle.watched,
+              atricle.title,
+              atricle.type,
+              atricle.forum
+            )
+          "
         />
       </div>
     </div>
@@ -24,17 +35,17 @@
 </template>
 
 <script>
-import ArticleItem from "./AtricleItem.vue";
+import AtricleItem from "./AtricleItem.vue";
 import { reactive, onMounted, onUnmounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import axios from "axios";
 
 export default {
-  name: "ArticleBox",
+  name: "AtricleBox",
   props: {},
   components: {
-    ArticleItem,
+    AtricleItem,
   },
   setup() {
     const state = reactive({
@@ -62,13 +73,6 @@ export default {
     onUnmounted(() => {
       window.removeEventListener("scroll", scrollHandle, false);
     });
-    // 點擊文章
-    const watch = async (id, watch) => {
-      axios.patch(`plearnets/${id}`, {
-        watched: (watch += 1),
-      });
-      await router.go(0);
-    };
 
     // 按鈕按下去後切換選擇的排序方法
     const change = async (now) => {
@@ -76,8 +80,8 @@ export default {
       await router.push(`testa?choose=${state.choose}`);
       await router.go(0);
     };
-    let nowForum = route.params.forum
-    let nowType = route.params.type
+    let nowForum = route.params.forum;
+    let nowType = route.params.type;
     let readyLoad = true;
     function load() {
       // 排序方法
@@ -85,14 +89,13 @@ export default {
         state.choose = route.query.choose;
       }
 
-
       if (readyLoad) {
         readyLoad = false;
         axios
           .get("plearnets", {
             params: {
-              type:nowType,
-              forum:nowForum,
+              type: nowType,
+              forum: nowForum,
               _sort: state.choose,
               _order: "desc",
               // _order: "asc",
@@ -116,6 +119,38 @@ export default {
     }
     load();
 
+    // 點擊文章
+    const watch = async (id, watch, title, type, forum) => {
+      axios
+        .get("watched", {
+          params: {
+            atricle: id,
+          },
+        })
+        .then((res) => {
+          console.log(res.data.length);
+          if (res.data.length == 0) {
+            add();
+          }
+        });
+      //新增閱讀歷史紀錄
+      let usernameid = localStorage.getItem("token");
+
+      function add() {
+        axios.post("watched", {
+          username: usernameid,
+          title: title,
+          type: type,
+          forum: forum,
+          atricle: id,
+        });
+      }
+
+      axios.patch(`plearnets/${id}`, {
+        watched: (watch += 1),
+      });
+      await router.push(`/${nowType}/${nowForum}/${id}`);
+    };
     return {
       state,
       change,
@@ -127,7 +162,7 @@ export default {
 <style scoped>
 .box {
   position: relative;
-  width: 80%;
+  width: 60%;
   height: 100%;
   background: #073335ed;
   box-shadow: 0 20px 50px rgb(23 86 90);
@@ -236,7 +271,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.sortButton{
+.sortButton {
   display: flex;
 }
 </style>
