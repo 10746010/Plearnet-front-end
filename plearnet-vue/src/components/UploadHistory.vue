@@ -2,7 +2,7 @@
   <!-- Like.vue -->
 
   <div class="upload">
-    <h1>我的收藏</h1>
+    <h1>我的上傳紀錄</h1>
     <div class="upload__content">
       <ListContent
         v-for="data in state.data"

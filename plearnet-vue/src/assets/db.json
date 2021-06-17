@@ -264,6 +264,17 @@
       "watched": 1,
       "favorite": 0,
       "id": 20
+    },
+    {
+      "title": "123",
+      "username": "1",
+      "type": "academic",
+      "forum": "test",
+      "content": "123",
+      "like": 0,
+      "watched": 0,
+      "favorite": 0,
+      "id": 21
     }
   ],
   "message": [
