@@ -1,27 +1,39 @@
 <template>
-<!-- Paint.vue -->
+  <!-- Paint.vue -->
   <div class="paint">
-    <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
-    <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
-    <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
-    <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
-    <ListContent headcolor="#01dcff" color="white" text="需要文字嗎?"/>
+    <h1>我的筆記重點</h1>
+    <div class="paint__content">
+      <ListContent headcolor="#01dcff" color="white" text="標題" />
+      <ListContent headcolor="#01dcff" color="white" text="標題" />
+      <ListContent headcolor="#01dcff" color="white" text="標題" />
+      <ListContent headcolor="#01dcff" color="white" text="標題" />
+      <ListContent headcolor="#01dcff" color="white" text="標題" />
+    </div>
   </div>
 </template>
 
 <script>
-import ListContent from "./ListContent"
+import ListContent from "./ListContent";
 
 export default {
   name: "Paint",
   components: {
-    ListContent
+    ListContent,
   },
 };
 </script>
 <style scoped>
-.paint{
+.paint {
   position: relative;
   z-index: 1;
+  margin: 0 0 0 30px;
+}
+.paint > h1 {
+  color: white;
+  margin: 0 0 10px 0;
+}
+.paint__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 </style>

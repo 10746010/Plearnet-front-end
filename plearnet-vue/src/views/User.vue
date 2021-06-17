@@ -5,15 +5,10 @@
       <div class="user-button">
         <UserButton />
       </div>
-      <Button        
-        color="rgba(255, 255, 255, 0)"
-        text="上傳紀錄"
-      />
-      <Button
-        @click.prevent="logout"
-        color="#ffffff"
-        text="登出"
-      />
+      <router-link to="/user/upload-history">
+        <Button color="rgba(255, 255, 255, 0)" text="上傳紀錄" />
+      </router-link>
+      <Button @click.prevent="logout" color="#ffffff" text="登出" />
     </div>
 
     <div class="content">
@@ -33,7 +28,8 @@ export default {
   components: {
     UserButton,
     Button,
-  }, setup() {
+  },
+  setup() {
     const router = useRouter();
 
     const logout = async () => {
@@ -41,7 +37,7 @@ export default {
       await router.push("/login");
     };
 
-    return {      
+    return {
       logout,
     };
   },
@@ -70,13 +66,22 @@ export default {
   width: 60%;
   height: 100%;
 }
-.btn:nth-child(2) {
+/* 使用者其他功能 */
+.user__features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/* 查看上傳紀錄 */
+.user__features >a >.btn{
   color: #f1e58b;
   border-radius: 1px;
   font-size: 28px;
-  /* width: 70px; */
+  position: relative;
+  z-index: 3;
 }
+
 .btn:nth-child(3) {
   color: #7b7c7d;
   border-radius: 1px;
@@ -84,9 +89,5 @@ export default {
   border: 2px solid #4ca3af;
   /* width: 70px; */
 }
-.user__features{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 </style>

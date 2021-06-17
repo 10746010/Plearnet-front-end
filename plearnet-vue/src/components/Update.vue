@@ -16,13 +16,23 @@
             <!-- 輸入標題 -->
             <div class="new-plearnet__title">
               <p>標題</p>
-              <input
-                id="newPlearnetTitle"
-                v-model="state.newPlearnetTitle"
-                placeholder="輸入標題"
-                required
-              />
+              <div class="title-select">
+                <input
+                  id="newPlearnetTitle"
+                  v-model="state.newPlearnetTitle"
+                  placeholder="輸入標題"
+                  required
+                />
+                <!-- 選擇發布的分類 -->
+                <div class="new-plearnet__select">
+                  <select v-model="state.selected">
+                    <option state.selected>academic</option>
+                    <option>non-academic</option>
+                  </select>
+                </div>
+              </div>
             </div>
+
             <!-- 描述 -->
             <div class="new-plearnet__content">
               <p>內文</p>
@@ -110,19 +120,28 @@ export default {
 
       newPlearnetTitle: "",
       newPlearnetContent: "",
+
+      selected: "academic",
     });
 
     const newPlearnetCharacterCount = computed(
       () => state.newPlearnetContent.length
     );
+    let usernameid = localStorage.getItem("token");
 
     const createNewPlearnet = async () => {
       await axios.post("plearnets", {
         title: state.newPlearnetTitle,
+        username:usernameid,
+        type: state.selected,
+        forum: "test",
         content: state.newPlearnetContent,
+        like: 0,
+        watched: 0,
+        favorite:0,
       });
       alert("已發布文章");
-      await router.push("/plearnet/1");
+      await router.push(`/${state.selected}/test`);
     };
 
     function previewImage(event) {
@@ -201,12 +220,24 @@ export default {
   border-color: white;
   border-bottom-style: solid;
   outline: none;
-  color: white;
+  color: #000000;
   height: 60px;
+  width: 55%;
   font-size: 2.5em;
   border-radius: 15px;
+  margin: 0 10px 0 0;
 }
-
+/* 標題輸入和選擇類別 */
+.title-select {
+  display: flex;
+}
+.new-plearnet__select > select {
+  height: 100%;
+  font-size: 18px;
+  border-radius: 15px;
+  background-color: #6e6e6e;
+  color: #f6efba;
+}
 /* 新增文章的內容 */
 .new-plearnet__content > p {
   margin: 0;
@@ -222,7 +253,7 @@ export default {
   border-color: white;
   border-bottom-style: solid;
   outline: none;
-  color: white;
+  color: #000000;
   height: 300px;
   width: 500px;
   font-size: 3em;
@@ -271,14 +302,14 @@ export default {
   top: 20%;
   position: relative;
   justify-content: center;
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
 }
 
 /* 上傳預覽圖片的按鈕 */
 .upload {
   position: relative;
-  top:15%;
+  top: 15%;
   margin: 10px;
 }
 .previe__button {
@@ -299,7 +330,8 @@ export default {
   height: 350px;
   margin: 0px 0px 0px 10px;
   padding: 5px;
-  background: #f5e17e;
+  background: #b4b4c0;
+  border: 1px solid #dbdada;
 }
 .preview-plearnet__content::placeholder {
   color: #00135e;

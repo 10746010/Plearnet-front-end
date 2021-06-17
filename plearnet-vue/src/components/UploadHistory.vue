@@ -1,21 +1,21 @@
 <template>
-  <!-- History.vue -->
+  <!-- Like.vue -->
 
-  <div class="history">
-    <h1>我的歷史紀錄</h1>
-    <div class="history__content">
+  <div class="upload">
+    <h1>我的收藏</h1>
+    <div class="upload__content">
       <ListContent
         v-for="data in state.data"
         :key="data.id"
-        headcolor="red"
+        headcolor="green"
         color="white"
         :text="data.title"
-        @click.prevent="click(data.type, data.forum, data.atricle)"
+        @click.prevent="click(data.type,data.forum,data.id)"
       />
-      <!-- <ListContent headcolor="red" color="white" text="收藏" />
-      <ListContent headcolor="red" color="white" text="收藏" />
-      <ListContent headcolor="red" color="white" text="收藏" />
-      <ListContent headcolor="red" color="white" text="收藏" /> -->
+      <!-- <ListContent headcolor="green" color="white" :text="data.title" />
+      <ListContent headcolor="green" color="white" :text="data.title" />
+      <ListContent headcolor="green" color="white" :text="data.title" />
+      <ListContent headcolor="green" color="white" :text="data.title" /> -->
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ import axios from "axios";
 import { useRouter } from "vue-router";
 
 export default {
-  name: "History",
+  name: "Upload",
   components: {
     ListContent,
   },
@@ -39,40 +39,40 @@ export default {
 
     let usernameid = localStorage.getItem("token");
     axios
-      .get("watched", {
+      .get("plearnets", {
         params: {
           username: usernameid,
         },
       })
       .then(function (response) {
+        console.log(response.data);
         state.data = response.data;
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    const click = async (type, forum, atricle) => {
-      router.push(`/${type}/${forum}/${atricle}`);
+    const click = async (type,forum,id) => {
+        router.push(`/${type}/${forum}/${id}`)
     };
     return {
       state,
-      click,
+      click
     };
   },
 };
 </script>
 <style scoped>
-.history {
+.upload {
   position: relative;
   z-index: 1;
   margin: 0 0 0 30px;
 }
-.history > h1 {
+.upload > h1 {
   color: white;
   margin: 0 0 10px 0;
 }
-.history__content {
+.upload__content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

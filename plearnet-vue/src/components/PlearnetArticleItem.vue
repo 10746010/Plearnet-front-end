@@ -35,7 +35,7 @@ export default {
     transition: all 0.25s ease;
 }
 
-.page-text:hover{
+/* .page-text:hover{
     transform: scale(0.9, 0.9);
-}
+} */
 </style>
