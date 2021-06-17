@@ -77,7 +77,7 @@ export default {
     // 按鈕按下去後切換選擇的排序方法
     const change = async (now) => {
       state.choose = now;
-      await router.push(`testa?choose=${state.choose}`);
+      await router.push(`test?choose=${state.choose}`);
       await router.go(0);
     };
     let nowForum = route.params.forum;
