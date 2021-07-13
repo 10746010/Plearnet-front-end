@@ -13,7 +13,7 @@
         width: 1280px;
         height: 80px;
         text-align: center;
-        font-size:50px;
+        font-size: 50px;
         color: #03f8f8;
         font-weight: normal;
         font-family: monospace;
@@ -24,15 +24,40 @@
         width: 1280px;
         height: 720px;
         line-height: 280px;
-        background-color: #fffaf3;
+        background-color: #0400fd;
     }
 
+    .Box {
+        display: flex;
+        display: -webkit-flex;
+        border: 1px solid #0000FF;
+        height: 200px;
+        width: 400px;
+        flex-direction: column;
+    }
+
+    .Item {
+        width: 50px;
+        height: 40px;
+        border: 1px solid #00C1B3;
+    }
 </style>
 
 <body background="../static/img/bg.jpg ">
-<div class="Header">Plearnet</div>
-<div class="Body"></div>
+    <div class="Header">Plearnet
+        <img src="../static/img/icon.png" style="float:left" width="50" height="50">
+        <img src="../static/img/login.png" style="float:right" width="50" height="50">
+    </div>
+
+    <div class="Body">
+        <div class="Box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+          </div>
+    </div>
 </body>
 
 </html>
-
