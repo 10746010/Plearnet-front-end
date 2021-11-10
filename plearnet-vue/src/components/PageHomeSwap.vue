@@ -58,7 +58,7 @@
                   高中
                 </div>
               </q-img>
-              <q-btn flat round to="/header">
+              <q-btn flat round to="/main">
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 180px"
@@ -72,7 +72,7 @@
                   </div>
                 </q-img>
               </q-btn>
-              <q-btn flat round to="/header/menu2">
+              <q-btn flat round to="/main/savor">
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 180px"
@@ -179,7 +179,6 @@
 
 <script>
 import { ref } from "vue";
-import { fabYoutube } from "@quasar/extras/fontawesome-v5";
 
 export default {
   name: "PageHomeSwap",
@@ -187,40 +186,10 @@ export default {
 
   },
   props: {
-    display_type: String,
   },
   setup() {
-    const leftDrawerOpen = ref(false);
-    const rightDrawerOpen = ref(false);
-    const search = ref("");
-
-    function toggleLeftDrawer() {
-      leftDrawerOpen.value = !leftDrawerOpen.value;
-    }
-    function toggleRightDrawer() {
-      rightDrawerOpen.value = !rightDrawerOpen.value;
-    }
-    return {
-      fabYoutube,
-      search,
-      leftDrawerOpen,
-      toggleLeftDrawer,
-      rightDrawerOpen,
-      toggleRightDrawer,
-      links1: [
-        { icon: "home", text: "首頁", to: "/main/" },
-        { icon: "fas fa-portrait", text: "個人資料", to: "/main/info" },
-        { icon: "fas fa-key", text: "變更密碼", to: "/main/changepassword" },
-      ],
-      links2: [
-        { icon: "restore", text: "歷史", to: "/main/history" },
-        { icon: "thumb_up_alt", text: "收藏", to: "/main/like" },
-        { icon: "fas fa-pen", text: "塗鴉", to: "/main/paint" },
-      ],
-      links3: [
-        { icon: "fas fa-cloud-upload-alt", text: "上傳", to: "/main/upload" },
-        { icon: "fas fa-magic", text: "許願", to: "/main/wish" },
-      ],
+  
+    return {     
       notes: [
         {
           title: "番茄炒蛋1",
@@ -263,25 +232,6 @@ export default {
 </script>
 
 <style lang="sass">
-.YL
-    &__toolbar-input-container
-        min-width: 100px
-        width: 55%
-    &__toolbar-input-btn
-        border-radius: 0
-        border-style: solid
-        border-width: 1px 1px 1px 0
-        border-color: rgba(0,0,0,.24)
-        max-width: 60px
-        width: 100%
-    &__drawer-footer-link
-        color: inherit
-        text-decoration: none
-        font-weight: 500
-        font-size: .75rem
-        &:hover
-            color: #000
-
 .my-card
   width: 100%
   max-width: 250px

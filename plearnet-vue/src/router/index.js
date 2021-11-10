@@ -7,6 +7,7 @@ import PageHomeSwap from '../components/PageHomeSwap.vue'
 import PageHomeSavor from '../components/PageHomeSavor.vue'
 import PageInfo from '../components/PageInfo.vue'
 import PageChangePassword from '../components/PageChangePassword.vue'
+import PageHistory from '../components/PageHistory.vue'
 
 
 
@@ -270,6 +271,10 @@ const routes= [
       {
         path:'changepassword',
         component:PageChangePassword,
+      },
+      {
+        path:'history',
+        component:PageHistory,
       },
     ]
   }
