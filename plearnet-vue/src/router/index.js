@@ -9,6 +9,7 @@ import PageInfo from '../components/PageInfo.vue'
 import PageChangePassword from '../components/PageChangePassword.vue'
 import PageHistory from '../components/PageHistory.vue'
 import PageLike from '../components/PageLike.vue'
+import PagePaint from '../components/PagePaint.vue'
 
 
 
@@ -281,10 +282,14 @@ const routes= [
         path:'like',
         component:PageLike,
       },
+      {
+        path:'paint',
+        component:PagePaint,
+      },
     ]
   }
   
-
+  
 ]
 
 const router = createRouter({
