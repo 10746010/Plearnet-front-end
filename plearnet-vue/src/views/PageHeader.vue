@@ -189,7 +189,7 @@ export default {
       ],
 
       links3: [
-        { icon: "fas fa-cloud-upload-alt", text: "上傳",to:"/main/update" },
+        { icon: "fas fa-cloud-upload-alt", text: "上傳",to:"/main/upload" },
         { icon: "fas fa-magic", text: "許願",to:"/main/wish" },
 
       ],
