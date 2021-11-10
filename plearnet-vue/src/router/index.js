@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import PageIndexHeader from '../views/PageIndexHeader.vue'
 import PageIndex from '../views/PageIndex.vue'
+import PageHeader from '../views/PageHeader.vue'
 
 // import Main from '../views/Main.vue'
 // import Home from '../views/Home.vue'
@@ -243,7 +244,13 @@ const routes= [
         component:PageIndex
       }
     ]
+  },
+  {
+    path:'/main',
+    component:PageHeader
   }
+  
+
 ]
 
 const router = createRouter({

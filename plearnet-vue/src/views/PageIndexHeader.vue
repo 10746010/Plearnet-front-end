@@ -51,7 +51,7 @@
             @click="contact"
           />
 
-          <q-btn to="/header/login" stretch flat label="登入" />
+          <q-btn to="/main/login" stretch flat label="登入" />
         </q-toolbar>
       </div>
     </q-header>
