@@ -17,6 +17,8 @@ import PageUploadNote from '../components/PageUploadNote.vue'
 import PageSwap from '../components/PageSwap.vue'
 import PageSwapContent from '../components/PageSwapContent.vue'
 import PageSavor from '../components/PageSavor.vue'
+import PageLogin from '../components/PageLogin.vue'
+import PageRegister from '../components/PageRegister.vue'
 
 
 
@@ -36,7 +38,7 @@ import PageSavor from '../components/PageSavor.vue'
 // import UploadHistory from '../components/UploadHistory.vue'
 // import Test from '../components/Test.vue'
 
-// import AccountBackground from '../components/AccountBackground.vue'
+import AccountBackground from '../components/AccountBackground.vue'
 // import AtricleBox from '../components/AtricleBox.vue'
 // import AtricleItem from '../components/AtricleItem.vue'
 
@@ -260,7 +262,7 @@ const routes= [
         component:PageIndex
       }
     ]
-  },
+  },  
   {
     path:'/main/',
     component:PageHeader,
@@ -320,6 +322,22 @@ const routes= [
       {
         path:'savorcontent',
         component:PageSavor,
+      },
+      {
+        path: 'login/',
+        component: AccountBackground,
+        children: [
+          {
+            path: '',
+            name: 'PageLogin',
+            component: PageLogin,
+          },
+          {
+            path: 'register',
+            name: 'PageRegister',
+            component: PageRegister,
+          },
+        ]
       },
     ]
   }
