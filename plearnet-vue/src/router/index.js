@@ -1,25 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Main from '../views/Main.vue'
-import Home from '../views/Home.vue'
-import User from '../views/User.vue'
-import Like from '../components/Like.vue'
-import History from '../components/History.vue'
-import Self from '../components/Self.vue'
-import Paint from '../components/Paint.vue'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import Wish from '../components/Wish.vue'
-import Update from '../components/Update.vue'
-import Atricle from '../views/Atricle.vue'
-import Plearnet from '../views/Plearnet.vue'
-import UploadHistory from '../components/UploadHistory.vue'
-import Test from '../components/Test.vue'
 
-import AccountBackground from '../components/AccountBackground.vue'
+import PageIndexHeader from '../views/PageIndexHeader.vue'
+import PageIndex from '../views/PageIndex.vue'
+
+// import Main from '../views/Main.vue'
+// import Home from '../views/Home.vue'
+// import User from '../views/User.vue'
+// import Like from '../components/Like.vue'
+// import History from '../components/History.vue'
+// import Self from '../components/Self.vue'
+// import Paint from '../components/Paint.vue'
+// import Login from '../views/Login.vue'
+// import Register from '../views/Register.vue'
+// import Wish from '../components/Wish.vue'
+// import Update from '../components/Update.vue'
+// import Atricle from '../views/Atricle.vue'
+// import Plearnet from '../views/Plearnet.vue'
+// import UploadHistory from '../components/UploadHistory.vue'
+// import Test from '../components/Test.vue'
+
+// import AccountBackground from '../components/AccountBackground.vue'
 // import AtricleBox from '../components/AtricleBox.vue'
 // import AtricleItem from '../components/AtricleItem.vue'
 
-
+/*
 const routes = [
   {
     path: '/main',
@@ -225,6 +229,21 @@ const routes = [
     //   path: '/:pathMatch(.*)*',
     //   redirect: "/"
     // },
+]
+*/
+
+const routes= [
+  {
+    path:'/',
+    component:PageIndexHeader,
+    children: [
+      {
+        path:'/',
+        name:'PageIndex',
+        component:PageIndex
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
