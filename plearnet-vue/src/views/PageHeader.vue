@@ -180,7 +180,7 @@ export default {
       links1: [
         { icon: "home", text: "首頁", to: "/main" },
         { icon: "fas fa-portrait", text: "個人資料", to: "/main/info" },
-        { icon: "fas fa-key", text: "變更密碼" ,to: "/main/change"},
+        { icon: "fas fa-key", text: "變更密碼" ,to: "/main/changepassword"},
       ],
       links2: [
         { icon: "restore", text: "歷史",to:"/main/history" },
