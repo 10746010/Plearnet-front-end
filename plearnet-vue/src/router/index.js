@@ -5,6 +5,7 @@ import PageIndex from '../views/PageIndex.vue'
 import PageHeader from '../views/PageHeader.vue'
 import PageHomeSwap from '../components/PageHomeSwap.vue'
 import PageHomeSavor from '../components/PageHomeSavor.vue'
+import PageInfo from '../components/PageInfo.vue'
 
 
 
@@ -260,6 +261,10 @@ const routes= [
       {
         path:'savor',
         component:PageHomeSavor,
+      },
+      {
+        path:'info',
+        component:PageInfo,
       },
     ]
   }
