@@ -131,7 +131,7 @@
                     style="width: 80px"
                     color="primary"
                     label="GO"
-                    to="/header/decuss"
+                    to="/main/savorcontent"
                   />
                 </q-card-actions>
               </q-card>

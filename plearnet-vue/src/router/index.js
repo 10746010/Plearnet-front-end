@@ -7,12 +7,16 @@ import PageHomeSwap from '../components/PageHomeSwap.vue'
 import PageHomeSavor from '../components/PageHomeSavor.vue'
 import PageInfo from '../components/PageInfo.vue'
 import PageChangePassword from '../components/PageChangePassword.vue'
+import PageChangeInfo from '../components/PageChangeInfo.vue'
 import PageHistory from '../components/PageHistory.vue'
 import PageLike from '../components/PageLike.vue'
 import PagePaint from '../components/PagePaint.vue'
 import PageUpload from '../components/PageUpload.vue'
 import PageWish from '../components/PageWish.vue'
 import PageUploadNote from '../components/PageUploadNote.vue'
+import PageSwap from '../components/PageSwap.vue'
+import PageSwapContent from '../components/PageSwapContent.vue'
+import PageSavor from '../components/PageSavor.vue'
 
 
 
@@ -300,6 +304,22 @@ const routes= [
       {
         path:'uploadnote',
         component:PageUploadNote,
+      },
+      {
+        path:'changeinfo',
+        component:PageChangeInfo,
+      },
+      {
+        path:'swap',
+        component:PageSwap,
+      },
+      {
+        path:'swapcontent',
+        component:PageSwapContent,
+      },
+      {
+        path:'savorcontent',
+        component:PageSavor,
       },
     ]
   }

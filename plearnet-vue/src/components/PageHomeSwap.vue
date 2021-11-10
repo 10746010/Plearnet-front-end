@@ -135,7 +135,7 @@
                     style="width: 80px"
                     color="primary"
                     label="GO"
-                    to="/header/swap"
+                    to="/main/swap"
                   />
                 </q-card-actions>
               </q-card>

@@ -9,7 +9,7 @@
                 clickable
                 v-ripple
                 class="column justify-center items-center content-center"
-                to="/header/changeinfo"
+                to="/main/changeinfo"
               >
                 <q-item-section>
                   <q-avatar size="100px">
