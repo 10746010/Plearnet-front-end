@@ -8,6 +8,7 @@ import PageHomeSavor from '../components/PageHomeSavor.vue'
 import PageInfo from '../components/PageInfo.vue'
 import PageChangePassword from '../components/PageChangePassword.vue'
 import PageHistory from '../components/PageHistory.vue'
+import PageLike from '../components/PageLike.vue'
 
 
 
@@ -275,6 +276,10 @@ const routes= [
       {
         path:'history',
         component:PageHistory,
+      },
+      {
+        path:'like',
+        component:PageLike,
       },
     ]
   }
