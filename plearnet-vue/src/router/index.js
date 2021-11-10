@@ -1,25 +1,48 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Main from '../views/Main.vue'
-import Home from '../views/Home.vue'
-import User from '../views/User.vue'
-import Like from '../components/Like.vue'
-import History from '../components/History.vue'
-import Self from '../components/Self.vue'
-import Paint from '../components/Paint.vue'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import Wish from '../components/Wish.vue'
-import Update from '../components/Update.vue'
-import Atricle from '../views/Atricle.vue'
-import Plearnet from '../views/Plearnet.vue'
-import UploadHistory from '../components/UploadHistory.vue'
-import Test from '../components/Test.vue'
+
+import PageIndexHeader from '../views/PageIndexHeader.vue'
+import PageIndex from '../views/PageIndex.vue'
+import PageHeader from '../views/PageHeader.vue'
+import PageHomeSwap from '../components/PageHomeSwap.vue'
+import PageHomeSavor from '../components/PageHomeSavor.vue'
+import PageInfo from '../components/PageInfo.vue'
+import PageChangePassword from '../components/PageChangePassword.vue'
+import PageChangeInfo from '../components/PageChangeInfo.vue'
+import PageHistory from '../components/PageHistory.vue'
+import PageLike from '../components/PageLike.vue'
+import PagePaint from '../components/PagePaint.vue'
+import PageUpload from '../components/PageUpload.vue'
+import PageWish from '../components/PageWish.vue'
+import PageUploadNote from '../components/PageUploadNote.vue'
+import PageSwap from '../components/PageSwap.vue'
+import PageSwapContent from '../components/PageSwapContent.vue'
+import PageSavor from '../components/PageSavor.vue'
+import PageLogin from '../components/PageLogin.vue'
+import PageRegister from '../components/PageRegister.vue'
+
+
+
+// import Main from '../views/Main.vue'
+// import Home from '../views/Home.vue'
+// import User from '../views/User.vue'
+// import Like from '../components/Like.vue'
+// import History from '../components/History.vue'
+// import Self from '../components/Self.vue'
+// import Paint from '../components/Paint.vue'
+// import Login from '../views/Login.vue'
+// import Register from '../views/Register.vue'
+// import Wish from '../components/Wish.vue'
+// import Update from '../components/Update.vue'
+// import Atricle from '../views/Atricle.vue'
+// import Plearnet from '../views/Plearnet.vue'
+// import UploadHistory from '../components/UploadHistory.vue'
+// import Test from '../components/Test.vue'
 
 import AccountBackground from '../components/AccountBackground.vue'
 // import AtricleBox from '../components/AtricleBox.vue'
 // import AtricleItem from '../components/AtricleItem.vue'
 
-
+/*
 const routes = [
   {
     path: '/main',
@@ -225,6 +248,101 @@ const routes = [
     //   path: '/:pathMatch(.*)*',
     //   redirect: "/"
     // },
+]
+*/
+
+const routes= [
+  {
+    path:'/',
+    component:PageIndexHeader,
+    children: [
+      {
+        path:'/',
+        name:'PageIndex',
+        component:PageIndex
+      }
+    ]
+  },  
+  {
+    path:'/main/',
+    component:PageHeader,
+    children:[
+      {
+        path:'',
+        component:PageHomeSwap,
+      },
+      {
+        path:'savor',
+        component:PageHomeSavor,
+      },
+      {
+        path:'info',
+        component:PageInfo,
+      },
+      {
+        path:'changepassword',
+        component:PageChangePassword,
+      },
+      {
+        path:'history',
+        component:PageHistory,
+      },
+      {
+        path:'like',
+        component:PageLike,
+      },
+      {
+        path:'paint',
+        component:PagePaint,
+      },
+      {
+        path:'upload',
+        component:PageUpload,
+      },
+      {
+        path:'wish',
+        component:PageWish,
+      },
+      {
+        path:'uploadnote',
+        component:PageUploadNote,
+      },
+      {
+        path:'changeinfo',
+        component:PageChangeInfo,
+      },
+      {
+        path:'swap',
+        component:PageSwap,
+      },
+      {
+        path:'swapcontent',
+        component:PageSwapContent,
+      },
+      {
+        path:'savorcontent',
+        component:PageSavor,
+      },
+      {
+        path: 'login/',
+        component: AccountBackground,
+        children: [
+          {
+            path: '',
+            name: 'PageLogin',
+            component: PageLogin,
+          },
+          {
+            path: 'register',
+            name: 'PageRegister',
+            component: PageRegister,
+          },
+        ]
+      },
+    ]
+  }
+  
+  
 ]
 
 const router = createRouter({
