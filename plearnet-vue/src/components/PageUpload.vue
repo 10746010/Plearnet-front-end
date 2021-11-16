@@ -29,8 +29,8 @@
       <div class="row justify-center q-gutter-sm">
         <q-intersection
           class="example-item col-3"
-          v-for="n in 9"
-          :key="`sm-${n}`"
+          v-for="note in state.notes"
+          :key="note"
           once
           transition="scale"
         >
@@ -39,8 +39,7 @@
               <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
               <q-card-section>
-                <div class="text-h6">Card #{{ index }}</div>
-                <div class="text-subtitle2">by John Doe</div>
+                <div class="text-h6">{{ note.title }}</div>
               </q-card-section>
             </q-card>
           </div>
@@ -52,6 +51,9 @@
 
 <script>
 
+import axios from "axios";
+import { reactive } from "vue";
+
 export default {
   name: "PageUpload",
   components: {
@@ -62,8 +64,22 @@ export default {
   },
   setup() {
 
+    const state = reactive({
+      notes:[]
+    });
+     
+     axios
+      .get("topic/tagSearch?tag=1", {
+        
+      })
+      .then(function (response){
+        state.notes = response.data.data
+      })
+      .catch(function (error){
+        console.log(error);
+      })
     return {
-
+      state
     };
   },
 };
