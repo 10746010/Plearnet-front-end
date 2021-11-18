@@ -105,17 +105,18 @@
               "
             >
               <q-card
-                class="my-card bg-grey-8 text-white"
-                style="max-width: 300px"
+                class="my-content bg-grey-8 text-white"
+                style="width: 100%
+  max-width: 350px"
               >
                 <q-card-section>
                   <div class="text-h6">交流星球</div>
                 </q-card-section>
 
                 <q-card-section style="height: 200px">
-                  <p style="font-size: 20px">還在為看不懂的公式煩惱嗎？</p>
-                  <p style="font-size: 20px">還在為看不懂的古文煩惱嗎？</p>
-                  <p class="q-pr-md q-pl-md" style="font-size: 20px">
+                  <p style="font-size: 18px">還在為看不懂的公式煩惱嗎？</p>
+                  <p style="font-size: 18px">還在為看不懂的古文煩惱嗎？</p>
+                  <p class="q-pr-md q-pl-md" style="font-size: 18px">
                     來和大家一起交流討論解決煩惱吧
                   </p>
 
@@ -232,13 +233,13 @@ export default {
 </script>
 
 <style lang="sass">
-.my-card
+.my-content
   width: 100%
   max-width: 250px
 
 
 @media (max-width: 850px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 
@@ -246,7 +247,7 @@ export default {
     width:80%
   
 @media (min-width: 691px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 

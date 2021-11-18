@@ -1,10 +1,10 @@
 <template>
   <div class="bg-grey-3 q-pa-md">
     <div class="column items-center" style="height: 95vh">
-      <div class="subscription q-pa-md">立即訂閱Plearnet</div>
+      <div class="subscription q-pa-md" style="font-size: 3rem">立即訂閱Plearnet</div>
       <div class="text-center content-center row">
         <div class="q-pl-xl q-pr-xs">
-          <q-card class="my-card">
+          <q-card class="my-sub" style="width:300px">
             <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
 
             <q-card-section>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="q-pl-xl q-pr-xl">
-          <q-card class="my-card">
+          <q-card class="my-sub" style="width:300px">
             <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
 
             <q-card-section>
@@ -77,7 +77,7 @@
         </div>
 
         <div class="q-pl-xs q-pr-xl">
-          <q-card class="my-card">
+          <q-card class="my-sub" style="width:300px">
             <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
 
             <q-card-section>
@@ -138,10 +138,11 @@ export default {
     font-size: 2rem
   @media ( max-width: 1023px)
     font-size: 1rem
-    @media ( max-width: 599px)
-      font-size: 0.5rem
+  @media ( max-width: 599px)
+    font-size: 0.5rem
 
-.my-card
+
+.my-sub
   width: 300px
   @media (max-width :1439px)
     width: 200px
@@ -149,6 +150,6 @@ export default {
   @media ( max-width: 1023px)
     width: 145px
 
-    @media ( max-width: 599px)
-      width: 125px
+  @media ( max-width: 599px)
+    width: 125px
 </style>

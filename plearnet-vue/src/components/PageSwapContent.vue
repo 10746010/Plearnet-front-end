@@ -247,7 +247,4 @@ export default {
 .content
     white-space:pre-line
 
-.my-card
-  width: 100%
-  max-width: 350px
 </style>

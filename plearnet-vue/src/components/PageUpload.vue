@@ -14,7 +14,7 @@
         <div class="q-pr-xl">
           <div class="q-pr-lg">
             <q-btn class="glossy q-mr-md" rounded color="indigo-14" label="新增" to="/main/uploadnote"/>
-            <q-btn class="glossy" rounded color="deep-orange" label="刪除" />
+            <q-btn class="glossy" rounded color="deep-orange" label="刪除"  @click="onDelete"/>
           
           </div>
         </div>
@@ -35,11 +35,21 @@
           transition="scale"
         >
           <div class="my-content">
+        
+
             <q-card class="q-ma-sm">
-              <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+              
+              <img src="https://cdn.quasar.dev/img/mountains.jpg"  />
 
               <q-card-section>
                 <div class="text-h6">{{ note.title }}</div>
+                <div class="text-subtitle2 row">
+                  by My Self <q-space/>
+                  <div v-if="this.deleteButton">
+                    <q-btn round color="primary" icon="delete" dense @click="deleteNote(note)"/>
+                  </div>
+                </div>
+
               </q-card-section>
             </q-card>
           </div>
@@ -52,7 +62,7 @@
 <script>
 
 import axios from "axios";
-import { reactive } from "vue";
+import { reactive,ref } from "vue";
 
 export default {
   name: "PageUpload",
@@ -65,9 +75,29 @@ export default {
   setup() {
 
     const state = reactive({
-      notes:[]
+      notes:[
+        { title: "蛋蛋",date: 1636472865852},
+        { title: "肉肉",date: 1637254937118},
+        { title: "飯飯",date: 1637254943967},
+        { title: "菜菜",date: 1637254973899},
+        { title: "蛋蛋",date: 1637254953820},
+        { title: "蛋蛋",date: 1637254953825},
+
+      ],
+      
     });
-     
+    console.log(Date.now())
+    const deleteButton = ref(false);
+
+    function onDelete (){
+      deleteButton.value = !deleteButton.value
+    }
+
+    function deleteNote(note){
+      let noteToDelete = note.date;
+      let index = state.notes.findIndex((note) => note.date === noteToDelete);
+      state.notes.splice(index, 1);
+    }
      axios
       .get("topic/tagSearch?tag=1", {
         
@@ -79,7 +109,10 @@ export default {
         console.log(error);
       })
     return {
-      state
+      state,
+      onDelete,
+      deleteButton,
+      deleteNote
     };
   },
 };

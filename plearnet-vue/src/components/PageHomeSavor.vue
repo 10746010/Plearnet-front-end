@@ -104,17 +104,18 @@
               "
             >
               <q-card
-                class="my-card bg-grey-8 text-white"
-                style="max-width: 300px"
+                class="my-content bg-grey-8 text-white"
+                style="width: 100%
+  max-width: 350px"
               >
                 <q-card-section>
                   <div class="text-h6">興趣星球</div>
                 </q-card-section>
 
                 <q-card-section style="height: 200px">
-                  <p style="font-size: 20px">想要有個第二專長嗎？</p>
-                  <p style="font-size: 20px">想要尋找感興趣的事物嗎？</p>
-                  <p class="q-pr-md q-pl-md" style="font-size: 20px">
+                  <p style="font-size: 18px">想要有個第二專長嗎？</p>
+                  <p style="font-size: 18px">想要尋找感興趣的事物嗎？</p>
+                  <p class="q-pr-md q-pl-md" style="font-size: 18px">
                     來興趣星球探索吧
                   </p>
                 </q-card-section>
@@ -230,13 +231,13 @@ export default {
 </script>
 
 <style lang="sass">
-.my-card
+.my-content
   width: 100%
   max-width: 250px
 
 
 @media (max-width: 850px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 
@@ -244,7 +245,7 @@ export default {
     width:80%
   
 @media (min-width: 691px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 
