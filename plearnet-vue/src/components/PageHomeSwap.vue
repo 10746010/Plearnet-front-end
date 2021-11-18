@@ -106,16 +106,17 @@
             >
               <q-card
                 class="my-content bg-grey-8 text-white"
-                style="max-width: 300px"
+                style="width: 100%
+  max-width: 350px"
               >
                 <q-card-section>
                   <div class="text-h6">交流星球</div>
                 </q-card-section>
 
                 <q-card-section style="height: 200px">
-                  <p style="font-size: 20px">還在為看不懂的公式煩惱嗎？</p>
-                  <p style="font-size: 20px">還在為看不懂的古文煩惱嗎？</p>
-                  <p class="q-pr-md q-pl-md" style="font-size: 20px">
+                  <p style="font-size: 18px">還在為看不懂的公式煩惱嗎？</p>
+                  <p style="font-size: 18px">還在為看不懂的古文煩惱嗎？</p>
+                  <p class="q-pr-md q-pl-md" style="font-size: 18px">
                     來和大家一起交流討論解決煩惱吧
                   </p>
 

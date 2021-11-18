@@ -15,7 +15,7 @@
             <q-select class="q-mb-sm" color="teal" filled v-model="model" :options="options" label="類別"/>
               <q-input
                 filled
-                v-model="name"
+                v-model="state.title"
                 label="Your title *"
                 hint="title and content"
                 lazy-rules
@@ -26,7 +26,7 @@
               <q-editor
                 class="bg-grey-4"
                 style="min-height:650px!important"
-                v-model="qeditor"
+                v-model="state.content"
 
                 :dense="$q.screen.lt.md"
                 :toolbar="[
@@ -127,8 +127,10 @@
   </q-page>
 </template>
 <script>
+import axios from "axios";
 import { useQuasar } from "quasar";
-import { ref, computed } from "vue";
+import { ref, computed,reactive } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "WhatsappLayout",
@@ -142,7 +144,29 @@ export default {
     const editorStyle = computed(() => ({
       height: $q.screen.height - 330 + "px",
     }));
- 
+
+    const state = reactive({
+      title: "",
+      content: "",
+
+    });
+
+    const router = useRouter();
+
+    const createNewNote = async () => {
+      await axios.post("/topic/postNote", {
+        title:state.title,
+        contetnt:state.content
+        // username: state.username,
+        // account: state.account,
+        // password: state.password,
+        // password_confirm: state.password_confirm,
+        // email: state.email,
+      });
+
+      await router.push("/main");
+    };
+
     return {
       style,
       editorStyle,
@@ -150,7 +174,7 @@ export default {
         "<pre>Check out the two different types of dropdowns" +
           ' in each of the "Align" buttons.</pre> '
       ),
-
+      createNewNote
     };
   },
 };

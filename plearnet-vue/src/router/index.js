@@ -19,6 +19,8 @@ import PageSwapContent from '../components/PageSwapContent.vue'
 import PageSavor from '../components/PageSavor.vue'
 import PageLogin from '../components/PageLogin.vue'
 import PageRegister from '../components/PageRegister.vue'
+import PageNoteContent from '../components/PageNoteContent.vue'
+
 
 
 
@@ -322,6 +324,10 @@ const routes= [
       {
         path:'savorcontent',
         component:PageSavor,
+      },
+      {
+        path:'notecontent',
+        component:PageNoteContent,
       },
       {
         path: 'login/',
