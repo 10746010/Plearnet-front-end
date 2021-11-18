@@ -105,7 +105,7 @@
               "
             >
               <q-card
-                class="my-card bg-grey-8 text-white"
+                class="my-content bg-grey-8 text-white"
                 style="max-width: 300px"
               >
                 <q-card-section>
@@ -232,13 +232,13 @@ export default {
 </script>
 
 <style lang="sass">
-.my-card
+.my-content
   width: 100%
   max-width: 250px
 
 
 @media (max-width: 850px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 
@@ -246,7 +246,7 @@ export default {
     width:80%
   
 @media (min-width: 691px)
-  .my-card
+  .my-content
     max-width:300px
     height:330px
 

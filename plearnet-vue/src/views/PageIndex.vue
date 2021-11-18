@@ -23,19 +23,7 @@ export default {
     PageContact,
 
   },
-  setup() {
-    axios
-        .get("topic/tagSearch?tag=1", {
-
-        })
-        .then(function (response) {
-          console.log("123")
-          console.log(response.data.data[0].title);
-        })
-        .catch(function (error){
-          console.log(error);
-        });
-
+  setup() {    
     return {
 
     };
