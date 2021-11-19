@@ -12,7 +12,7 @@ import PageAbout from "../components/PageAbout.vue";
 import PageSubscription from "../components/PageSubscription.vue";
 import PageContact from "../components/PageContact.vue";
 
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   name: "PageIndex",

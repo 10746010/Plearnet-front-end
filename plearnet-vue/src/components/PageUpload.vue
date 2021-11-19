@@ -99,11 +99,13 @@ export default {
       state.notes.splice(index, 1);
     }
      axios
-      .get("topic/tagSearch?tag=1", {
-        
+      .get("topic/tagList", {
+         params: {
+          name: "擊劍",
+        },
       })
       .then(function (response){
-        state.notes = response.data.data
+        console.log(response.data.data)
       })
       .catch(function (error){
         console.log(error);
