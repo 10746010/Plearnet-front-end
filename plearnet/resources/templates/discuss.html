@@ -27,19 +27,39 @@
         background-color: #0400fd;
     }
 
-    .Box {
+    .left-block {
         display: flex;
-        display: -webkit-flex;
-        border: 1px solid #0000FF;
-        height: 200px;
-        width: 400px;
         flex-direction: column;
+        float: left;
+        align-items: flex-start;
+        height: 680px;
+        width: 620px;
+        position: relative;
+        top: 20px;
+        right: 0px;
+        align-content: space-around;
+        background-color: rgb(13, 231, 78);
     }
 
-    .Item {
-        width: 50px;
-        height: 40px;
-        border: 1px solid #00C1B3;
+    .plearnet__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 55px;
+        width: 620px;
+        justify-content: center;
+        background-color: #b11c8c;
+    }
+
+    .plearnet__article__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-size: 60px;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-family: monospace;
+        vertical-align: text-bottom;
     }
 </style>
 
@@ -50,14 +70,19 @@
     </div>
 
     <div class="Body">
-        <div class="Box">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
-            <div class="item">4</div>
-            <div class="item">5</div>
-          </div>
-    </div>
+
+        <div class="left-block">
+            <div class="plearnet__title">
+                <div class="plearnet__article__content">
+                </div>
+            </div>
+
+            <div class="plearnet__title">
+                <div class="plearnet__article__content">
+                </div>
+
+            </div>
+
 </body>
 
 </html>
