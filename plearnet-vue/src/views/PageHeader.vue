@@ -155,7 +155,6 @@ export default {
       links2: [
         { icon: "restore", text: "歷史",to:"/main/history" },
         { icon: "thumb_up_alt", text: "收藏" ,to:"/main/like"},
-        { icon: "fas fa-pen", text: "塗鴉" ,to:"/main/paint"},
       ],
 
       links3: [
