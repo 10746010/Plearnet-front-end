@@ -179,14 +179,14 @@
           >
             <div class="">
                 <div  class="q-message-name q-message-name--received">
-                {{message.from}}
+                {{message.user_name}}
                 </div>           
-              <div v-if='message.from=="me"' class="q-message-text q-message-text--received">
-                <div class="q-message-text-content q-message-text-content--received">{{message.text}}</div>
+              <div v-if='message.user_name=="me"' class="q-message-text q-message-text--received">
+                <div class="q-message-text-content q-message-text-content--received">{{message.message_content}}</div>
               </div>
 
               <div v-else class="q-message-text q-message-text--received" style="color:#e0e0e0">
-                <div class="q-message-text-content q-message-text-content--received">{{message.text}}</div>
+                <div class="q-message-text-content q-message-text-content--received">{{message.message_content}}</div>
               </div>
             </div>
           </div>
@@ -207,13 +207,13 @@
               class="rounded-borders"
               style="max-width: 328px"
             >
-              <q-expansion-item icon="perm_identity" label="Account settings">
+              <q-expansion-item icon="perm_identity" :label="state.note.title">
                 <q-card class="bg-white">
                   <q-card-section>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quidem, eius reprehenderit eos corrupti commodi magni
-                    quaerat ex numquam, dolorum officiis modi facere maiores
-                    architecto suscipit iste eveniet doloribus ullam aliquid.
+                    {{state.note.content}}<br>
+
+                    作者：{{state.note.author_name}}<br>
+                    上傳日期：{{state.note.create_date}}
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
@@ -230,7 +230,7 @@
         </div>
         <div class="q-mr-sm">
           <q-btn  @click="love" flat round color="primary" icon="fab fa-gratipay" />
-          <label>{{state.love}}</label>
+          <label>{{state.note.likes}}</label>
         </div>
           <q-btn class="q-mr-sm" unelevated rounded size="md" color="primary" label="subscribe" />
 
@@ -263,18 +263,20 @@ export default {
       newMessage :"",
       messages:[
         {
-          text:'Hey Jim,how are you?',
-          from:'me'
+          message_content:'Hey Jim,how are you?',
+          user_name:'me'
         },
          {
-          text:'Good thanks, Danny! How are you?',
-          from:'them'
+          message_content:'Good thanks, Danny! How are you?',
+          user_name:'them'
         },
          {
-          text:'Pretty good',
-          from:'me'
+          message_content:'Pretty good',
+          user_name:'me'
         },
       ],
+      // messages:[],
+      note:[],
       like:0,
       love:0,
     })
@@ -288,36 +290,33 @@ export default {
     function sendMessage(){
       if(state.newMessage != "" ){
           state.messages.push({
-            text:state.newMessage,
-            from:'me'
+            message_content:state.newMessage,
+            user_name:'me'
           })
           state.newMessage=""
       }  
     }
    
-    //  axios
-    //   .get("topic/tagSearch?tag=1", {
+     axios
+      .get("http://localhost:8080/topic/topic?topicID=1", {
         
-    //   })
-    //   .then(function (response){
-    //     state.notes = response.data.data
-    //   })
-    //   .catch(function (error){
-    //     console.log(error);
-    //   })
+      })
+      .then(function (response){
+        state.note = response.data.data.pop()
+        // state.messages = response.data.data
 
-    const createNewMessage = async () => {
-      await axios.post("/topic/postMessage", {
-        // title:state.title,
-        // contetnt:state.content
-        // username: state.username,
-        // account: state.account,
-        // password: state.password,
-        // password_confirm: state.password_confirm,
-        // email: state.email,
-      });
+      })
+      .catch(function (error){
+        console.log(error);
+      })
 
-    };
+    // const sendMessage = async () => {
+    //   await axios.post("/topic/postMessage", {
+    //     topicId : "1",
+    //     content : "很棒",
+    //     userId : "2"
+    //   });
+    // };
 
     return {
       leftDrawerOpen,
@@ -348,7 +347,6 @@ export default {
       sendMessage,
       like,
       love,
-      createNewMessage
     };
   },
 };

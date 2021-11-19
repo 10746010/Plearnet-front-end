@@ -1,7 +1,6 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute fullscreen" style="
-    z-index: 0;">
+    <q-scroll-area class="absolute fullscreen" style="z-index: 0">
       <div class="q-pa-xl bg-grey-4 relative-position" :style="style">
         <q-layout view="lHh Lpr lFf" class="WAL__layout shadow-3" container>
           <div class="q-pa-md q-gutter-sm">
@@ -12,7 +11,14 @@
               spellcheck="true"
               @submit="onSubmit"
             >
-            <q-select class="q-mb-sm" color="teal" filled v-model="model" :options="options" label="類別"/>
+              <q-select
+                class="q-mb-sm"
+                color="teal"
+                filled
+                v-model="model"
+                :options="options"
+                label="類別"
+              />
               <q-input
                 filled
                 v-model="state.title"
@@ -25,9 +31,8 @@
               />
               <q-editor
                 class="bg-grey-4"
-                style="min-height:650px!important"
+                style="min-height: 650px !important"
                 v-model="state.content"
-
                 :dense="$q.screen.lt.md"
                 :toolbar="[
                   [
@@ -116,8 +121,13 @@
               />
               <div class="row">
                 <q-space />
-               <q-btn class="q-mt-sm" color="primary" label="送出" type="submit"/>
-
+                <q-btn
+                  class="q-mt-sm"
+                  color="primary"
+                  label="送出"
+                  type="submit"
+                  @click="createNewNote"
+                />
               </div>
             </q-form>
           </div>
@@ -129,8 +139,8 @@
 <script>
 import axios from "axios";
 import { useQuasar } from "quasar";
-import { ref, computed,reactive } from "vue";
-import { useRouter } from "vue-router";
+import { ref, computed, reactive } from "vue";
+// import { useRouter } from "vue-router";
 
 export default {
   name: "WhatsappLayout",
@@ -148,38 +158,36 @@ export default {
     const state = reactive({
       title: "",
       content: "",
-
     });
 
-    const router = useRouter();
+    // const router = useRouter();
 
     const createNewNote = async () => {
+      console.log("123");
       await axios.post("/topic/postNote", {
-        title:state.title,
-        contetnt:state.content
-        // username: state.username,
-        // account: state.account,
-        // password: state.password,
-        // password_confirm: state.password_confirm,
-        // email: state.email,
+        title: "test6",
+        content: "test",
+        tagId: "2",
+        author: "1",
       });
 
-      await router.push("/main");
+      // await router.push("/main");
     };
+   
 
     return {
       style,
+      state,
       editorStyle,
       qeditor: ref(
         "<pre>Check out the two different types of dropdowns" +
           ' in each of the "Align" buttons.</pre> '
       ),
-      createNewNote
+      createNewNote,
     };
   },
 };
 </script>
 
 <style lang="sass">
-
 </style>

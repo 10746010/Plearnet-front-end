@@ -1,26 +1,33 @@
 
 <template>
-  <PageHome id="a1"/>
-  <PageAbout id="a2"/>
-  <PageSubscription id="a3"/>
-  <PageContact id="a4"/>
+  <PageHome />
+  <PageIndexFeature />
+  <PageIndexAbout />
+  <PageIndexVideo />
+  <PageIndexFuture/>
+  <PageIndexFooter />
 </template>
 
 <script>
 import PageHome from "../components/PageHome.vue";
-import PageAbout from "../components/PageAbout.vue";
-import PageSubscription from "../components/PageSubscription.vue";
-import PageContact from "../components/PageContact.vue";
+import PageIndexFeature from "../components/PageIndexFeature.vue";
+import PageIndexAbout from "../components/PageIndexAbout.vue";
+import PageIndexVideo from "../components/PageIndexVideo.vue";
+import PageIndexFuture from "../components/PageIndexFuture.vue";
 
-import axios from "axios";
+import PageIndexFooter from "../components/PageIndexFooter.vue";
+
+
 
 export default {
   name: "PageIndex",
   components: {
     PageHome,
-    PageAbout,
-    PageSubscription,
-    PageContact,
+    PageIndexFeature,
+    PageIndexAbout,
+    PageIndexVideo,
+    PageIndexFuture,
+    PageIndexFooter,
 
   },
   setup() {    

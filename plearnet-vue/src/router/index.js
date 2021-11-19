@@ -10,7 +10,6 @@ import PageChangePassword from '../components/PageChangePassword.vue'
 import PageChangeInfo from '../components/PageChangeInfo.vue'
 import PageHistory from '../components/PageHistory.vue'
 import PageLike from '../components/PageLike.vue'
-import PagePaint from '../components/PagePaint.vue'
 import PageUpload from '../components/PageUpload.vue'
 import PageWish from '../components/PageWish.vue'
 import PageUploadNote from '../components/PageUploadNote.vue'
@@ -292,10 +291,6 @@ const routes= [
       {
         path:'like',
         component:PageLike,
-      },
-      {
-        path:'paint',
-        component:PagePaint,
       },
       {
         path:'upload',
