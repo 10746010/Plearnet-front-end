@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import PageIndexHeader from '../views/PageIndexHeader.vue'
+// import PageIndexHeader from '../views/PageIndexHeader.vue'
 import PageIndex from '../views/PageIndex.vue'
 import PageHeader from '../views/PageHeader.vue'
 import PageHomeSwap from '../components/PageHomeSwap.vue'
@@ -254,15 +254,8 @@ const routes = [
 
 const routes= [
   {
-    path:'/',
-    component:PageIndexHeader,
-    children: [
-      {
-        path:'/',
-        name:'PageIndex',
-        component:PageIndex
-      }
-    ]
+    path:'/',    
+    component:PageIndex,
   },  
   {
     path:'/main/',
