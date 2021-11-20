@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-grey-9 q-pa-md">
+  <div class="bg-blue-grey-9 q-pa-md" >
         <q-toolbar class="text-white">
              <q-avatar>
               <img
@@ -10,7 +10,6 @@
           <q-toolbar-title> Plearnet </q-toolbar-title>
         </q-toolbar>
 
-           
 
     <div
       class="fit row wrap justify-center items-center content-center text-white"
