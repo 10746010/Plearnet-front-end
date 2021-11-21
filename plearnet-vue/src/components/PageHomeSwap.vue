@@ -24,7 +24,7 @@
             <div class="row flex flex-center">
               <q-img
                 class="rounded-borders col-6 full-height"
-                style="width: 180px"
+                style="width: 300px"
                 src="../../static/img/1.png"
               >
                 <div
@@ -36,7 +36,7 @@
               </q-img>
               <q-img
                 class="rounded-borders col-6 full-height"
-                style="width: 180px"
+                style="width: 300px"
                 src="../../static/img/2.png"
               >
                 <div
@@ -48,7 +48,7 @@
               </q-img>
               <q-img
                 class="rounded-borders col-6 full-height"
-                style="width: 180px"
+                style="width: 300px"
                 src="../../static/img/3.png"
               >
                 <div
@@ -61,7 +61,7 @@
               <q-btn flat round to="/main">
                 <q-img
                   class="rounded-borders col-6 full-height"
-                  style="width: 180px"
+                  style="width: 300px"
                   src="../../static/img/4.png"
                 >
                   <div
@@ -75,7 +75,7 @@
               <q-btn flat round to="/main/savor">
                 <q-img
                   class="rounded-borders col-6 full-height"
-                  style="width: 180px"
+                  style="width: 300px"
                   src="../../static/img/5.png"
                 >
                   <div
@@ -154,7 +154,6 @@
                   once
                   transition="scale"
                 >
-                  <div class="my-content">
                     <q-card class="q-ma-sm">
                       <img :src="notes[n - 1].img" />
 
@@ -167,7 +166,6 @@
                         </div>
                       </q-card-section>
                     </q-card>
-                  </div>
                 </q-intersection>
               </div>
             </div>

@@ -1,34 +1,39 @@
 <template>
   <q-page class="relative-position">
     <q-scroll-area class="absolute fullscreen" style="z-index: 0">
-      <div class="q-pa-xl bg-grey-4 relative-position" :style="style">
-        <q-layout view="lHh Lpr lFf" class="WAL__layout shadow-3" container>
-          <div class="q-pa-xl">
-            <div class="column items-center">
-              <q-item
-                clickable
-                v-ripple
-                class="column justify-center items-center content-center"
-                to="/main/changeinfo"
-              >
-                <q-item-section>
-                  <q-avatar size="100px">
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section class="text-caption"
-                  >編輯個人資料</q-item-section
+      <div class="q-pa-xl bg-black relative-position">
+        <div
+          class="WAL__layout shadow-3"
+          container
+          style="min-height: 1000px; border: 1px solid; border-color: white"
+        >
+          <div class="q-pa-xl bg-black text-white">
+            <div class="row items-center">
+              <div class="col">
+                <q-item
+                  clickable
+                  v-ripple
+                  class="column justify-center items-center content-center"
+                  to="/main/changeinfo"
                 >
-              </q-item>
-
-              <div class="fit q-gutter-md">
-                <div class="full-width row items-center">
-                  <div class="col-2 text-left q-pr-lg">姓名</div>
-                  <div class="col-9">
-                    <q-field outlined dense>
+                  <q-item-section>
+                    <q-avatar size="100px">
+                      <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section class="text-caption"
+                    >編輯個人資料</q-item-section
+                  >
+                </q-item>
+              </div>
+              <div class="col-6">
+                <div class="row items-center q-mb-sm">
+                  <div class="col">用戶名稱</div>
+                  <div class="col-9 q-pr-lg">
+                    <q-field dark outlined dense>
                       <template v-slot:control>
                         <div
-                          class="self-center full-width no-outline"
+                          class="self-center full-width no-outline text-white"
                           tabindex="0"
                         >
                           測
@@ -38,64 +43,16 @@
                   </div>
                 </div>
 
-                <div class="full-width row items-center">
-                  <div class="col-2 text-left q-pr-lg">用戶名稱</div>
-                  <div class="col-9">
-                    <q-field outlined dense>
+                <div class="row items-center q-mt-sm">
+                  <div class="col">積分</div>
+                  <div class="col-9 q-pr-lg">
+                    <q-field dark outlined dense>
                       <template v-slot:control>
                         <div
-                          class="self-center full-width no-outline"
+                          class="self-center full-width no-outline text-white"
                           tabindex="0"
                         >
-                          測試
-                        </div>
-                      </template>
-                    </q-field>
-                  </div>
-                </div>
-
-                <div class="full-width row items-center">
-                  <div class="col-2 text-left q-pr-lg">電子郵件</div>
-                  <div class="col-9">
-                    <q-field outlined dense>
-                      <template v-slot:control>
-                        <div
-                          class="self-center full-width no-outline"
-                          tabindex="0"
-                        >
-                          test@test.com
-                        </div>
-                      </template>
-                    </q-field>
-                  </div>
-                </div>
-
-                <div class="full-width row items-center">
-                  <div class="col-2 text-left q-pr-lg">性別</div>
-                  <div class="col-9">
-                    <q-field outlined dense>
-                      <template v-slot:control>
-                        <div
-                          class="self-center full-width no-outline"
-                          tabindex="0"
-                        >
-                          未知
-                        </div>
-                      </template>
-                    </q-field>
-                  </div>
-                </div>
-
-                <div class="full-width row items-center">
-                  <div class="col-2 text-left q-pr-lg">註冊時間</div>
-                  <div class="col-9">
-                    <q-field outlined dense>
-                      <template v-slot:control>
-                        <div
-                          class="self-center full-width no-outline"
-                          tabindex="0"
-                        >
-                          2021/11/2
+                          0
                         </div>
                       </template>
                     </q-field>
@@ -103,32 +60,58 @@
                 </div>
               </div>
 
-              <div class="q-mt-sm">
-                <q-btn color="primary" label="登出" />
+              <div class="col">
+                <q-btn rounded color="primary " label="登出" />
               </div>
-            </div>
-            <div class="fixed-bottom q-ma-md">
-              <q-separator size="5px" color="grey-2" />
+              <div class="column items-center">
+                <p style="font-size: 2rem">我的筆記</p>
+                <div class="row justify-center q-gutter-sm">
+                  <q-intersection
+                    class="example-item col-4 text-black"
+                    v-for="note in state.notes"
+                    :key="note"
+                    once
+                    transition="scale"
+                  >
+                    <q-card class="q-ma-sm">
+                      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
-              <div class="q-pt-md items-center row">
-                <q-icon name="place" label="123" size="50px" />
-                <div class="text-subtitle1">宜蘭市</div>
+                      <q-card-section>
+                        <div class="text-h6">{{ note.title }}</div>
+                        <div class="text-subtitle2 row">
+                          by My Self <q-space />
+                        </div>
+                      </q-card-section>
+                    </q-card>
+                  </q-intersection>
+                </div>
               </div>
             </div>
           </div>
-        </q-layout>
+        </div>
       </div>
     </q-scroll-area>
   </q-page>
 </template>
 <script>
 import { useQuasar } from "quasar";
-import { computed } from "vue";
+import { reactive, computed } from "vue";
 
 export default {
   name: "PageInfo",
   components: {},
   setup() {
+    const state = reactive({
+      notes: [
+        { title: "蛋蛋", date: 1636472865852 },
+        { title: "肉肉", date: 1637254937118 },
+        { title: "飯飯", date: 1637254943967 },
+        { title: "菜菜", date: 1637254973899 },
+        { title: "蛋蛋", date: 1637254953820 },
+        { title: "蛋蛋", date: 1637254953825 },
+      ],
+    });
+
     const $q = useQuasar();
 
     const style = computed(() => ({
@@ -136,6 +119,7 @@ export default {
     }));
     return {
       style,
+      state,
     };
   },
 };
@@ -147,13 +131,7 @@ export default {
   height: 100%
   padding-top: 20px
   padding-bottom: 20px
-  &:before
-    content: ''
-    height: 127px
-    position: fixed
-    top: 0
-    width: 100%
-    background-color: #009688
+  
   &__layout
     margin: 0 auto
     // z-index: 4000
@@ -161,19 +139,6 @@ export default {
     width: 90%
     max-width: 950px
     border-radius: 5px
-  &__field.q-field--outlined .q-field__control:before
-    border: none
-  .q-drawer--standard
-    .WAL__drawer-close
-      display: none
-@media (max-width: 850px)
-  .WAL
-    padding: 0
-    &__layout
-      width: 100%
-      border-radius: 0
-@media (min-width: 691px)
-  .WAL
-    &__drawer-open
-      display: none
+
+
 </style>
