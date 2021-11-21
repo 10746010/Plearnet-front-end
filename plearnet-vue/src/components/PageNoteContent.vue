@@ -114,11 +114,13 @@
 
           <q-separator class="q-my-md" />
 
-          <q-item v-for="link in links2" 
-          :key="link.text" 
-          v-ripple 
-          clickable
-          :to="link.to">
+          <q-item
+            v-for="link in links2"
+            :key="link.text"
+            v-ripple
+            clickable
+            :to="link.to"
+          >
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -129,13 +131,13 @@
 
           <q-separator class="q-my-md" />
 
-
-          <q-item v-for="link in links3" 
-          :key="link.text" 
-          v-ripple 
-          clickable
+          <q-item
+            v-for="link in links3"
+            :key="link.text"
+            v-ripple
+            clickable
             :to="link.to"
-           >
+          >
             <q-item-section avatar>
               <q-icon color="grey" :name="link.icon" />
             </q-item-section>
@@ -147,51 +149,81 @@
       </q-scroll-area>
     </q-drawer>
 
-    <q-drawer class="column reverse" show-if-above v-model="rightDrawerOpen" side="right" bordered  >
+    <q-drawer
+      class=""
+      show-if-above
+      v-model="rightDrawerOpen"
+      side="right"
+      bordered
+    >
+    <q-form @submit="sendMessage">
         <q-input
-              v-model="state.newMessage"
-              placeholder="傳送訊息"
-              outlined
-              rounded 
-              class="q-ma-md"
-              dense>
-                <template v-slot:append>
-                  <q-btn
-                  round
-                  dense
-                  flat
-                  @click="sendMessage"
-                  color="black"
-                  icon="send" />
-                </template>
-              </q-input>
+        v-model="state.newMessage"
+        placeholder="傳送訊息"
+        outlined
+        rounded
+        class="q-ma-md"
+        dense
+      >
+        <template v-slot:append>
+          <q-btn
+            round
+            dense
+            flat
+            @click="sendMessage"
+            color="black"
+            icon="send"
+          />
+        </template>
+      </q-input>
+    </q-form>
 
-     
-      
       <q-separator class="q-my-md" />
+      <q-scroll-area  class="column col justify-end" style="height: 90%;" >
 
-      <div class="q-pa-md row justify-center">
-        <div style="width: 100%; max-width: 400px">
-          <div 
-          v-for="message in state.messages" 
-          :key="message.text"          
-          class="q-message-container row items-end no-wrap"
-          >
-            <div class="">
-                <div  class="q-message-name q-message-name--received">
-                {{message.user_name}}
-                </div>           
-              <div v-if='message.user_name=="me"' class="q-message-text q-message-text--received">
-                <div class="q-message-text-content q-message-text-content--received">{{message.message_content}}</div>
-              </div>
+        <div class="q-pa-md column col justify-end">
+          <div style="width: 100%; max-width: 400px">
+            <div
+              v-for="message in state.messages"
+              :key="message.text"
+              class="q-message-container row items-end no-wrap"
+            >
+              <div >
+                <div class="q-message-name q-message-name--received">
+                  {{ message.user_name }}
+                </div>
+                <div
+                  v-if="message.user_name == 'me'"
+                  class="q-message-text q-message-text--received"
+                >
+                  <div
+                    class="
+                      q-message-text-content q-message-text-content--received
+                    "
+                  >
+                    {{ message.message_content }}
+                  </div>
+                </div>
 
-              <div v-else class="q-message-text q-message-text--received" style="color:#e0e0e0">
-                <div class="q-message-text-content q-message-text-content--received">{{message.message_content}}</div>
+                <div
+                  v-else
+                  class="q-message-text q-message-text--received"
+                  style="color: #e0e0e0"
+                >
+                  <div
+                    class="
+                      q-message-text-content q-message-text-content--received
+                    "
+                  >
+                    {{ message.message_content }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+
+      </q-scroll-area>
     </q-drawer>
 
     <q-page-container class="column content-center">
@@ -210,30 +242,46 @@
               <q-expansion-item icon="perm_identity" :label="state.note.title">
                 <q-card class="bg-white">
                   <q-card-section>
-                    {{state.note.content}}<br>
+                    {{ state.note.content }}<br />
 
-                    作者：{{state.note.author_name}}<br>
-                    上傳日期：{{state.note.create_date}}
+                    作者：{{ state.note.author_name }}<br />
+                    上傳日期：{{ state.note.create_date }}
                   </q-card-section>
                 </q-card>
               </q-expansion-item>
             </q-list>
           </div>
-        
-
         </div>
       </div>
       <div class="row q-mb-sm">
         <div class="q-mr-sm">
-          <q-btn  @click="like" flat round color="primary" icon="far fa-thumbs-up"/>
-          <label>{{state.like}}</label>
+          <q-btn
+            @click="like"
+            flat
+            round
+            color="primary"
+            icon="far fa-thumbs-up"
+          />
+          <label>{{ state.like }}</label>
         </div>
         <div class="q-mr-sm">
-          <q-btn  @click="love" flat round color="primary" icon="fab fa-gratipay" />
-          <label>{{state.note.likes}}</label>
+          <q-btn
+            @click="love"
+            flat
+            round
+            color="primary"
+            icon="fab fa-gratipay"
+          />
+          <label>{{ state.note.likes }}</label>
         </div>
-          <q-btn class="q-mr-sm" unelevated rounded size="md" color="primary" label="subscribe" />
-
+        <q-btn
+          class="q-mr-sm"
+          unelevated
+          rounded
+          size="md"
+          color="primary"
+          label="subscribe"
+        />
       </div>
       <div class="row content-center">
         <q-img
@@ -254,61 +302,57 @@ import axios from "axios";
 export default {
   name: "PageNoteContent",
 
- 
   setup() {
     const leftDrawerOpen = ref(false);
     const rightDrawerOpen = ref(false);
 
     const state = reactive({
-      newMessage :"",
-      messages:[
+      newMessage: "",
+      messages: [
         {
-          message_content:'Hey Jim,how are you?',
-          user_name:'me'
+          message_content: "Hey Jim,how are you?",
+          user_name: "me",
         },
-         {
-          message_content:'Good thanks, Danny! How are you?',
-          user_name:'them'
+        {
+          message_content: "Good thanks, Danny! How are you?",
+          user_name: "them",
         },
-         {
-          message_content:'Pretty good',
-          user_name:'me'
+        {
+          message_content: "Pretty good",
+          user_name: "me",
         },
       ],
       // messages:[],
-      note:[],
-      like:0,
-      love:0,
-    })
+      note: [],
+      like: 0,
+      love: 0,
+    });
 
-    function like(){
-      state.like+=1
+    function like() {
+      state.like += 1;
     }
-    function love(){
-      state.love+=1
+    function love() {
+      state.love += 1;
     }
-    function sendMessage(){
-      if(state.newMessage != "" ){
-          state.messages.push({
-            message_content:state.newMessage,
-            user_name:'me'
-          })
-          state.newMessage=""
-      }  
+    function sendMessage() {
+      if (state.newMessage != "") {
+        state.messages.unshift({
+          message_content: state.newMessage,
+          user_name: "me",
+        });
+        state.newMessage = "";
+      }
     }
-   
-     axios
-      .get("http://localhost:8080/topic/topic?topicID=1", {
-        
-      })
-      .then(function (response){
-        state.note = response.data.data.pop()
+
+    axios
+      .get("http://localhost:8080/topic/topic?topicID=1", {})
+      .then(function (response) {
+        state.note = response.data.data.pop();
         // state.messages = response.data.data
-
       })
-      .catch(function (error){
+      .catch(function (error) {
         console.log(error);
-      })
+      });
 
     // const sendMessage = async () => {
     //   await axios.post("/topic/postMessage", {
@@ -331,19 +375,19 @@ export default {
       links1: [
         { icon: "home", text: "首頁", to: "/main" },
         { icon: "fas fa-portrait", text: "個人資料", to: "/main/info" },
-        { icon: "fas fa-key", text: "變更密碼",to: "/main/changepassword" },
+        { icon: "fas fa-key", text: "變更密碼", to: "/main/changepassword" },
       ],
-      links2: [      
-        { icon: "restore", text: "歷史",to: "/main/history" },
-        { icon: "thumb_up_alt", text: "收藏" ,to: "/main/like"},
-        { icon: "fas fa-pen", text: "塗鴉",to: "/main/paint" },
+      links2: [
+        { icon: "restore", text: "歷史", to: "/main/history" },
+        { icon: "thumb_up_alt", text: "收藏", to: "/main/like" },
+        { icon: "fas fa-pen", text: "塗鴉", to: "/main/paint" },
       ],
 
       links3: [
-        { icon: "fas fa-cloud-upload-alt", text: "上傳" ,to: "/main/upload"},
-        { icon: "fas fa-magic", text: "許願",to: "/main/wish" },
+        { icon: "fas fa-cloud-upload-alt", text: "上傳", to: "/main/upload" },
+        { icon: "fas fa-magic", text: "許願", to: "/main/wish" },
       ],
-      state,      
+      state,
       sendMessage,
       like,
       love,
@@ -353,7 +397,6 @@ export default {
 </script>
 <style lang="sass">
 .q-chat-message
-  position:static
-  flex-direction:inherit
-
+    position: static
+    flex-direction: inherit
 </style>
