@@ -6,9 +6,9 @@
       <div class="row justify-between q-pl-xl q-pr-xl">
         <div class="q-pl-xl">
           <div class="q-pl-lg q-gutter-sm">
-            <q-btn flat color="white" text-color="white" label="全部" />
-            <q-btn flat color="white" text-color="white" label="學術科" />
-            <q-btn flat color="white" text-color="white" label="非學術科" />
+            <q-btn flat color="white" text-color="white" label="網頁" />
+            <q-btn flat color="white" text-color="white" label="畫圖" />
+            <q-btn flat color="white" text-color="white" label="國家" />
           </div>
         </div>
         <div class="q-pr-xl">
@@ -27,8 +27,8 @@
       <div class="row justify-center q-gutter-sm text-black">
         <q-intersection
           class="example-item col-3"
-          v-for="n in 9"
-          :key="`sm-${n}`"
+          v-for="note in state.notes"
+          :key="note"
           once
           transition="scale"
         >
@@ -36,8 +36,8 @@
               <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
               <q-card-section>
-                <div class="text-h6">Card #{{ index }}</div>
-                <div class="text-subtitle2">by John Doe</div>
+                <div class="text-h6">{{ note.title }}</div>
+                <div class="text-subtitle2">by {{ note.by }}</div>
               </q-card-section>
             </q-card>
         </q-intersection>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { reactive } from "vue";
 
 
 export default {
@@ -58,8 +59,22 @@ export default {
 
   },
   setup() {   
+     const state = reactive({
+      notes: [
+        { title: "筆記", date: 1636472865852,by:"John Doe" },
+        { title: "筆記", date: 1637254937118,by:"John John" },
+        { title: "筆記", date: 1637254943967,by:"Doe Doe" },
+        { title: "筆記", date: 1637254973899,by:"Lin" },
+        { title: "筆記", date: 1637254953820,by:"Lin" },
+        { title: "筆記", date: 1637254953825,by:"Chen Doe" }, 
+        { title: "筆記", date: 1637254953829,by:"Doe" },
+        { title: "筆記", date: 1637254953860,by:"John" },
+        { title: "筆記", date: 1637254953865,by:"John" },
+
+      ],
+    });
     return {
-      
+      state
     };
   },
 };

@@ -88,15 +88,14 @@ export default {
   setup() {
     const state = reactive({
       notes: [
-        { title: "蛋蛋", date: 1636472865852 },
-        { title: "肉肉", date: 1637254937118 },
-        { title: "飯飯", date: 1637254943967 },
-        { title: "菜菜", date: 1637254973899 },
-        { title: "蛋蛋", date: 1637254953820 },
-        { title: "蛋蛋", date: 1637254953825 },
+        { title: "筆記", date: 1636472865852 },
+        { title: "筆記", date: 1637254937118 },
+        { title: "筆記", date: 1637254943967 },
+        { title: "筆記", date: 1637254973899 },
+        { title: "筆記", date: 1637254953820 },
+        { title: "筆記", date: 1637254953825 },
       ],
     });
-    console.log(Date.now());
     const deleteButton = ref(false);
 
     function onDelete() {

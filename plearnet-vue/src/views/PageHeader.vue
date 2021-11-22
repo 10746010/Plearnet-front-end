@@ -13,7 +13,7 @@
         />
         <q-btn flat no-caps no-wrap class="q-ml-xs" v-if="$q.screen.gt.xs" to="/">         
           <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+            <img  src="../../static/img/logo.png" />
           </q-avatar>
           <q-toolbar-title shrink class="text-weight-bold">
             Plearnet

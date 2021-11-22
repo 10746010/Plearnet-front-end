@@ -1,12 +1,12 @@
 <template>
-  <q-page class="flex column justify-center items-center content-center">
-    <div class="q-pa-md">
-      <div class="q-gutter-y-md" style="width: 550px; max-width: 600px">
-        <q-card>
+  <q-page class="flex column justify-center items-center content-center bg-black">
+    <div class="q-pa-md ">
+      <div class="q-gutter-y-md " style="width: 550px; max-width: 600px">
+        <q-card class="bg-grey">
           <q-tabs
             v-model="tab"
             dense
-            class="text-grey"
+            class="text-white"
             active-color="primary"
             indicator-color="primary"
             align="justify"
@@ -17,12 +17,14 @@
           </q-tabs>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-            <q-tab-panels v-model="tab" animated>
+          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md ">
+            <q-tab-panels v-model="tab" animated class="bg-grey">
               <q-tab-panel name="note">
                 <q-input
-                  filled
+                  outlined         
+                  rounded           
                   v-model="name"
+                  bg-color="white"
                   label="輸入希望增設的筆記 *"
                   lazy-rules
                   :rules="[
@@ -30,14 +32,16 @@
                   ]"
                 />
                 <div class="fit">
-                  <q-input v-model="text" filled type="textarea" />
+                  <q-input v-model="text" bg-color="white" outlined rounded type="textarea" />
                 </div>
               </q-tab-panel>
 
               <q-tab-panel name="class">
                 <q-input
-                  filled
+                  outlined
+                  rounded 
                   v-model="name"
+                  bg-color="white"
                   label="輸入希望增設的分類 *"
                   lazy-rules
                   :rules="[
@@ -45,7 +49,7 @@
                   ]"
                 />
                 <div class="fit">
-                  <q-input v-model="text" filled type="textarea" />
+                  <q-input v-model="text" bg-color="white" outlined rounded type="textarea" />
                 </div>
               </q-tab-panel>
             </q-tab-panels>

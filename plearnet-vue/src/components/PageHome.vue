@@ -12,7 +12,7 @@
           <img  src="../../static/img/logo.png" style="width:10%;"/>
         </div>
         <h5 class="q-mb-xl">提供各式各樣的優良筆記，幫助您提升自學能力！</h5>
-        <q-btn unelevated rounded color="primary" label="探索筆記" to="/main"/>
+        <q-btn unelevated rounded color="primary" label="探索筆記" to="/main/login"/>
       </div>
       <div class="col column justify-center items-center content-center">
    
