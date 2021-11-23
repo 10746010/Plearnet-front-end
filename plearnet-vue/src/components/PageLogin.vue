@@ -39,13 +39,13 @@
           />
           <q-btn flat style="color: #ff0080" size="xs" label="註冊帳號" to="/main/login/register" />
         </div>
-        <q-separator dark />
-        <div>
-          <div class="q-gutter-md fit row justify-center">
-              <q-btn label="facebook" type="submit" color="primary" />
-              <q-btn label="google" type="submit" color="deep-orange" />
-          </div>
-        </div>
+        <!-- <q-separator dark /> -->
+        <!-- <div> -->
+          <!-- <div class="q-gutter-md fit row justify-center"> -->
+              <!-- <q-btn label="facebook" type="submit" color="primary" /> -->
+              <!-- <q-btn label="google" type="submit" color="deep-orange" /> -->
+          <!-- </div> -->
+        <!-- </div> -->
       </q-form>
     </div>
   </q-page>

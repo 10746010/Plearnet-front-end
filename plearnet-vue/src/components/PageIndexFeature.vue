@@ -24,13 +24,13 @@
       <div class="col fit justify-center items-center content-center">
         <div class="column justify-center items-center content-center text-center">
           <q-img width="80%" src="../../static/img/p2_middle.png" />
-          <div>多元內容</div>
+          <div>豐富筆記</div>
         </div>
       </div>
       <div class="col fit justify-center items-center content-center">
         <div class="column justify-center items-center content-center text-center">
           <q-img width="80%" src="../../static/img/p2_right.png" />
-          <div>多元內容</div>
+          <div>學習討論</div>
         </div>
       </div>
     </div>

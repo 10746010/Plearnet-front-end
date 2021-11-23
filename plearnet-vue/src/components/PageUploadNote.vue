@@ -1,9 +1,9 @@
 <template>
   <q-page class="relative-position">
     <q-scroll-area class="absolute fullscreen" style="z-index: 0">
-      <div class="q-pa-xl bg-grey-4 relative-position" :style="style">
+      <div class="q-pa-xl bg-black relative-position" :style="style">
         <q-layout view="lHh Lpr lFf" class="WAL__layout shadow-3" container>
-          <div class="q-pa-md q-gutter-sm">
+          <div class="q-pa-md q-gutter-sm bg-white">
             <q-form
               autocorrect="off"
               autocapitalize="off"
@@ -12,25 +12,26 @@
               @submit="onSubmit"
             >
               <q-select
-                class="q-mb-sm"
+                class="q-mb-sm bg-white text-black"
                 color="teal"
-                filled
+                
                 v-model="model"
                 :options="options"
                 label="類別"
               />
               <q-input
-                filled
+              class="bg-white text-black"
+                
                 v-model="state.title"
-                label="Your title *"
-                hint="title and content"
+                label="文章標題 *"
+                hint="文章和內容"
                 lazy-rules
                 :rules="[
                   (val) => (val && val.length > 0) || 'Please type something',
                 ]"
               />
               <q-editor
-                class="bg-grey-4"
+                class="bg-white text-black"
                 style="min-height: 650px !important"
                 v-model="state.content"
                 :dense="$q.screen.lt.md"

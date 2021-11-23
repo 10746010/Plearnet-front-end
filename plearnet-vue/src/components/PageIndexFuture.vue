@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-grey-8 q-pa-md text-white" style="height:85vh">
+  <div class="bg-blue-grey-8 q-pa-md text-white" style="height:100vh">
     <q-toolbar>
       <q-avatar>
         <img src="../../static/img/logo.png" />
@@ -13,8 +13,8 @@
       </div>
       <div class="text-center content-center row">
         <!-- 左 -->
-        <div class="col">
-          <q-card class="bg-blue-grey-8 my-card" flat style="max-width: 400px;height:400px">
+        <div class="col" >
+          <q-card class="bg-blue-grey-8 my-card" flat style="width:100%;height:80%">
              <q-icon name="fas fa-paper-plane" class="text-black" style="font-size: 4rem;" />
             <q-card-section>
               <div class="text-h3 text-cyan">Invite</div>
@@ -28,7 +28,7 @@
         </div>
         <!-- 中 -->
         <div class="col">
-          <q-card class="bg-blue-grey-8 my-card" flat style="max-width: 400px;height:400px">
+          <q-card class="bg-blue-grey-8 my-card" flat style="width:100%;height:80%">
              <q-icon name="question_answer" class="text-black" style="font-size: 4rem;" />
             <q-card-section>
               <div class="text-h3 text-cyan">Opinion</div>
@@ -44,7 +44,7 @@
         </div>
         <!-- 右 -->
         <div class="col">
-          <q-card class="bg-blue-grey-8 my-card" flat style="max-width: 400px;height:400px">
+          <q-card class="bg-blue-grey-8 my-card" flat style="width:100%;height:80%">
              <q-icon name="fas fa-users" class="text-black" style="font-size: 4rem;" />
             <q-card-section>
               <div class="text-h3 text-cyan">Cooperate</div>
@@ -79,7 +79,14 @@ export default {
 </script>
 
 <style lang="sass">
-.my-card
-  width: 100%
+// .my-card
+//   width: 10%!important
+//   @media (max-width :1439px)
+//     width: 10%
 
+//   @media ( max-width: 1023px)
+//     width: 10%
+
+//   @media ( max-width: 599px)
+//     width: 10%
 </style>
