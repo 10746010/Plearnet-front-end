@@ -13,7 +13,13 @@
         </div>
         <div class="q-pr-xl">
           <div class="q-pr-lg">
-            <q-btn icon="add" flat color="white" text-color="black" />
+             <q-btn
+              class="glossy"
+              rounded
+              color="deep-orange"
+              label="刪除"
+              @click="onDelete"
+            />
           </div>
         </div>
       </div>
@@ -39,7 +45,26 @@
                 <div class="text-h6">{{ note.title }}</div>
                 <div class="text-subtitle2">by {{ note.by }}</div>
               </q-card-section>
-            </q-card>
+
+                    <q-slide-transition>
+                <div v-show="deleteButton">
+                  <q-separator />
+                  <q-card-section class="text-subitle2">
+                    <div class="row">
+                       <q-space/>
+                    <q-btn
+                      round
+                      color="primary"
+                      icon="delete"
+                      dense
+                      @click="deleteNote(note)"
+                    />
+                    </div>
+                   
+                  </q-card-section>
+                </div>
+              </q-slide-transition>
+            </q-card>        
         </q-intersection>
       </div>
     </q-scroll-area>
@@ -47,7 +72,7 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import { reactive,ref } from "vue";
 
 
 export default {
@@ -73,8 +98,22 @@ const state = reactive({
 
       ],
     });
+      const deleteButton = ref(false);
+
+    function onDelete() {
+      deleteButton.value = !deleteButton.value;
+    }
+
+    function deleteNote(note) {
+      let noteToDelete = note.date;
+      let index = state.notes.findIndex((note) => note.date === noteToDelete);
+      state.notes.splice(index, 1);
+    }
     return {
-      state
+      state,
+      onDelete,
+      deleteButton,
+      deleteNote
     };
   },
 };

@@ -1,11 +1,14 @@
 
 <template>
+  <q-layout view="lHh lpr lFf"  style="height: 100vh">
   <PageHome />
   <PageIndexFeature />
   <PageIndexAbout />
   <PageIndexVideo />
   <PageIndexFuture/>
   <PageIndexFooter />
+  </q-layout>
+
 </template>
 
 <script>

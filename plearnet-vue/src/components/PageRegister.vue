@@ -27,7 +27,7 @@
         <q-input
           filled
           type="password"
-          v-model="password"
+          v-model="confirm_password"
           label="confirm password *"
           lazy-rules
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
