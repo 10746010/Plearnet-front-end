@@ -43,7 +43,7 @@
 
               <q-card-section>
                 <div class="text-h6">{{ note.title }}</div>
-                <div class="text-subtitle2">by {{ note.by }}</div>
+                <div class="text-subtitle2">by {{ note.author }}</div>
               </q-card-section>
 
                     <q-slide-transition>
@@ -73,6 +73,7 @@
 
 <script>
 import { reactive,ref } from "vue";
+import axios from "axios";
 
 
 export default {
@@ -86,17 +87,17 @@ export default {
   setup() {
 const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852,by:"John Doe" },
-        { title: "筆記", date: 1637254937118,by:"John John" },
-        { title: "筆記", date: 1637254943967,by:"Doe Doe" },
-        { title: "筆記", date: 1637254973899,by:"Lin" },
-        { title: "筆記", date: 1637254953820,by:"Lin" },
-        { title: "筆記", date: 1637254953825,by:"Chen Doe" }, 
-        { title: "筆記", date: 1637254953829,by:"Doe" },
-        { title: "筆記", date: 1637254953860,by:"John" },
-        { title: "筆記", date: 1637254953865,by:"John" },
-
+        { title: "筆記", date: 1636472865852,author:"John Doe" },
+        { title: "筆記", date: 1637254937118,author:"John John" },
+        { title: "筆記", date: 1637254943967,author:"Doe Doe" },
+        { title: "筆記", date: 1637254973899,author:"Lin" },
+        { title: "筆記", date: 1637254953820,author:"Lin" },
+        { title: "筆記", date: 1637254953825,author:"Chen Doe" }, 
+        { title: "筆記", date: 1637254953829,author:"Doe" },
+        { title: "筆記", date: 1637254953860,author:"John" },
+        { title: "筆記", date: 1637254953865,author:"John" },
       ],
+      // notes:[]
     });
       const deleteButton = ref(false);
 
@@ -109,6 +110,17 @@ const state = reactive({
       let index = state.notes.findIndex((note) => note.date === noteToDelete);
       state.notes.splice(index, 1);
     }
+
+     axios
+      .get("http://localhost:8080/userAccount/collectSearch?userId=1", {})
+      .then(function (response) {
+        state.notes = response.data.data
+        // console.log(response.data.data[0])
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     return {
       state,
       onDelete,

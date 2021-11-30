@@ -262,7 +262,7 @@
             color="primary"
             icon="far fa-thumbs-up"
           />
-          <label>{{ state.like }}</label>
+          <label>{{ state.note.view }}</label>
         </div>
         <div class="q-mr-sm">
           <q-btn
@@ -281,6 +281,7 @@
           size="md"
           color="primary"
           label="subscribe"
+          @click="subscribe"
         />
       </div>
       <div class="row content-center">
@@ -333,6 +334,14 @@ export default {
     }
     function love() {
       state.love += 1;
+      axios
+      .get("http://localhost:8080/topic/pressLike?topicId=1", {})
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
     function sendMessage() {
       if (state.newMessage != "") {
@@ -343,10 +352,18 @@ export default {
         state.newMessage = "";
       }
     }
+    function subscribe(){
+       axios.post("http://localhost:8080/topic/addCollect", {
+        "topicId": "7",
+        "userId": "1"
+      });
+    }
 
     axios
-      .get("http://localhost:8080/topic/topic?topicID=1", {})
+      .get("http://localhost:8080/topic/topic?topicID=1&userID=1", {})
       .then(function (response) {
+        console.log('hi')
+        console.log(response.data.data)
         state.note = response.data.data.pop();
         // state.messages = response.data.data
       })
@@ -391,6 +408,7 @@ export default {
       sendMessage,
       like,
       love,
+      subscribe
     };
   },
 };
