@@ -18,10 +18,6 @@
     </div>
   </div>
 </template>
-
-<style>
-</style>
-
 <script>
 import { ref } from "vue";
 export default {
@@ -37,12 +33,12 @@ export default {
 <style lang="sass">
 .subscription
   font-size: 3rem
-  @media (max-width :1439px)
+  @media (max-width: 1439px)
     font-size: 2rem
   @media ( max-width: 1023px)
     font-size: 1rem
-    @media ( max-width: 599px)
-      font-size: 0.5rem
+  @media ( max-width: 599px)
+    font-size: 0.5rem
 
 // .my-card
 //   width: 300px

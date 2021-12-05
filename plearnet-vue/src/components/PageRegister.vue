@@ -57,9 +57,6 @@
   </q-page>
 </template>
 
-<style>
-</style>
-
 <script>
 import { useQuasar } from "quasar";
 import { ref } from "vue";
