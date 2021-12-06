@@ -115,10 +115,6 @@
     </div>
   </div>
 </template>
-
-<style>
-</style>
-
 <script>
 import { ref } from "vue";
 export default {

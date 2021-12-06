@@ -6,8 +6,8 @@
         <div class="q-pl-xl ">
           <div class="q-pl-lg q-gutter-sm ">
             <q-btn flat color="white" text-color="white" label="全部" />
-            <q-btn flat color="white" text-color="white" label="學術科" />
-            <q-btn flat color="white" text-color="white" label="非學術科" />
+            <!-- <q-btn flat color="white" text-color="white" label="學術科" /> -->
+            <!-- <q-btn flat color="white" text-color="white" label="非學術科" /> -->
           </div>
         </div>
         <div class="q-pr-xl">
