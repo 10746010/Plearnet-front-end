@@ -413,7 +413,7 @@ export default {
   },
 };
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 .q-chat-message
     position: static
     flex-direction: inherit

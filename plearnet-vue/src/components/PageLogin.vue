@@ -51,9 +51,6 @@
   </q-page>
 </template>
 
-<style>
-</style>
-
 <script>
 import { useQuasar } from "quasar";
 import { ref } from "vue";
@@ -99,6 +96,6 @@ export default {
   },
 };
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
     
 </style>

@@ -21,15 +21,15 @@
                       <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
                     </q-avatar>
                   </q-item-section>
-                  <q-item-section class="text-caption"
+                  <q-item-section class="text-caption larg-screen-only"
                     >編輯個人資料</q-item-section
                   >
                 </q-item>
               </div>
               <div class="col-6">
                 <div class="row items-center q-mb-sm">
-                  <div class="col">用戶名稱</div>
-                  <div class="col-9 q-pr-lg">
+                  <div class="col large-screen">用戶名稱</div>
+                  <div class="col-9 col-md-9 q-pr-lg">
                     <q-field dark outlined dense>
                       <template v-slot:control>
                         <div
@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="row items-center q-mt-sm">
-                  <div class="col">積分</div>
-                  <div class="col-9 q-pr-lg">
+                  <div class="col large-screen">積分</div>
+                  <div class="col-9 col-md-9 q-pr-lg">
                     <q-field dark outlined dense>
                       <template v-slot:control>
                         <div
@@ -67,7 +67,7 @@
                 <p style="font-size: 2rem">我的筆記</p>
                 <div class="row justify-center q-gutter-sm">
                   <q-intersection
-                    class="example-item col-4 text-black"
+                    class="example-item col-6 col-md-4 text-black"
                     v-for="note in state.notes"
                     :key="note"
                     once
@@ -125,20 +125,33 @@ export default {
 };
 </script>
 
-<style lang="sass">
-.WAL
-  width: 100%
-  height: 100%
-  padding-top: 20px
-  padding-bottom: 20px
-  
-  &__layout
-    margin: 0 auto
-    // z-index: 4000
-    height: 100%
-    width: 90%
-    max-width: 950px
-    border-radius: 5px
+<style  scoped>
+.WAL {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
+.WAL__layout {
+  margin: 0 auto;
+  height: 100%;
+  width: 90%;
+  max-width: 950px;
+  border-radius: 5px;
+}
 
+@media (max-width: 733px) {
+  .larg-screen-only {
+    display: none;
+  }
+  .large-screen {
+    opacity: 0;
+  }
+}
+@media (min-width: 1023px) {
+  .larg-screen-only {
+    display: block;
+  }
+}
 </style>

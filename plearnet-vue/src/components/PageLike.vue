@@ -32,7 +32,7 @@
 
       <div class="row justify-center q-gutter-sm text-black">
         <q-intersection
-          class="example-item col-3"
+          class="like-item col-6 col-md-3 col-sm-4"
           v-for="note in state.notes"
           :key="note"
           once
@@ -131,6 +131,8 @@ const state = reactive({
 };
 </script>
 
-<style lang="sass">
-
+<style lang="sass" scoped>
+.like-item
+  height: 290px
+  width: 290px
 </style>
