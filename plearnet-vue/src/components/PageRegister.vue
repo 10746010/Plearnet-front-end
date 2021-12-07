@@ -108,7 +108,7 @@ export default {
   },
 };
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 .form
     width: 350px
     max-width: 400px

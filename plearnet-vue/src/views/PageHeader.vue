@@ -60,7 +60,7 @@
      <!-- 左邊側欄 -->
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
+      side="left"
       bordered
       class="bg-grey-2"
       :width="250"
@@ -168,7 +168,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .YL
     &__toolbar-input-container
         min-width: 100px

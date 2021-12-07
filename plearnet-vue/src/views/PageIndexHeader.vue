@@ -116,7 +116,7 @@ export default {
   },
 };
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 .q-toolbar__title
   @media (max-width: screen--sm)
     text-align: center

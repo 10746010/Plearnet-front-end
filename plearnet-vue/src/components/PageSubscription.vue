@@ -127,7 +127,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .subscription
   font-size: 3rem
   @media (max-width :1439px)

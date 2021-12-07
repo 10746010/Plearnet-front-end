@@ -132,7 +132,21 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+.WAL
+  width: 100%
+  height: 100%
+  padding-top: 20px
+  padding-bottom: 20px
+  
+  &__layout
+    margin: 0 auto
+    // z-index: 4000
+    height: 100%
+    width: 90%
+    max-width: 950px
+    border-radius: 5px
+
 .changeImg
   width:132px
   height:136px
