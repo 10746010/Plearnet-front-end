@@ -78,45 +78,43 @@ export default {
   name: "PageIndexAbout",
 };
 </script>
-<style scoped>
-.container {
-  display: flex;
-  width: 100%;
-  padding: 4% 2%;
-  box-sizing: border-box;
-  height: 100vh;
-}
+<style lang="sass" scoped>
+.container 
+	display: flex
+	width: 100%
+	padding: 4% 2%
+	box-sizing: border-box
+	height: 100vh
 
-.box {
-  flex: 1;
-  overflow: hidden;
-  transition: 0.5s;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-  line-height: 0;
-}
+.box 
+	flex: 1
+	overflow: hidden
+	transition: 0.5s
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1)
+	line-height: 0
+	& > .img 
+		width: 100%
+		height: calc(100%)
+		object-fit: cover
+		transition: 0.5s
+	&:hover 
+		flex: 1 1 50%
+		& > img 
+			width: 100%
+			height: 100%
 
-.box > .img {
-  width: 100%;
-  height: calc(100%);
-  object-fit: cover;
-  transition: 0.5s;
-}
-.img-content {
-  font-weight: bold;
-  font-size: 3rem;
-  opacity: 0;
-}
+.img-content 
+	font-weight: bold
+	font-size: 3rem
+	opacity: 0
+	&:hover 
+		transition: 1s
+		opacity: 1
+	@media (max-width:599px)
+	font-size: 2rem
+    
+    
+  
 
-.box:hover {
-  flex: 1 1 50%;
-}
-.box:hover > img {
-  width: 100%;
-  height: 100%;
-}
 
-.img-content:hover {
-  transition: 1s;
-  opacity: 1;
-}
 </style>

@@ -18,19 +18,19 @@
       <div class="col fit justify-center items-center content-center">
         <div class="column justify-center items-center content-center text-center">
           <q-img width="80%" src="../../static/img/p2_left.png" />
-          <div>多元內容</div>
+          <div class="text">多元內容</div>
         </div>
       </div>
       <div class="col fit justify-center items-center content-center">
         <div class="column justify-center items-center content-center text-center">
           <q-img width="80%" src="../../static/img/p2_middle.png" />
-          <div>豐富筆記</div>
+          <div class="text">豐富筆記</div>
         </div>
       </div>
       <div class="col fit justify-center items-center content-center">
         <div class="column justify-center items-center content-center text-center">
           <q-img width="80%" src="../../static/img/p2_right.png" />
-          <div>學習討論</div>
+          <div class="text">學習討論</div>
         </div>
       </div>
     </div>
@@ -41,4 +41,9 @@ export default {
   name: "PageIndexFeature",
 };
 </script>
+<style lang="sass">
+.text
+  @media(max-width:599px)
+    font-size:1.3rem
+</style>
 
