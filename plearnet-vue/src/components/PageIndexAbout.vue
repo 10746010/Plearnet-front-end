@@ -34,16 +34,40 @@
       <!-- </div> -->
       <div class="container">
         <div class="box">
-          <img  src="../../static/img/p3_1.jpg" />
+          <q-img class="img" src="../../static/img/p3_1.jpg">
+          <div
+            class="img-content absolute-full flex flex-center text-info"
+          >
+            多元內容
+          </div>
+          </q-img>
         </div>
         <div class="box">
-          <img  src="../../static/img/p3_2.jpg" />
+          <q-img class="img" src="../../static/img/p3_2.jpg" >
+          <div
+            class="img-content absolute-full flex flex-center text-info"
+          >
+            精選筆記
+          </div>
+          </q-img>
         </div>
         <div class="box">
-          <img src="../../static/img/p3_3.jpg" />
+          <q-img class="img" src="../../static/img/p3_3.jpg" >
+          <div
+            class="img-content absolute-full flex flex-center text-info"
+          >
+            募集筆記
+          </div>
+          </q-img>
         </div>
         <div class="box">
-          <img src="../../static/img/p3_4.jpg" />
+          <q-img class="img" src="../../static/img/p3_4.jpg" >
+          <div
+            class="img-content absolute-full flex flex-center text-info"
+          >
+            延伸閱讀
+          </div>
+          </q-img>
         </div>
       </div>
     </div>
@@ -67,24 +91,20 @@ export default {
   flex: 1;
   overflow: hidden;
   transition: 0.5s;
-  /* margin: 0 2%; */
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
   line-height: 0;
 }
 
-.box > img {
-  width: 200%;
-  height: calc(100% );
+.box > .img {
+  width: 100%;
+  height: calc(100%);
   object-fit: cover;
   transition: 0.5s;
 }
-
-.box > span {
-  font-size: 3.8vh;
-  display: block;
-  text-align: center;
-  height: 10vh;
-  line-height: 2.6;
+.img-content {
+  font-weight: bold;
+  font-size: 3rem;
+  opacity: 0;
 }
 
 .box:hover {
@@ -93,5 +113,10 @@ export default {
 .box:hover > img {
   width: 100%;
   height: 100%;
+}
+
+.img-content:hover {
+  transition: 1s;
+  opacity: 1;
 }
 </style>
