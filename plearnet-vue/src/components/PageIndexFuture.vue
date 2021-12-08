@@ -27,7 +27,7 @@
               召集各校讀書達人、筆記好手替本平台製作示範案例
             </q-card-section>
 
-            <q-btn label="➝欣賞精選筆記" flat  />
+            <q-btn class="btn" label="➝欣賞精選筆記" flat  to="/main"/>
           </q-card>
         </div>
 
@@ -50,7 +50,7 @@
               並參考使用者的意見進行改善
             </q-card-section>
 
-             <q-btn label="➝看看Plearnet的影音" flat @click="dialog = true" />
+             <q-btn class="btn" label="➝看看Plearnet的影音" flat @click="dialog = true" />
 
             <q-dialog
               v-model="dialog"
@@ -124,7 +124,7 @@
               進行多角化經營
             </q-card-section>
 
-             <q-btn label="➝聯絡我們" flat />
+             <q-btn class="btn" label="➝聯絡我們" flat to="/main/wish"/>
           </q-card>
         </div>
       </div>
@@ -175,6 +175,13 @@ export default {
     font-size:0.5rem
   @media ( max-width: 599px)
     font-size:0.3rem
+
+.btn
+  @media (max-width: 599px)
+    font-size:8px
+
+  // 
+  //   font-size:8px
 
 // .my-card
 //   width: 100%!important
