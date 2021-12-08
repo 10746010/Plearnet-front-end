@@ -7,7 +7,7 @@
       <div
         class="col column justify-center items-center content-center text-white"
       >
-        <div class="flex justify-center items-center text-center">
+        <div class="flex justify-center items-center text-center title">
           <h3>Plearnet學習網</h3>
           <img src="../../static/img/logo.png" style="width: 10%" />
         </div>
@@ -20,7 +20,7 @@
           to="/main/login"
         />
       </div>
-      <div class="col column justify-center items-center content-center"></div>
+      <div class="col column justify-center items-center content-center large-screen-only" ></div>
     </div>
   </q-img>
 </template>
@@ -31,3 +31,14 @@ export default {
   computed: {},
 };
 </script>
+
+<style lang="sass" scoped>
+.title
+  h3
+    @media (max-width: 799px)
+      font-size:2rem
+
+.large-screen-only  
+  @media (max-width: 599px)
+    display: none
+</style>
