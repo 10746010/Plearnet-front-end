@@ -3,7 +3,7 @@
     <q-scroll-area class="absolute fullscreen" style="z-index: 0">
       <div class="q-pa-xl bg-black relative-position" :style="style">
         <q-layout view="lHh Lpr lFf" class="WAL__layout shadow-3" container>
-          <div class="q-pa-md q-gutter-sm bg-white">
+          <div class="q-pa-md q-gutter-sm bg-white">          
             <q-form
               autocorrect="off"
               autocapitalize="off"
@@ -14,14 +14,13 @@
               <q-select
                 class="q-mb-sm bg-white text-black"
                 color="teal"
-                
-                v-model="model"
+                v-model="classOptions"
                 :options="options"
                 label="類別"
               />
+
               <q-input
-              class="bg-white text-black"
-                
+                class="bg-white text-black"
                 v-model="state.title"
                 label="文章標題 *"
                 hint="文章和內容"
@@ -32,8 +31,9 @@
               />
               <q-editor
                 class="bg-white text-black"
-                style="min-height: 650px !important"
-                v-model="state.content"
+                style="min-height: 450px !important"
+                v-model="editor"           
+                ref="editor"                
                 :dense="$q.screen.lt.md"
                 :toolbar="[
                   [
@@ -53,7 +53,8 @@
                     'subscript',
                     'superscript',
                   ],
-                  ['token', 'hr', 'link', 'custom_btn'],
+                  ['bgtoken','texttoken'],
+                  ['hr', 'link', 'custom_btn'],
                   [
                     {
                       label: $q.lang.editor.formatting,
@@ -119,7 +120,67 @@
                   times_new_roman: 'Times New Roman',
                   verdana: 'Verdana',
                 }"
-              />
+              >
+                <template v-slot:bgtoken>
+                  <q-btn-dropdown
+                    dense
+                    no-caps
+                    ref="bgtoken"
+                    no-wrap
+                    unelevated
+                    color="white"
+                    text-color="black"
+                    icon="fas fa-fill-drip"
+                    size="sm"
+                  >
+                    <q-list dense>
+                      <q-item
+                        tag="label"
+                        clickable
+                        @click="color('backColor', highlight)"
+                      >
+                        <q-item-section>
+                           <q-color v-model="highlight" no-header no-footer class="my-picker" />                         
+                        </q-item-section>
+                      </q-item>                      
+                    </q-list>
+                  </q-btn-dropdown>
+                </template>     
+
+                <template v-slot:texttoken>
+                  <q-btn-dropdown
+                    dense
+                    no-caps
+                    ref="texttoken"
+                    no-wrap
+                    unelevated
+                    color="white"
+                    text-color="black"
+                    icon="fas fa-palette"
+                    
+                    size="sm"
+                  >
+                    <q-list dense>                     
+                      <q-item
+                        tag="label"
+                        clickable
+                        @click="color('foreColor', foreColor)"
+                      >
+                        <q-item-section>
+                           <q-color v-model="foreColor" no-header no-footer class="my-picker" />                          
+                        </q-item-section>
+                      </q-item>
+                    </q-list>
+                  </q-btn-dropdown>
+                </template>
+              </q-editor>
+
+              <q-separator size="10px" color="white"/>
+
+              <q-card flat bordered>
+                <q-card-section v-html="editor" />
+              </q-card>
+
               <div class="row">
                 <q-space />
                 <q-btn
@@ -140,21 +201,37 @@
 <script>
 import axios from "axios";
 import { useQuasar } from "quasar";
-import { ref, computed, reactive } from "vue";
+import { computed, reactive } from "vue";
 // import { useRouter } from "vue-router";
-
+<i class="fas fa-fill-drip"></i>
 export default {
   name: "WhatsappLayout",
   components: {},
+  data() {
+    return {
+      foreColor: "#000000",
+      highlight: "#ffff00aa",
+      editor: "",
+      classOptions:"網頁",
+      options:["網頁","擊劍"]
+    };
+  },
+  methods: {
+    color(cmd, name) {
+      const edit = this.$refs.editor;
+      this.$refs.bgtoken.hide();
+      this.$refs.texttoken.hide();
+      edit.caret.restore();
+      edit.runCmd(cmd, name);
+      edit.focus();
+    },
+  },
+
   setup() {
     const $q = useQuasar();
-
     const style = computed(() => ({
       height: $q.screen.height + "px",
-    }));
-    const editorStyle = computed(() => ({
-      height: $q.screen.height - 330 + "px",
-    }));
+    }));  
 
     const state = reactive({
       title: "",
@@ -174,17 +251,11 @@ export default {
 
       // await router.push("/main");
     };
-   
 
     return {
       style,
-      state,
-      editorStyle,
-      qeditor: ref(
-        "<pre>Check out the two different types of dropdowns" +
-          ' in each of the "Align" buttons.</pre> '
-      ),
-      createNewNote,
+      state,    
+      createNewNote,      
     };
   },
 };
