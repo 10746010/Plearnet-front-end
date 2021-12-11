@@ -113,17 +113,17 @@ export default {
 <style lang="sass" scoped>
  
 .star
-    width:150px
+
     height:150px
     position: relative
     top: -50px
-    right: 70px
+    right: 110px
 
 .tit
     position: relative
     top: -50px
     font-size: 3rem
-    left: -180px
+    left: -281px
 
 .back 
     position: relative
