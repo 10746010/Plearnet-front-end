@@ -28,37 +28,13 @@
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
                   src="../../static/img/3.png"
                 >
                   <div
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -104,30 +80,8 @@
             <!-- 中 -->
             <div class="middle-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -137,55 +91,59 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
+                <q-btn flat round to="/main">
+                  <q-img
+                    class="rounded-borders col-6 full-height"
+                    style="width: 300px"
+                    src="../../static/img/4.png"
+                  >
+                    <div
+                      class="
+                        round
+                        absolute-full
+                        text-subtitle2
+                        flex flex-center
+                      "
+                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
+                    >
+                      交流
+                    </div>
+                  </q-img>
+                </q-btn>
               </div>
             </div>
             <!-- 小 -->
             <div class="small-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
+                <q-btn flat round to="/main">
+                  <q-img
+                    class="rounded-borders col-6 full-height"
+                    style="width: 300px"
+                    src="../../static/img/4.png"
                   >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                    <div
+                      class="
+                        round
+                        absolute-full
+                        text-subtitle2
+                        flex flex-center
+                      "
+                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
+                    >
+                      交流
+                    </div>
+                  </q-img>
+                </q-btn>
+                
               </div>
             </div>
             <!-- 最小(手機) -->
             <div class="extrasmall-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
+                
               </div>
             </div>
           </q-carousel-slide>
@@ -213,30 +171,8 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -246,7 +182,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -273,18 +209,7 @@
             <!-- 中 -->
             <div class="middle-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -294,7 +219,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -321,18 +246,7 @@
             <!-- 小 -->
             <div class="small-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -342,7 +256,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
               </div>
@@ -350,18 +264,7 @@
             <!-- 最小(手機) -->
             <div class="extrasmall-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
               </div>
             </div>
           </q-carousel-slide>
@@ -408,30 +311,8 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -441,7 +322,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
               </div>
@@ -458,7 +339,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -513,7 +394,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -549,7 +430,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
               </div>
@@ -569,7 +450,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -610,30 +491,8 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
+                
               </div>
             </div>
             <!-- 中 -->
@@ -677,18 +536,7 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
+                
               </div>
             </div>
             <!-- 小 -->
@@ -763,18 +611,7 @@
             <!-- 大 -->
             <div class="large-screen-only">
               <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
                 <q-img
                   class="rounded-borders col-6 full-height"
                   style="width: 300px"
@@ -784,7 +621,7 @@
                     class="round absolute-full text-subtitle2 flex flex-center"
                     style="background: rgba(0, 0, 0, 0); font-size: 50px"
                   >
-                    高中
+                    考試
                   </div>
                 </q-img>
                 <q-btn flat round to="/main">
@@ -825,18 +662,7 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
+                
               </div>
             </div>
             <!-- 中 -->
@@ -861,30 +687,8 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/2.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國中
-                  </div>
-                </q-img>
+                
+                
               </div>
             </div>
             <!-- 小 -->
@@ -909,18 +713,7 @@
                     </div>
                   </q-img>
                 </q-btn>
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/1.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    國小
-                  </div>
-                </q-img>
+                
               </div>
             </div>
             <!-- 最小(手機) -->

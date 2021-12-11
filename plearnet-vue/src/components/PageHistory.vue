@@ -6,9 +6,9 @@
       <div class="row justify-between q-pl-xl q-pr-xl">
         <div class="q-pl-xl">
           <div class="q-pl-lg q-gutter-sm">
-            <q-btn flat color="white" text-color="white" label="網頁" />
-            <q-btn flat color="white" text-color="white" label="畫圖" />
-            <q-btn flat color="white" text-color="white" label="國家" />
+            <q-btn flat color="white" text-color="white" label="考試" />
+            <q-btn flat color="white" text-color="white" label="興趣" />
+            <q-btn flat color="white" text-color="white" label="交流" />
           </div>
         </div>
         <div class="q-pr-xl">

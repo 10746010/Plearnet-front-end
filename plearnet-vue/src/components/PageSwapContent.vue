@@ -54,7 +54,7 @@
               v-for="swap in swaps"
               :key="swap.date"
               class="q-py-md"
-              style="max-width: 380px"
+              style="max-width: 445px"
             >
               <q-item-section avatar top>
                 <q-avatar>
@@ -90,7 +90,7 @@
             </q-item>
           </q-list>
 
-          <div class="q-py-lg q-px-md row items-end q-col-gutter-md">
+          <div class="send q-py-lg q-px-md row items-end q-col-gutter-md">
             <div class="col" style="max-width: 380px">
               <q-input
                 class="new-content"
@@ -246,5 +246,11 @@ export default {
 
 .content
     white-space:pre-line
+
+.q-item
+    margin :0 auto
+
+.send
+    justify-content: center
 
 </style>

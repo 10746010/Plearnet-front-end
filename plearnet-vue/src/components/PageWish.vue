@@ -1,5 +1,6 @@
 <template>
-  <q-page class="flex column justify-center items-center content-center bg-black">
+  <q-page class="flex column justify-center items-center content-center">
+    <img src="../../static/img/wishbg.jpg" class="bg-wish" />
     <div class="q-pa-md ">
       <div class="q-gutter-y-md " style="width: 550px; max-width: 600px">
         <q-card class="bg-grey">
@@ -105,3 +106,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .bg-wish {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+</style>
