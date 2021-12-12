@@ -2,747 +2,208 @@
   <q-page class="relative-position">
     <q-scroll-area class="absolute fullscreen" style="z-index: 0">
       <div class="q-pa-md bg-black">
-        <!-- 星球排名 -->
-        <q-carousel
-          animated
-          v-model="slide"
-          navigation
-          infinite
-          :autoplay="autoplay"
-          swipeable
-          padding
-          arrows
-          transition-prev="slide-right"
-          transition-next="slide-left"
-          @mouseenter="autoplay = false"
-          @mouseleave="autoplay = true"
-          control-color="orange"
-          height="300px"
-          class="bg-black"
+          <!-- 星球排名 -->
+  <!-- 大 -->
+  <div class="large-screen-only">
+    <div class="row flex flex-center">
+      <q-img
+        class="rounded-borders col-6 full-height"
+        style="width: 300px"
+        src="../../static/img/3.png"
+      >
+        <div
+          class="round absolute-full text-subtitle2 flex flex-center"
+          style="background: rgba(0, 0, 0, 0); font-size: 50px"
         >
-          <!-- 第一個 -->
-          <q-carousel-slide :name="1">
-            <!-- 大 -->
-            <div class="large-screen-only">
-              <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
+          考試
+        </div>
+      </q-img>
+      <q-btn flat round to="/main">
+        <q-img
+          class="rounded-borders col-6 full-height"
+          style="width: 300px"
+          src="../../static/img/4.png"
+        >
+          <div
+            class="round absolute-full text-subtitle2 flex flex-center"
+            style="background: rgba(0, 0, 0, 0); font-size: 50px"
+          >
+            交流
+          </div>
+        </q-img>
+      </q-btn>
+      <q-btn flat round to="/main/savor">
+        <q-img
+          class="rounded-borders col-6 full-height"
+          style="width: 300px"
+          src="../../static/img/5.png"
+        >
+          <div
+            class="round absolute-full text-subtitle2 flex flex-center"
+            style="background: rgba(0, 0, 0, 0); font-size: 50px"
+          >
+            興趣
+          </div>
+        </q-img>
+      </q-btn>
+    </div>
+  </div>
+  <!-- 中 -->
+  <div class="middle-screen-only">
+    <q-carousel
+      animated
+      v-model="slide"
+      navigation
+      infinite
+      :autoplay="autoplay"
+      swipeable
+      padding
+      arrows
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      @mouseenter="autoplay = false"
+      @mouseleave="autoplay = true"
+      control-color="orange"
+      height="300px"
+      class="bg-black"
+    >
+      <q-carousel-slide :name="1">
+        <div class="row flex flex-center">
+          <q-img
+            class="rounded-borders col-6 full-height"
+            style="width: 300px"
+            src="../../static/img/3.png"
+          >
+            <div
+              class="round absolute-full text-subtitle2 flex flex-center"
+              style="background: rgba(0, 0, 0, 0); font-size: 50px"
+            >
+              考試
             </div>
-            <!-- 中 -->
-            <div class="middle-screen-only">
-              <div class="row flex flex-center">
-                
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
+          </q-img>
+          <q-btn flat round to="/main">
+            <q-img
+              class="rounded-borders col-6 full-height"
+              style="width: 300px"
+              src="../../static/img/4.png"
+            >
+              <div
+                class="round absolute-full text-subtitle2 flex flex-center"
+                style="background: rgba(0, 0, 0, 0); font-size: 50px"
+              >
+                交流
               </div>
-            </div>
-            <!-- 小 -->
-            <div class="small-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                
+            </q-img>
+          </q-btn>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="2">
+        <div class="row flex flex-center">
+          <q-btn flat round to="/main">
+            <q-img
+              class="rounded-borders col-6 full-height"
+              style="width: 300px"
+              src="../../static/img/4.png"
+            >
+              <div
+                class="round absolute-full text-subtitle2 flex flex-center"
+                style="background: rgba(0, 0, 0, 0); font-size: 50px"
+              >
+                交流
               </div>
-            </div>
-            <!-- 最小(手機) -->
-            <div class="extrasmall-screen-only">
-              <div class="row flex flex-center">
-                
+            </q-img>
+          </q-btn>
+          <q-btn flat round to="/main/savor">
+            <q-img
+              class="rounded-borders col-6 full-height"
+              style="width: 300px"
+              src="../../static/img/5.png"
+            >
+              <div
+                class="round absolute-full text-subtitle2 flex flex-center"
+                style="background: rgba(0, 0, 0, 0); font-size: 50px"
+              >
+                興趣
               </div>
+            </q-img>
+          </q-btn>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+  </div>
+  <!-- 小 -->
+  <div class="small-screen-only">
+    <q-carousel
+      animated
+      v-model="slide"
+      navigation
+      infinite
+      :autoplay="autoplay"
+      swipeable
+      padding
+      arrows
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      @mouseenter="autoplay = false"
+      @mouseleave="autoplay = true"
+      control-color="orange"
+      height="300px"
+      class="bg-black"
+    >
+      <q-carousel-slide :name="1">
+        <div class="row flex flex-center">
+          <q-img
+            class="rounded-borders col-6 full-height"
+            style="width: 300px"
+            src="../../static/img/3.png"
+          >
+            <div
+              class="round absolute-full text-subtitle2 flex flex-center"
+              style="background: rgba(0, 0, 0, 0); font-size: 50px"
+            >
+              考試
             </div>
-          </q-carousel-slide>
-          <!-- 第二個 -->
-          <q-carousel-slide :name="2">
-            <!-- 大 -->
-            <div class="large-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
+          </q-img>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="2">
+        <div class="row flex flex-center">
+          <q-btn flat round to="/main">
+            <q-img
+              class="rounded-borders col-6 full-height"
+              style="width: 300px"
+              src="../../static/img/4.png"
+            >
+              <div
+                class="round absolute-full text-subtitle2 flex flex-center"
+                style="background: rgba(0, 0, 0, 0); font-size: 50px"
+              >
+                交流
               </div>
-            </div>
-            <!-- 中 -->
-            <div class="middle-screen-only">
-              <div class="row flex flex-center">
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
+            </q-img>
+          </q-btn>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="3">
+        <div class="row flex flex-center">
+          <q-btn flat round to="/main/savor">
+            <q-img
+              class="rounded-borders col-6 full-height"
+              style="width: 300px"
+              src="../../static/img/5.png"
+            >
+              <div
+                class="round absolute-full text-subtitle2 flex flex-center"
+                style="background: rgba(0, 0, 0, 0); font-size: 50px"
+              >
+                興趣
               </div>
-            </div>
-            <!-- 小 -->
-            <div class="small-screen-only">
-              <div class="row flex flex-center">
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-              </div>
-            </div>
-            <!-- 最小(手機) -->
-            <div class="extrasmall-screen-only">
-              <div class="row flex flex-center">
-                
-              </div>
-            </div>
-          </q-carousel-slide>
-          <!-- 第三個 -->
-          <q-carousel-slide :name="3">
-            <!-- 大 -->
-            <div class="large-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-              </div>
-            </div>
-            <!-- 中 -->
-            <div class="middle-screen-only">
-              <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
-            </div>
-            <!-- 小 -->
-            <div class="small-screen-only">
-              <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
-            </div>
-            <!-- 最小(手機) -->
-            <div class="extrasmall-screen-only">
-              <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-              </div>
-            </div>
-          </q-carousel-slide>
-          <!-- 第四個 -->
-          <q-carousel-slide :name="4">
-            <!-- 大 -->
-            <div class="large-screen-only">
-              <div class="row flex flex-center">
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-                
-              </div>
-            </div>
-            <!-- 中 -->
-            <div class="middle-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-              </div>
-            </div>
-            <!-- 小 -->
-            <div class="small-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
-            </div>
-            <!-- 最小(手機) -->
-            <div class="extrasmall-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
-            </div>
-          </q-carousel-slide>
-          <q-carousel-slide :name="5">
-            <!-- 大 -->
-            <div class="large-screen-only">
-              <div class="row flex flex-center">
-                
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  style="width: 300px"
-                  src="../../static/img/3.png"
-                >
-                  <div
-                    class="round absolute-full text-subtitle2 flex flex-center"
-                    style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                  >
-                    考試
-                  </div>
-                </q-img>
-                <q-btn flat round to="/main">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/4.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      交流
-                    </div>
-                  </q-img>
-                </q-btn>
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-              </div>
-            </div>
-            <!-- 中 -->
-            <div class="middle-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-                
-              </div>
-            </div>
-            <!-- 小 -->
-            <div class="small-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-                
-              </div>
-            </div>
-            <!-- 最小(手機) -->
-            <div class="extrasmall-screen-only">
-              <div class="row flex flex-center">
-                <q-btn flat round to="/main/savor">
-                  <q-img
-                    class="rounded-borders col-6 full-height"
-                    style="width: 300px"
-                    src="../../static/img/5.png"
-                  >
-                    <div
-                      class="
-                        round
-                        absolute-full
-                        text-subtitle2
-                        flex flex-center
-                      "
-                      style="background: rgba(0, 0, 0, 0); font-size: 50px"
-                    >
-                      興趣
-                    </div>
-                  </q-img>
-                </q-btn>
-              </div>
-            </div>
-          </q-carousel-slide>
-        </q-carousel>
-
+            </q-img>
+          </q-btn>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+  </div>
         <div class="fit row wrap justify-center items-center content-center">
           <!-- 左邊 -->
             <div
@@ -823,6 +284,7 @@
 
 <script>
 import { ref } from "vue";
+// import Carousel from "../components/Carousel.vue";
 
 export default {
   name: "PageHomeSwap",
@@ -888,25 +350,19 @@ export default {
     width: 80%
 
 .large-screen-only
-  @media (max-width: 1640px)
+  @media (max-width: 1181px)
     display: none
 
 .middle-screen-only
   display: none
-  @media (max-width: 1639px)
+  @media (max-width: 1181px)
     display: block
-  @media (max-width: 1300px)
+  @media (max-width: 800px)
     display: none
 
 .small-screen-only
   display: none
-  @media (max-width:1299px)
+  @media (max-width:800px)
     display: block
-  @media (max-width:750px)
-    display: none
 
-.extrasmall-screen-only
-  display: none
-  @media (max-width:749px)
-    display: block
 </style>
