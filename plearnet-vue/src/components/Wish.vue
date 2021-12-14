@@ -10,7 +10,7 @@
           @click.prevent="note"
           readonly
         />
-          <input
+        <input
           class="wanna-wish"
           placeholder="分類"
           @click.prevent="type"
@@ -23,7 +23,7 @@
           <input
             id="input"
             v-model="text"
-            :placeholder="'希望增設的'+wannaWish"
+            :placeholder="'希望增設的' + wannaWish"
             required
           />
         </div>
@@ -59,20 +59,19 @@ export default {
     return {
       text: "",
       newWishContent: "",
-      wannaWish:"筆記",
+      wannaWish: "筆記",
     };
   },
   methods: {
     send() {
       alert("已送出");
     },
-    note(){
-      this.wannaWish="筆記"
+    note() {
+      this.wannaWish = "筆記";
     },
-    type(){
-      this.wannaWish="分類"
-
-    }
+    type() {
+      this.wannaWish = "分類";
+    },
   },
   computed: {
     newWishCharacterCount() {
@@ -105,7 +104,7 @@ export default {
   margin: 0 0 0 20px;
 }
 
-.widh__box{
+.widh__box {
   display: flex;
   justify-content: space-evenly;
 }
@@ -137,7 +136,7 @@ export default {
 
 /* 許願的背景 */
 .wishbg {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.432);
   width: 350px;
   height: 400px;
   border-radius: 30px;
@@ -149,7 +148,7 @@ export default {
   border-radius: 9px;
   width: 260px;
   height: 25px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.432);
   border: none;
 }
 .wanna {
@@ -160,7 +159,7 @@ export default {
   border-radius: 9px;
   width: 260px;
   height: 250px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.432);
   border: none;
 }
 .button {

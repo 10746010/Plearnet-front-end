@@ -1,8 +1,8 @@
 <template>
   <q-page class="flex column justify-center items-center content-center">
     <img src="../../static/img/wishbg.jpg" class="bg-wish" />
-    <div class="q-pa-md ">
-      <div class="q-gutter-y-md " style="width: 550px; max-width: 600px">
+    <div class="q-pa-md">
+      <div class="q-gutter-y-md" style="width: 550px; max-width: 600px">
         <q-card class="bg-grey">
           <q-tabs
             v-model="tab"
@@ -18,12 +18,12 @@
           </q-tabs>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md ">
+          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
             <q-tab-panels v-model="tab" animated class="bg-grey">
               <q-tab-panel name="note">
                 <q-input
-                  outlined         
-                  rounded           
+                  outlined
+                  rounded
                   v-model="name"
                   bg-color="white"
                   label="輸入希望增設的筆記 *"
@@ -33,14 +33,20 @@
                   ]"
                 />
                 <div class="fit">
-                  <q-input v-model="text" bg-color="white" outlined rounded type="textarea" />
+                  <q-input
+                    v-model="text"
+                    bg-color="white"
+                    outlined
+                    rounded
+                    type="textarea"
+                  />
                 </div>
               </q-tab-panel>
 
               <q-tab-panel name="class">
                 <q-input
                   outlined
-                  rounded 
+                  rounded
                   v-model="name"
                   bg-color="white"
                   label="輸入希望增設的分類 *"
@@ -50,7 +56,13 @@
                   ]"
                 />
                 <div class="fit">
-                  <q-input v-model="text" bg-color="white" outlined rounded type="textarea" />
+                  <q-input
+                    v-model="text"
+                    bg-color="white"
+                    outlined
+                    rounded
+                    type="textarea"
+                  />
                 </div>
               </q-tab-panel>
             </q-tab-panels>
@@ -108,11 +120,11 @@ export default {
 </script>
 
 <style scoped>
-  .bg-wish {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+.bg-wish {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 </style>
