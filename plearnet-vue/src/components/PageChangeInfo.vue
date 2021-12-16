@@ -52,20 +52,7 @@
                   <q-input dark outlined v-model="state.userInfo.email" dense />
                 </div>
               </div>
-
-              <!-- <div class="full-width row items-center">
-                <div class="col-2 text-left q-pr-lg">手機號碼</div>
-                <div class="col-9">
-                  <q-input dark outlined v-model="state.phone" dense />
-                </div>
-              </div> -->
-
-              <!-- <div class="full-width row items-center ">
-                <div class="col-2 text-left q-pr-lg">個性簽名</div>
-                <div class="col-9 ">
-                  <q-input dark outlined v-model="state.text" dense />
-                </div>
-              </div> -->
+            
               <div class="fit row">
                 <q-space />
                 <q-btn
@@ -91,7 +78,7 @@ import { useRouter } from "vue-router";
 export default {
   name: "WhatsappLayout",
   components: {
-    // PageInfo
+
   },
   data() {
     return {
@@ -117,12 +104,7 @@ export default {
 
     const state = reactive({
       userInfo: [],
-      userId:null,
-      // username:"",
-      // gender:"",
-      // email:"",
-      // phone:"",
-      // text:"",
+      userId:null,     
     });
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
 
@@ -150,10 +132,6 @@ export default {
     
     
     function change(){
-      // console.log(state.userId)
-      // console.log(state.userInfo.name)
-      // console.log(state.userInfo.email)
-
       axios.patch("http://localhost:8080/userAccount/editUser", {
         id: state.userId,
         name: state.userInfo.name,
