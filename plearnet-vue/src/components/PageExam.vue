@@ -10,7 +10,7 @@
           <div class="row">
             <img class="star" src="../../static/img/5.png" />
             <h4 class="tit q-pl-xl text-white" style="font-size: 3rem">
-              興趣區
+              考試區
             </h4>
             <q-space />
             <div class="q-pa-md">
@@ -106,22 +106,19 @@ export default {
     
 
     const watch = async (id) => {
-      await router.push(`${id}`);
-    }
+      await router.push(`/main/${id}`);
 
-    const token = localStorage.getItem("token");
-// 取得興趣的所有筆記
+    }
+    // 找興趣所有的筆記
     axios
-      .get("http://localhost:8080/topic/tagTypeSearch?tagType=1", {})
+      .get("topic/tagTypeSearch?tagType=0", {})
       .then(function (response) {
         state.notes = response.data.data.reverse();
+        console.log(state.notes);
       })
       .catch(function (error) {
         console.log(error);
       });
-
-    
-
     return {
       style,
       state,
@@ -131,8 +128,7 @@ export default {
         { text: "Two", value: "B" },
         { text: "Three", value: "C" },
       ],
-      watch,
-      token
+      watch
     };
   },
 };

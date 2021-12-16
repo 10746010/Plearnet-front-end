@@ -5,13 +5,16 @@ import './axios'
 import { Quasar } from 'quasar'
 import quasarUserOptions from './quasar-user-options'
 
+
+// console.log(Response)
+
 router.beforeEach((to, from, next) => {
-  const isLogin = localStorage.getItem('token');
+  const loginToken = localStorage.getItem('token');
   if (to.meta.requiresAuth) {
-    if (isLogin) {
+    if (loginToken) {
       next()
     } else {
-      next({ name: 'Login' })
+      next({ name: 'PageLogin' })
     }
   } else {
     next()

@@ -1,8 +1,8 @@
 <template v-slot:body-cell-name="props">
   <q-layout view="hHh lpR fFf">
-    <q-header reveal elevated class="bg-black text-white">
-      <div class="q-pa-md">
-        <q-toolbar class="bg-black text-white">
+    <!-- <q-header reveal elevated class="bg-black text-white"> -->
+      <!-- <div class="q-pa-md"> -->
+        <!-- <q-toolbar class="bg-black text-white">
           <q-btn flat round dense class="q-mr-sm">
             <q-avatar>
               <img
@@ -54,7 +54,7 @@
           <q-btn to="/main/login" stretch flat label="登入" />
         </q-toolbar>
       </div>
-    </q-header>
+    </q-header> -->
 
     <q-page-container>
       <router-view />

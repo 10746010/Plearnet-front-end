@@ -1,11 +1,17 @@
 <template>
   <q-page class="flex column justify-center items-center content-center">
     <div
-      class=" q-pa-md rounded-borders"
-      style="width: 352px; max-width: 400px;background-color: #ffffffad;border-radius: 15px;z-index:1;"
+      class="q-pa-md rounded-borders"
+      style="
+        width: 352px;
+        max-width: 400px;
+        background-color: #ffffffad;
+        border-radius: 15px;
+        z-index: 1;
+      "
     >
       <div class="row items-center">
-        <div class="col-4"><q-btn icon="fas fa-chevron-left" flat round /></div>
+        <div class="col-4"><q-btn icon="fas fa-chevron-left" flat round to="/main"/></div>
         <div class="col-8 text-h5">login</div>
       </div>
       <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
@@ -27,7 +33,6 @@
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
         />
 
-        <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
         <div>
           <q-btn
             class="full-width"
@@ -35,40 +40,83 @@
             type="submit"
             color="primary"
             glossy
-            to="/main/"
+            @click.prevent="login"
           />
-          <q-btn flat style="color: #ff0080" size="xs" label="註冊帳號" to="/main/login/register" />
+          <q-btn
+            flat
+            style="color: #ff0080"
+            size="xs"
+            label="註冊帳號"
+            to="/register"
+          />
         </div>
-        <!-- <q-separator dark /> -->
-        <!-- <div> -->
-          <!-- <div class="q-gutter-md fit row justify-center"> -->
-              <!-- <q-btn label="facebook" type="submit" color="primary" /> -->
-              <!-- <q-btn label="google" type="submit" color="deep-orange" /> -->
-          <!-- </div> -->
-        <!-- </div> -->
       </q-form>
+      <q-dialog v-model="small">
+        <q-card style="width: 300px">
+           <q-card-section>
+          <div class="text-h6"></div>
+        </q-card-section>
+          <q-card-section class="fit row text-center justify-center items-center content-center">
+            {{state.warning}}
+          </q-card-section>
+
+          <q-card-actions align="right" class="bg-white text-teal">
+            <q-btn flat label="OK" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </div>
   </q-page>
 </template>
 
 <script>
 import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
   name: "PageLogin",
   setup() {
     const $q = useQuasar();
-
+    const small= ref(false);
     const account = ref(null);
     const password = ref(null);
     const accept = ref(false);
+   
+    const state = reactive({
+      warning:""
+    });
 
+
+    const router = useRouter();
+    const login = async () => {   
+      await axios.post("http://localhost:8080/loginUserAccount", {
+        account: account.value,
+        password: password.value,       
+      })
+      .then(function (response) {       
+        if (response.data.message != "登入成功"){
+          small.value=true
+          state.warning = response.data.message
+        }
+        else{
+          localStorage.setItem("token", response.data.data.token);
+          router.push("/main"); 
+        }
+      })     
+      .catch(function (error) {
+        console.log(error)
+        })
+           
+    };
     return {
       account,
       password,
       accept,
-
+      login,
+      small,
+      state,
       onSubmit() {
         if (accept.value !== true) {
           $q.notify({
@@ -97,5 +145,4 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-    
 </style>

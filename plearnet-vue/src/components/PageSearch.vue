@@ -1,15 +1,21 @@
 <template>
-  <q-page class="relative-position">
+  <q-page class="relative-position" >
     <q-scroll-area
       class="absolute fullscreen bg-black text-white"
       style="z-index: 0"
     >
-      <h4 class="q-pl-xl">歷史紀錄</h4>
+      <h4 class="q-pl-xl">Search</h4>
       <div class="row justify-between q-pl-xl q-pr-xl">
         <div class="q-pl-xl">
           <div class="q-pl-lg q-gutter-sm">
-            <q-btn flat color="white" text-color="white" label="全部" @click.prevent="show('全部')"/>
             <q-btn
+              flat
+              color="white"
+              text-color="white"
+              label="全部"
+              @click.prevent="show('全部')"
+            />
+            <!-- <q-btn
               flat
               color="white"
               text-color="white"
@@ -17,7 +23,7 @@
               :key="tag"
               @click.prevent="show(tag.tag_name)"
               >{{ tag.tag_name }}</q-btn
-            >         
+            >          -->
           </div>
         </div>
         <div class="q-pr-xl">
@@ -41,9 +47,7 @@
           once
           transition="scale"
         >
-          <q-btn
-            @click.prevent="watch(note.topic_id)"            
-          >
+          <q-btn @click.prevent="watch(note.id)">
             <q-card class="q-ma-sm">
               <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
@@ -62,12 +66,13 @@
 <script>
 import { reactive } from "vue";
 import axios from "axios";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
-  name: "PageHistory",
+  name: "PageSearch",
   components: {},
   props: {},
+
   setup() {
     const state = reactive({
       notes: [
@@ -82,51 +87,54 @@ export default {
         { title: "筆記", date: 1637254953865, by: "John" },
       ],
       tags: [],
-      showNotes: [], 
-      key:null,
+      showNotes: [],
+      key: null,
     });
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
+    const route = useRoute();
+    let keyword = route.params.keyword;
 
     const router = useRouter();
     const watch = async (id) => {
-      await router.push(`${id}`);
+      router.push(`${id}`);
     };
-// 找尋自己看過的筆記
+    // 找所有筆記
     axios
-      .get("http://localhost:8080/userAccount/historySearch", {})
+      .get("http://localhost:8080/topic/keySearch", {
+        params: {
+          key: keyword,
+        },
+      })
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;
-        state.notes = arr.filter((item) =>
-          !set.has(item.topic_id) ? set.add(item.topic_id) : false
-        );
+        state.notes = arr.reverse();
         state.tags = arr.filter((item) =>
           !set.has(item.tag_name) ? set.add(item.tag_name) : false
         );
-        state.notes = state.notes.reverse();
         state.showNotes = state.notes;
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    function show(tag) {
-      if(tag != "全部"){
-        state.showNotes=[]
-        for (const [key, value] of Object.entries(state.notes)) {
-        state.key = key
-        if(value.tag_name == tag){
-          state.showNotes.push(value)
-        }        
-        }
-      }else{
-        state.showNotes=state.notes
-      }
-    }
+    // function show(tag) {
+    //   if(tag != "全部"){
+    //     state.showNotes=[]
+    //     for (const [key, value] of Object.entries(state.notes)) {
+    //     state.key = key
+    //     if(value.tag_name == tag){
+    //       state.showNotes.push(value)
+    //     }
+    //     }
+    //   }else{
+    //     state.showNotes=state.notes
+    //   }
+    // }
     return {
       state,
       watch,
-      show,
     };
   },
 };
@@ -134,6 +142,6 @@ export default {
 
 <style lang="sass" scoped>
 .history-item
-  height: 290px
-  width: 290px
+    height: 290px
+    width: 290px
 </style>

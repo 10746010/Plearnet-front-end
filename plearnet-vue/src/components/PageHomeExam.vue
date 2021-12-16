@@ -2,8 +2,8 @@
   <q-page class="relative-position">
     <q-scroll-area class="absolute fullscreen" style="z-index: 0">
       <div class="q-pa-md bg-black">
-          <!-- 星球排名 -->
-  <!-- 大 -->
+           <!-- 星球排名 -->
+ <!-- 大 -->
   <div class="large-screen-only">
     <div class="row flex flex-center">
       <q-btn flat round to="/main/exam">
@@ -212,7 +212,8 @@
     </q-carousel>
   </div>
         <div class="fit row wrap justify-center items-center content-center">
-          <!-- 左邊 -->
+      
+            <!-- 左邊 -->
             <div
               class="
                 q-pa-md
@@ -225,20 +226,19 @@
               "
             >
               <q-card
-                class="my-content bg-grey-8 text-white"
+                class="my-content bg-grey-8 text-white"    
               >
                 <q-card-section>
-                  <div class="text-h6">交流星球</div>
+                  <div class="text-h6">考試星球</div>
                 </q-card-section>
 
                 <q-card-section >
-                  <p style="font-size: 18px">還在為看不懂的公式煩惱嗎？</p>
-                  <p style="font-size: 18px">還在為看不懂的古文煩惱嗎？</p>
+                  <p style="font-size: 18px">想要有個考試筆記嗎？</p>
+                  <p style="font-size: 18px">想要尋找考試的解答嗎？</p>
                   <p class="q-pr-md q-pl-md" style="font-size: 18px">
-                    來和大家一起交流討論解決煩惱吧
+                    來考試星球探索吧
                   </p>
                 </q-card-section>
-
                 <q-card-actions
                   class="q-gutter-md q-pr-xl q-pl-xl justify-between"
                 >
@@ -252,7 +252,7 @@
                     style="width: 80px"
                     color="primary"
                     label="GO"
-                    to="/main/pageswap"
+                    to="/main/pageexam"
                   />
                 </q-card-actions>
               </q-card>
@@ -291,10 +291,9 @@
 
 <script>
 import { ref } from "vue";
-// import Carousel from "../components/Carousel.vue";
 
 export default {
-  name: "PageHomeSwap",
+  name: "PageHomeExam",
   components: {},
   props: {},
   setup() {
@@ -356,6 +355,7 @@ export default {
   @media (max-width: 850px)
     width: 80%
 
+
 .large-screen-only
   @media (max-width: 1181px)
     display: none
@@ -371,5 +371,4 @@ export default {
   display: none
   @media (max-width:800px)
     display: block
-
 </style>

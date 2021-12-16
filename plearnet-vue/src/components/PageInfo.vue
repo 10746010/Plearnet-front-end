@@ -8,7 +8,7 @@
           style="min-height: 1000px; border: 1px solid; border-color: white"
         >
           <div class="q-pa-xl bg-black text-white">
-            <div class="row items-center">
+            <div class="row items-center fit">
               <div class="col">
                 <q-item
                   clickable
@@ -36,13 +36,13 @@
                           class="self-center full-width no-outline text-white"
                           tabindex="0"
                         >
-                          測
+                          {{ state.userInfo.name }}
                         </div>
                       </template>
                     </q-field>
                   </div>
                 </div>
-
+                <!-- 
                 <div class="row items-center q-mt-sm">
                   <div class="col large-screen">積分</div>
                   <div class="col-9 col-md-9 q-pr-lg">
@@ -57,12 +57,18 @@
                       </template>
                     </q-field>
                   </div>
-                </div>
+                </div> -->
               </div>
 
-              <div class="col">
-                <q-btn rounded color="primary " label="登出" />
-              </div>
+              <div class=" col">
+                <q-btn
+                  rounded
+                  color="primary "
+                  label="登出"
+                  @click.prevent="logout"
+                />
+              </div>            
+            </div>
               <div class="column items-center">
                 <p style="font-size: 2rem">我的筆記</p>
                 <div class="row justify-center q-gutter-sm">
@@ -73,20 +79,21 @@
                     once
                     transition="scale"
                   >
-                    <q-card class="q-ma-sm">
-                      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+                    <q-btn @click.prevent="watch(note.id)">
+                      <q-card class="q-ma-sm">
+                        <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
-                      <q-card-section>
-                        <div class="text-h6">{{ note.title }}</div>
-                        <div class="text-subtitle2 row">
-                          by My Self <q-space />
-                        </div>
-                      </q-card-section>
-                    </q-card>
+                        <q-card-section>
+                          <div class="text-h6">{{ note.title }}</div>
+                          <div class="text-subtitle2 row">
+                            by My Self <q-space />
+                          </div>
+                        </q-card-section>
+                      </q-card>
+                    </q-btn>
                   </q-intersection>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -96,6 +103,8 @@
 <script>
 import { useQuasar } from "quasar";
 import { reactive, computed } from "vue";
+import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
   name: "PageInfo",
@@ -110,16 +119,50 @@ export default {
         { title: "筆記", date: 1637254953820 },
         { title: "筆記", date: 1637254953825 },
       ],
+      userId: null,
+      userInfo: [],
     });
 
+    axios.defaults.headers.common["token"] = localStorage.getItem("token");
+
+    axios
+      .get("http://localhost:8080/userAccount/userSearch", {})
+      .then(function (response) {
+        state.userInfo = response.data.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    axios
+      .get("http://localhost:8080/userAccount/myNote", {})
+      .then(function (response) {
+        state.notes = response.data.data.slice(-5).reverse();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  
     const $q = useQuasar();
 
     const style = computed(() => ({
       height: $q.screen.height + "px",
     }));
+    const router = useRouter();
+
+    const logout = async () => {
+      localStorage.removeItem("token");
+      router.push("/login");
+    };
+    const watch = async (id) => {
+      await router.push(`${id}`);
+    }
     return {
       style,
       state,
+      logout,
+      watch
     };
   },
 };
