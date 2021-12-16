@@ -19,9 +19,24 @@
                 label="類別"
               />
 
+               <q-select v-if="classOptions.value == '1'"
+                class="q-mb-sm bg-white text-black"
+                color="teal"
+                v-model="nowType"
+                :options="savorType"
+                label="種類"
+              />
+              <q-select v-else
+                class="q-mb-sm bg-white text-black"
+                color="teal"
+                v-model="nowType"
+                :options="testType"
+                label="種類"
+              />
+
               <q-input
                 class="bg-white text-black"
-                v-model="state.title"
+                v-model="title"
                 label="文章標題 *"
                 hint="文章和內容"
                 lazy-rules
@@ -176,7 +191,7 @@
               </q-editor>
 
               <q-separator size="10px" color="white"/>
-
+              {{editor}}
               <q-card flat bordered>
                 <q-card-section v-html="editor" />
               </q-card>
@@ -188,9 +203,9 @@
                   color="primary"
                   label="送出"
                   type="submit"
-                  @click="createNewNote"
+                  @click.prevent="createNewNote(title,editor,nowType.id)"
                 />
-              </div>
+              </div>           
             </q-form>
           </div>
         </q-layout>
@@ -201,9 +216,9 @@
 <script>
 import axios from "axios";
 import { useQuasar } from "quasar";
-import { computed, reactive } from "vue";
-// import { useRouter } from "vue-router";
-<i class="fas fa-fill-drip"></i>
+import { computed,reactive } from "vue";
+import { useRouter } from "vue-router";
+
 export default {
   name: "WhatsappLayout",
   components: {},
@@ -211,12 +226,59 @@ export default {
     return {
       foreColor: "#000000",
       highlight: "#ffff00aa",
+      title:"",
       editor: "",
-      classOptions:"網頁",
-      options:["網頁","擊劍"]
-    };
+      classOptions:{label:"興趣",value: "1"},
+      options:[{label:"興趣",value: "1"},{label:"考試",value:"2"}],
+      nowType:"",
+      savorType:[{
+            id: 1,
+            label: "擊劍"
+        },
+        {
+            id: 2,
+            label: "射擊"
+        },
+        {
+            id: 4,
+            label: "騎馬"
+        },
+
+        {
+            id: 7,
+            label: "保齡球"
+        },
+        {
+            id: 8,
+            label: "高爾夫球"
+        },
+        {
+            id: 10,
+            label: "網球"
+        },
+        {
+            id: 12,
+            label: "網頁"
+        } 
+        ],
+      testType:[    
+          {
+              id: 3,
+              label: "國文"
+          },
+    
+          {
+              id: 5,
+              label: "歷史"
+          },
+          {
+              id: 6,
+              label: "地理"
+          },       
+      ]
+    }
   },
-  methods: {
+  methods: {   
     color(cmd, name) {
       const edit = this.$refs.editor;
       this.$refs.bgtoken.hide();
@@ -233,29 +295,40 @@ export default {
       height: $q.screen.height + "px",
     }));  
 
-    const state = reactive({
-      title: "",
-      content: "",
+const state = reactive({
+      userId:null,
     });
 
-    // const router = useRouter();
+    const router = useRouter();
 
-    const createNewNote = async () => {
-      console.log("123");
-      await axios.post("/topic/postNote", {
-        title: "test6",
-        content: "test",
-        tagId: "2",
-        author: "1",
+    axios.defaults.headers.common['token'] = localStorage.getItem('token');
+
+    axios
+      .get("http://localhost:8080/userAccount/getUserId", {})
+      .then(function (response) {
+        state.userId = response.data.data.user_id;
+      })
+      .catch(function (error) {
+        console.log(error);
       });
 
-      // await router.push("/main");
+
+    const createNewNote = async (title,editor,id) => {   
+
+      await axios.post("http://localhost:8080/topic/postNote", {
+        title: title,
+        content: editor,
+        tagId: id,     
+        author: state.userId,
+      });
+
+      await router.push("/main/pagesavor");
     };
 
     return {
-      style,
-      state,    
-      createNewNote,      
+      style,   
+      createNewNote,     
+      state 
     };
   },
 };

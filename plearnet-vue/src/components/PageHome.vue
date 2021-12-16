@@ -17,7 +17,7 @@
           rounded
           color="primary"
           label="探索筆記"
-          to="/main/login"
+          to="/main"
         />
       </div>
       <div class="col column justify-center items-center content-center large-screen-only" ></div>

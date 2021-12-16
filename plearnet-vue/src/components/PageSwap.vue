@@ -52,7 +52,7 @@
       class="bg-white q-pa-md q-ma-md"
       v-for="swaplist in swaplists"
       :key="swaplist.name"
-      to="/main/swapcontent"
+      to="/main/pageswapcontent"
     >
 
         <q-item-section avatar >

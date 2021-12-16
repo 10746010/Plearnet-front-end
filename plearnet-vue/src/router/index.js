@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// import PageIndexHeader from '../views/PageIndexHeader.vue'
+import PageIndexHeader from '../views/PageIndexHeader.vue'
 import PageIndex from '../views/PageIndex.vue'
 import PageHeader from '../views/PageHeader.vue'
 import PageHomeSwap from '../components/PageHomeSwap.vue'
 import PageHomeSavor from '../components/PageHomeSavor.vue'
+import PageHomeExam from '../components/PageHomeExam.vue'
 import PageInfo from '../components/PageInfo.vue'
 import PageChangePassword from '../components/PageChangePassword.vue'
 import PageChangeInfo from '../components/PageChangeInfo.vue'
@@ -16,9 +17,11 @@ import PageUploadNote from '../components/PageUploadNote.vue'
 import PageSwap from '../components/PageSwap.vue'
 import PageSwapContent from '../components/PageSwapContent.vue'
 import PageSavor from '../components/PageSavor.vue'
+import PageExam from '../components/PageExam.vue'
 import PageLogin from '../components/PageLogin.vue'
 import PageRegister from '../components/PageRegister.vue'
 import PageNoteContent from '../components/PageNoteContent.vue'
+import PageSearch from '../components/PageSearch.vue'
 
 
 
@@ -252,77 +255,21 @@ const routes = [
 ]
 */
 
-const routes= [
+const routes = [
   {
-    path:'/',    
-    component:PageIndex,
-  },  
+    path: '/',
+    component: PageIndex,
+  },
   {
-    path:'/main/',
-    component:PageHeader,
-    children:[
+    path: '/',
+    component: PageIndexHeader,
+    children: [
       {
-        path:'',
-        component:PageHomeSwap,
-      },
-      {
-        path:'savor',
-        component:PageHomeSavor,
-      },
-      {
-        path:'info',
-        component:PageInfo,
-      },
-      {
-        path:'changepassword',
-        component:PageChangePassword,
-      },
-      {
-        path:'history',
-        component:PageHistory,
-      },
-      {
-        path:'like',
-        component:PageLike,
-      },
-      {
-        path:'upload',
-        component:PageUpload,
-      },
-      {
-        path:'wish',
-        component:PageWish,
-      },
-      {
-        path:'uploadnote',
-        component:PageUploadNote,
-      },
-      {
-        path:'changeinfo',
-        component:PageChangeInfo,
-      },
-      {
-        path:'swap',
-        component:PageSwap,
-      },
-      {
-        path:'swapcontent',
-        component:PageSwapContent,
-      },
-      {
-        path:'savorcontent',
-        component:PageSavor,
-      },
-      {
-        path:'notecontent',
-        component:PageNoteContent,
-      },
-      {
-        path: 'login/',
+        path: '',
         component: AccountBackground,
         children: [
           {
-            path: '',
+            path: 'login',
             name: 'PageLogin',
             component: PageLogin,
           },
@@ -334,9 +281,131 @@ const routes= [
         ]
       },
     ]
-  }
-  
-  
+  },
+
+  {
+    path: '/main/',
+    component: PageHeader,
+    children: [
+      {
+        path: '',
+        component: PageHomeSavor,
+      },
+      {
+        path: 'swap',
+        component: PageHomeSwap,
+      },
+      {
+        path: 'exam',
+        component: PageHomeExam,
+      },
+      {
+        path: 'info',
+        component: PageInfo,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'changepassword',
+        component: PageChangePassword,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'history',
+        component: PageHistory,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'like',
+        component: PageLike,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'upload',
+        component: PageUpload,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'wish',
+        component: PageWish,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'uploadnote',
+        component: PageUploadNote,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'changeinfo',
+        component: PageChangeInfo,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'pageswap',
+        component: PageSwap,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'pageswapcontent',
+        component: PageSwapContent,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'pagesavor',
+        component: PageSavor,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: ':id',
+        component: PageNoteContent,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'pageexam',
+        component: PageExam,
+        meta: {
+          requiresAuth: true
+        },
+      },
+      {
+        path: 'search/:keyword',
+        component: PageSearch,
+        meta: {
+          requiresAuth: true
+        },
+      },
+
+    ]
+  },
+  // {
+  //   path: '/:pathMatch(.*)*',
+  //   redirect: "/"
+  // },
+
+
 ]
 
 const router = createRouter({
