@@ -42,7 +42,13 @@
               <div class="full-width row items-center">
                 <div class="col-2 text-left q-pr-lg">性別</div>
                 <div class="col-9">
-                  <q-input dark outlined disable   v-model="state.userInfo.sex" dense />
+                  <q-input
+                    dark
+                    outlined
+                    disable
+                    v-model="state.userInfo.sex"
+                    dense
+                  />
                 </div>
               </div>
 
@@ -52,14 +58,14 @@
                   <q-input dark outlined v-model="state.userInfo.email" dense />
                 </div>
               </div>
-            
+
               <div class="fit row">
                 <q-space />
                 <q-btn
                   rounded
                   color="grey-14"
-                  label="確定修改"        
-                  @click.prevent="change"                  
+                  label="確定修改"
+                  @click.prevent="change"
                 />
               </div>
             </div>
@@ -77,9 +83,7 @@ import { useRouter } from "vue-router";
 
 export default {
   name: "WhatsappLayout",
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       avatar: "https://cdn.quasar.dev/img/boy-avatar.png",
@@ -104,7 +108,7 @@ export default {
 
     const state = reactive({
       userInfo: [],
-      userId:null,     
+      userId: null,
     });
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
 
@@ -121,7 +125,7 @@ export default {
         console.log(error);
       });
 
-     axios
+    axios
       .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
@@ -129,18 +133,16 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
-    
-    
-    function change(){
-      axios.patch("/userAccount/editUser", {
-        id: state.userId,
-        name: state.userInfo.name,
-        email: state.userInfo.email,
-      })
-      router.push("/main/info")
-      
+
+    function change() {
+      axios
+        .patch("/userAccount/editUser", {
+          id: state.userId,
+          name: state.userInfo.name,
+          email: state.userInfo.email,
+        })
+        .then(() => router.push("/main/info"));
     }
-    
 
     const style = computed(() => ({
       height: $q.screen.height + "px",
@@ -148,7 +150,7 @@ export default {
     return {
       style,
       state,
-      change
+      change,
     };
   },
 };
