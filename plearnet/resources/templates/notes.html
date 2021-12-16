@@ -6,6 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Notes</title>
     <link rel="stylesheet" href="../static/css/post.css">
+    <header>
+        <div >
+          <router-link to="/"
+            ><img v-bind:src="img" alt="" id="home" class="home"
+          /></router-link>      
+          
+        </div>
+        <div class="button-box">
+          <Search text=""/>
+          <AccountButton />
+        </div>
+      </header>
+    </template>
+    
+    
+    <style scoped>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 200px 3px 200px;
+    }
+    
+    .button-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home {
+      width: 50px;
+      margin: 3px 20px 0px 0px;
+    }
+    </style>
 </head>
 <style>
     body {
@@ -51,38 +84,10 @@
         height: 400px;
     }
     
-    .test3{
-        
-        justify-content: space-evenly;
-        border:5px #b100dd solid;
-        width: 50%;
-        height: 400px;
-    }
-    .test4{
-        
-        justify-content: space-evenly;
-        border:5px #bcdd00 solid;
-        width: 50%;
-
-        height: 400px;
-    }
+  
 </style>
 
 <body>
-    <header class="header">
-        <div class="site-header">
-            <div class="wrapper site-header__wrapper">
-                <a href="#" class="brand"></a>
-                <input class="search">
-                <select>
-                    <option>標題</option>
-                    <option>作者</option>
-                    <option>日期</option>
-                </select>
-            </div>
-            <H2 align="center">管理學</H2>
-        </div>
-    </header>
 
     <div class="test">
         <div class="test1">               

@@ -1,12 +1,15 @@
 <template>
-  <header>
-    <div >
+<!-- Header.vue -->
+
+  <header :style="{'flex-flow':type}">
+    <div>
       <router-link to="/"
-        ><img v-bind:src="img" alt="" id="home" class="home"
+        ><img v-bind:src="img" alt="" class="home"
       /></router-link>      
       
     </div>
-    <div class="button-box">
+    <!-- 放搜尋框及使用者按鈕的地方 -->
+    <div class="user-search__box" :style="{display:display_type}">
       <Search text=""/>
       <AccountButton />
     </div>
@@ -21,13 +24,16 @@ export default {
   name: "Header",
   data() {
     return {
-      img: require("../../static/img/icon.png"),
+      img: require("../../static/img/logo.png"),
       prompt: "請輸入",
       selected: "標題",
       show: false,
     };
   },
-
+  props: {
+    type:String,
+    display_type:String
+  },
   components: {
     AccountButton,
     Search
@@ -37,19 +43,24 @@ export default {
 
 <style scoped>
 header {
+  position: relative;
+  z-index: 1;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3px 200px 3px 200px;
-}
 
-.button-box {
+  /* background-attachment:fixed; */
+}
+/* 放搜尋框及使用者按鈕的地方 */
+.user-search__box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .home {
   width: 50px;
-  margin: 3px 20px 0px 0px;
+  /* margin: 3px 20px 0px 0px; */
 }
 </style>

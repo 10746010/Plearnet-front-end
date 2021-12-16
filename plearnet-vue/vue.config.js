@@ -1,9 +1,14 @@
 module.exports = {
-    css: {
-        loaderOptions: {
-            sass: {
-                additionalData: '@import "@/styles/base.scss";'
-            }
-        }
-    }
-}
+    pluginOptions: {
+      quasar: {
+        importStrategy: 'kebab',
+        rtlSupport: false
+      }
+    },
+    devServer: {
+      disableHostCheck: true,
+    },
+    transpileDependencies: [
+      'quasar'
+    ]
+  }

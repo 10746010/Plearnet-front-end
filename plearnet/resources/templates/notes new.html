@@ -1,0 +1,315 @@
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notes</title>
+    <link rel="stylesheet" href="../static/css/post.css">
+    <header>
+        <div >
+          <router-link to="/"
+            ><img v-bind:src="img" alt="" id="home" class="home"
+          /></router-link>      
+          
+        </div>
+        <div class="button-box">
+          <Search text=""/>
+          <AccountButton />
+        </div>
+      </header>
+    </template>
+    
+    <script>
+    import AccountButton from "./AccountButton"
+    import Search from "./Search"
+    
+    export default {
+      name: "Header",
+      data() {
+        return {
+          img: require("../../static/img/icon.png"),
+          prompt: "請輸入",
+          selected: "標題",
+          show: false,
+        };
+      },
+    
+      components: {
+        AccountButton,
+        Search
+      },
+    };
+    </script>
+    
+    <style scoped>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 200px 3px 200px;
+    }
+    
+    .button-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home {
+      width: 50px;
+      margin: 3px 20px 0px 0px;
+    }
+    </style>
+</head>
+<div class="search-box">
+    <div class="search-control" :style="{ display: text }">
+      <input class="search" :placeholder="prompt + selected" />
+      <div class="search-select">
+        <button @click="show = !show" class="search-class">▼</button>
+        <transition
+          @enter="enter"
+          @leave="leave"
+          @after-enter="afterEnter"
+          @after-leave="afterLeave"
+        >
+          <div v-if="show">
+            <div class="block" id="v-model-radiobutton">
+              <div>
+                <input
+                  type="radio"
+                  value="標題"
+                  v-model="selected"
+                  id="title"
+                  name="selected"
+                />
+                <label for="title">標題</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  value="作者"
+                  id="user"
+                  v-model="selected"
+                  name="selected"
+                />
+                <label for="user">作者</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  value="日期"
+                  id="date"
+                  v-model="selected"
+                  name="selected"
+                />
+                <label for="date">日期</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  value="分類"
+                  id="class"
+                  v-model="selected"
+                  name="selected"
+                />
+                <label for="class">分類</label>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Search",
+  data() {
+    return {
+      prompt: "請輸入",
+      selected: "標題",
+      show: false,
+    };
+  },
+  props: {
+    text: String,
+  },
+};
+</script>
+
+<style scoped>
+.search-box {
+  display: flex;
+  align-items: center;
+}
+.search-box > .search-control {
+  display: flex;
+  width: 200px;
+  height: 25px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: white;
+}
+.search-control > .search {
+  border: none;
+  outline: none;
+}
+.search-control > .search-select {
+  border-radius: 50%;
+}
+
+.v-leave {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: opacity 0.5s;
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: opacity 0.5s;
+}
+
+.v-enter-to {
+  opacity: 1;
+}
+
+button {
+  margin-bottom: 10px;
+}
+.block {
+  display: flex;
+  background: rgb(255, 255, 255);
+  width: 230px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  position: absolute;
+  right: 275px;
+}
+.search-class {
+  border-radius: 100px;
+}
+</style>
+
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+    }
+
+    .use-flexbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        border: 1px solid #000;
+    }
+    .use-flexbox>table{
+        top:0px;
+
+        font-size: 200%;
+    }
+
+    .test{
+        display: flex;
+        flex-direction: column;
+        border:5px #dd7200 solid;
+        /* border-color: #000; */
+        height: 500px;
+    }
+    .test1{
+        display: flex;
+        justify-content: space-evenly;
+        border:5px #dd3400 solid;
+        height: 100px;
+    }
+    .test1>div{
+       padding:20px;
+    }
+    .test2{
+        display: flex;
+        border:5px #25dd00 solid;
+        height: 400px;
+    }
+    
+    .test3{
+        
+        justify-content: space-evenly;
+        border:5px #b100dd solid;
+        width: 50%;
+        height: 400px;
+    }
+    .test4{
+        
+        justify-content: space-evenly;
+        border:5px #bcdd00 solid;
+        width: 50%;
+
+        height: 400px;
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="site-header">
+            <div class="wrapper site-header__wrapper">
+                <a href="#" class="brand"></a>
+                <input class="search">
+                <select>
+                    <option>標題</option>
+                    <option>作者</option>
+                    <option>日期</option>
+                </select>
+            </div>
+            <H2 align="center">管理學</H2>
+        </div>
+    </header>
+
+    <div class="test">
+        <div class="test1">               
+                <div>最新</div>
+                <div>留言數最高</div>
+                <div>點讚最多</div>
+                <div>點閱率最高</div>        
+        </div>
+        <div class="test2">
+            <div class="test3">
+                1. <br>
+                2. <br>
+                3. <br>
+                4. <br>
+            </div>
+            <div class="test4">
+                5. <br>
+                6. <br>
+                7. <br>
+                8. <br>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button type="button">下一頁</button>
+
+    </div>
+    <footer class="footer">
+        123
+    </footer>
+</body>
+
+</html>
