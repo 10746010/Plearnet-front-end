@@ -75,16 +75,7 @@ export default {
 
   setup() {
     const state = reactive({
-      notes: [
-        { title: "筆記", date: 1636472865852, by: "John Doe" },
-        { title: "筆記", date: 1637254937118, by: "John John" },
-        { title: "筆記", date: 1637254943967, by: "Doe Doe" },
-        { title: "筆記", date: 1637254973899, by: "Lin" },
-        { title: "筆記", date: 1637254953820, by: "Lin" },
-        { title: "筆記", date: 1637254953825, by: "Chen Doe" },
-        { title: "筆記", date: 1637254953829, by: "Doe" },
-        { title: "筆記", date: 1637254953860, by: "John" },
-        { title: "筆記", date: 1637254953865, by: "John" },
+      notes: [       
       ],
       tags: [],
       showNotes: [],
@@ -96,7 +87,7 @@ export default {
 
     const router = useRouter();
     const watch = async (id) => {
-      router.push(`${id}`);
+      router.push(`/main/${id}`);
     };
     // 找所有筆記
     axios
@@ -113,25 +104,13 @@ export default {
           !set.has(item.tag_name) ? set.add(item.tag_name) : false
         );
         state.showNotes = state.notes;
-        console.log(response);
+        console.log(state.showNotes)
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    // function show(tag) {
-    //   if(tag != "全部"){
-    //     state.showNotes=[]
-    //     for (const [key, value] of Object.entries(state.notes)) {
-    //     state.key = key
-    //     if(value.tag_name == tag){
-    //       state.showNotes.push(value)
-    //     }
-    //     }
-    //   }else{
-    //     state.showNotes=state.notes
-    //   }
-    // }
+ 
     return {
       state,
       watch,

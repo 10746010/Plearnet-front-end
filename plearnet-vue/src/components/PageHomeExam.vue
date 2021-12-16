@@ -1,6 +1,6 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute fullscreen" style="z-index: 0">
+    <q-scroll-area class="absolute fullscreen bg-black" style="z-index: 0">
       <div class="q-pa-md bg-black">
            <!-- 星球排名 -->
  <!-- 大 -->
@@ -264,72 +264,102 @@
               <div class="row q-gutter-sm">
                 <q-intersection
                   class="item example-item col-12 col-sm-5 col-md-5"
-                  v-for="n in 4"
-                  :key="`sm-${n}`"
+                  v-for="note in state.notes"
+                  :key="note"
                   once
                   transition="scale"
                 >
-                  <q-card class="q-ma-sm">
-                    <img :src="notes[n - 1].img" />
-
-                    <q-card-section>
-                      <div class="text-h6">Card #{{ notes[n - 1].title }}</div>
-                      <div class="text-subtitle2">
-                        {{ notes[n - 1].class }}
-                      </div>
+                   <q-btn @click.prevent="watch(note.id)">
+                    <q-card class="q-ma-sm">
+                      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+                    
+                       <q-card-section v-if="note.title.length < 9">
+                      <div class="text-h6">{{ note.title }}</div>                     
                     </q-card-section>
-                  </q-card>
+                    <q-card-section v-else>
+                      <div class="text-h6">{{ note.title.slice(0,8)}}...</div>                     
+                    </q-card-section>
+                    </q-card>
+                  </q-btn>
                 </q-intersection>
               </div>
             </div>
           </div>
         </div>
       </div>
+        <q-dialog v-model="state.small">
+        <q-card style="width: 700px">
+          <q-card-section>
+            <div class="text-h6"></div>
+          </q-card-section>
+          <q-card-section
+            class="
+              fit
+              row
+              text-center
+              justify-center
+              items-center
+              content-center
+            "
+            v-html="state.warning"
+          >           
+          </q-card-section>
+
+          <q-card-actions align="right" class="bg-white text-teal">
+            <q-btn flat label="OK" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </q-scroll-area>
   </q-page>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref,reactive } from "vue";
+import axios from "axios";
 
 export default {
   name: "PageHomeExam",
   components: {},
   props: {},
   setup() {
-    return {
+ const state = reactive({
       notes: [
-        {
-          title: "番茄炒蛋1",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋2",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋3",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋4",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋5",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋6",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
+       
       ],
+      warning: "",
+      small:false
+    });
+    
+    axios.defaults.headers.common["token"] = localStorage.getItem("token");
+
+
+    // 取得考試的所有筆記的最後四個
+    axios
+      .get("/topic/tagTypeSearch?tagType=0", {})
+      .then(function (response) {
+        state.notes = response.data.data.slice(-4).reverse();
+        // console.log(state.notes)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // 抓筆記資料
+    function watch(id) {
+      state.small=true
+      axios
+        .get("/topic/simpleTopic?topicID=" + id, {})
+        .then(function (response) {         
+          state.warning=response.data.data[0].content
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    return {
+      state,
+      watch,
       slide: ref(1),
       autoplay: ref(true),
       lorem:

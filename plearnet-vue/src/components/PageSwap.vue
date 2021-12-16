@@ -47,7 +47,7 @@
             text-color="grey-9"
             icon="fas fa-arrow-left"
             round
-            to="/main/"
+            to="/main/swap"
           />
 
           <q-item

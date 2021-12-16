@@ -6,7 +6,6 @@
       height-hint="58"
     >
       <q-toolbar>
-        {{ token }}
         <q-btn
           flat
           dense

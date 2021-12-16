@@ -1,6 +1,6 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute fullscreen" style="z-index: 0">
+    <q-scroll-area class="absolute fullscreen bg-black" style="z-index: 0">
       <div class="q-pa-md bg-black">
           <!-- 星球排名 -->
   <!-- 大 -->
@@ -269,14 +269,11 @@
                   once
                   transition="scale"
                 >
-                  <q-card class="q-ma-sm">
-                    <img :src="notes[n - 1].img" />
+                  <q-card class="exam-item q-ma-sm">
+                    <img :src="notes[n - 1].img" class="exam-img"/>
 
                     <q-card-section>
-                      <div class="text-h6">Card #{{ notes[n - 1].title }}</div>
-                      <div class="text-subtitle2">
-                        {{ notes[n - 1].class }}
-                      </div>
+                      <div class="text-h6">{{ notes[n - 1].title }}</div>
                     </q-card-section>
                   </q-card>
                 </q-intersection>
@@ -300,37 +297,12 @@ export default {
   setup() {
     return {
       notes: [
-        {
-          title: "番茄炒蛋1",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋2",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋3",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋4",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋5",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
-        {
-          title: "番茄炒蛋6",
-          img: "https://cdn.quasar.dev/img/mountains.jpg",
-          class: "料理",
-        },
+       {title:"詢問初學者油畫技巧",img:"https://im2.book.com.tw/image/getImage?i=http://www.books.com.tw/img/N01/114/72/N011147231_t_01.jpg&v=593f9697"},
+       {title:"求問番茄炒蛋製作技巧",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZwGJXWjkSDkUXGJp__c4Bpe_gTMk4O7axQw&usqp=CAU"},
+       {title:"英文文法請益",img:"https://englishlive.ef.com/zh-tw/blog/wp-content/uploads/sites/15/2020/08/shutterstock_298659797-s.jpg"},
+       {title:"大學微積分題目求救",img:"https://attach.setn.com/newsimages/2018/08/05/1477625-XXL.jpg"},
       ],
+
       slide: ref(1),
       autoplay: ref(true),
       lorem:
@@ -355,6 +327,13 @@ export default {
 .item
   @media (max-width: 850px)
     width: 80%
+
+.exam-item
+  
+.exam-img
+  max-width:380px
+  min-height:202px
+  max-height:202px
 
 .large-screen-only
   @media (max-width: 1181px)

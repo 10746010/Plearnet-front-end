@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh LpR fFf">
+  <q-layout view="hHh LpR fFf" class="bg-grey-1">
     <q-header elevated class="bg-black text-white q-py-xs" height-hint="58">
       <q-toolbar>
         <q-btn
@@ -11,9 +11,16 @@
           icon="menu"
         />
 
-        <q-btn flat no-caps no-wrap class="q-ml-xs" v-if="$q.screen.gt.xs">
+        <q-btn
+          flat
+          no-caps
+          no-wrap
+          class="q-ml-xs"
+          v-if="$q.screen.gt.xs"
+          to="/"
+        >
           <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+            <img src="../../static/img/logo.png" />
           </q-avatar>
           <q-toolbar-title shrink class="text-weight-bold">
             Plearnet
@@ -22,7 +29,7 @@
 
         <q-space />
 
-        <div class="YL__toolbar-input-container row no-wrap">
+     <div class="YL__toolbar-input-container row no-wrap">
           <q-input
             dense
             outlined
@@ -37,42 +44,14 @@
             text-color="white"
             icon="search"
             unelevated
+            to="/main/search/${this.search.value}"
+            @click.prevent="toSearch"
           />
         </div>
 
         <q-space />
 
         <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn
-            round
-            dense
-            flat
-            color="grey-8"
-            icon="video_call"
-            v-if="$q.screen.gt.sm"
-          >
-            <q-tooltip>Create a video or post</q-tooltip>
-          </q-btn>
-          <q-btn
-            round
-            dense
-            flat
-            color="grey-8"
-            icon="apps"
-            v-if="$q.screen.gt.sm"
-          >
-            <q-tooltip>Apps</q-tooltip>
-          </q-btn>
-          <q-btn
-            round
-            dense
-            flat
-            color="grey-8"
-            icon="message"
-            v-if="$q.screen.gt.sm"
-          >
-            <q-tooltip>Messages</q-tooltip>
-          </q-btn>
           <q-btn round dense flat color="grey-8" icon="notifications">
             <q-badge color="red" text-color="white" floating> 2 </q-badge>
             <q-tooltip>Notifications</q-tooltip>
@@ -95,56 +74,56 @@
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" side="left" bordered model-value:false>
-        <q-list padding>
-          <q-item
-            v-for="link in links1"
-            :key="link.text"
-            v-ripple
-            clickable
-            :to="link.to"
-          >
-            <q-item-section avatar>
-              <q-icon color="grey" :name="link.icon" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ link.text }}</q-item-label>
-            </q-item-section>
-          </q-item>
+      <q-list padding>
+        <q-item
+          v-for="link in links1"
+          :key="link.text"
+          v-ripple
+          clickable
+          :to="link.to"
+        >
+          <q-item-section avatar>
+            <q-icon color="grey" :name="link.icon" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ link.text }}</q-item-label>
+          </q-item-section>
+        </q-item>
 
-          <q-separator class="q-my-md" />
+        <q-separator class="q-my-md" />
 
-          <q-item
-            v-for="link in links2"
-            :key="link.text"
-            v-ripple
-            clickable
-            :to="link.to"
-          >
-            <q-item-section avatar>
-              <q-icon color="grey" :name="link.icon" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ link.text }}</q-item-label>
-            </q-item-section>
-          </q-item>
+        <q-item
+          v-for="link in links2"
+          :key="link.text"
+          v-ripple
+          clickable
+          :to="link.to"
+        >
+          <q-item-section avatar>
+            <q-icon color="grey" :name="link.icon" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ link.text }}</q-item-label>
+          </q-item-section>
+        </q-item>
 
-          <q-separator class="q-my-md" />
+        <q-separator class="q-my-md" />
 
-          <q-item
-            v-for="link in links3"
-            :key="link.text"
-            v-ripple
-            clickable
-            :to="link.to"
-          >
-            <q-item-section avatar>
-              <q-icon color="grey" :name="link.icon" />
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>{{ link.text }}</q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
+        <q-item
+          v-for="link in links3"
+          :key="link.text"
+          v-ripple
+          clickable
+          :to="link.to"
+        >
+          <q-item-section avatar>
+            <q-icon color="grey" :name="link.icon" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ link.text }}</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-drawer
@@ -249,12 +228,11 @@
       </div>
       <div class="row q-mb-sm">
         <div class="q-mr-sm">
-          <q-btn
-            @click="like"
+          <q-btn         
             flat
             round
             color="primary"
-            icon="far fa-thumbs-up"
+            icon="far fa-eye"
           />
           <label>{{ state.note.view }}</label>
         </div>
@@ -278,12 +256,7 @@
           @click="subscribe"
         />
       </div>
-      <div class="row content-center">
-        <!-- <q-img
-          src="https://placeimg.com/500/300/nature"
-          :ratio="1"
-          style="width: 500px"
-        /> -->
+      <div class="row content-center">        
         <q-card flat bordered class="note-content">
           <q-card-section v-html="state.note.content" />
         </q-card>
@@ -344,7 +317,6 @@ export default {
         },
       ],
       note: [],
-      like: 0,
       love: 0,
       small: false,
       userId: null,
@@ -359,11 +331,9 @@ export default {
 
     let nowNoteID = route.params.id;
 
-    function like() {
-      state.like += 1;
-    }
+   
     function love() {
-      state.love += 1;
+      state.note.likes += 1;
       axios
         .get("/topic/pressLike?topicId=" + nowNoteID, {})
         .then(function (response) {
@@ -457,7 +427,6 @@ export default {
       ],
       state,
       sendMessage,
-      like,
       love,
       subscribe,
       back,
@@ -466,11 +435,31 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+.YL
+  &__toolbar-input-container
+    min-width: 100px
+    width: 55%
+    &__toolbar-input-btn
+      border-radius: 0
+      border-style: solid
+      border-width: 1px 1px 1px 0
+      border-color: rgba(0,0,0,.24)
+      max-width: 60px
+      width: 100%
+    &__drawer-footer-link
+      color: inherit
+      text-decoration: none
+      font-weight: 500
+      font-size: .75rem
+      &:hover
+        color: #000
+
 .q-chat-message
   position: static
   flex-direction: inherit
 
 .note-content
   min-width: 540px
+  max-width: 540px
   min-height: 600px
 </style>

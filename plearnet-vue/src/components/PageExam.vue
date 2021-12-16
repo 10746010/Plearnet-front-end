@@ -8,7 +8,7 @@
           style="min-height: 1000px; border: 1px solid; border-color: white"
         >
           <div class="row">
-            <img class="star" src="../../static/img/5.png" />
+            <img class="star" src="../../static/img/3.png" />
             <h4 class="tit q-pl-xl text-white" style="font-size: 3rem">
               考試區
             </h4>
@@ -47,7 +47,7 @@
             text-color="grey-9"
             icon="fas fa-arrow-left"
             round
-            to="/main/"
+            to="/main/exam"
           />
 
           <div class="row justify-center q-gutter-sm">
@@ -62,11 +62,12 @@
                 <div class="my-content">
                   <q-card class="q-ma-sm">
                     <!-- <img :src="notes[n - 1].img" /> -->
-                    <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-                    <q-card-section>
-                      <div class="text-h6">{{ note.title }}</div>
-                      <!-- <div class="text-h6">Card #{{ notes[n - 1].title }}</div> -->
-                      <!-- <div class="text-subtitle2">{{ state.notes[n - 1].class }}</div> -->
+                    <img src="https://cdn.quasar.dev/img/mountains.jpg" />               
+                     <q-card-section v-if="note.title.length < 9">
+                      <div class="text-h6">{{ note.title }}</div>                     
+                    </q-card-section>
+                    <q-card-section v-else>
+                      <div class="text-h6">{{ note.title.slice(0,8)}}...</div>                     
                     </q-card-section>
                   </q-card>
                 </div>
@@ -94,12 +95,7 @@ export default {
     }));
     const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852 },
-        { title: "筆記", date: 1637254937118 },
-        { title: "筆記", date: 1637254943967 },
-        { title: "筆記", date: 1637254973899 },
-        { title: "筆記", date: 1637254953820 },
-        { title: "筆記", date: 1637254953825 },
+        
       ],
     });
     const router = useRouter();
