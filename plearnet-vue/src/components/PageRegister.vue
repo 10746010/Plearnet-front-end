@@ -151,7 +151,7 @@ export default {
       ) {
         state.warning = "註冊成功";
         axios
-          .post("http://localhost:8080/register", {
+          .post("/register", {
             account: state.account,
             password: state.password,
             email: state.email,

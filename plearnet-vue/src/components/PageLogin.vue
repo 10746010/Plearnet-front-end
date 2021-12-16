@@ -91,7 +91,7 @@ export default {
 
     const router = useRouter();
     const login = async () => {   
-      await axios.post("http://localhost:8080/loginUserAccount", {
+      await axios.post("/loginUserAccount", {
         account: account.value,
         password: password.value,       
       })

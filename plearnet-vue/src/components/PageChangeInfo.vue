@@ -111,7 +111,7 @@ export default {
     const router = useRouter();
 
     axios
-      .get("http://localhost:8080/userAccount/userSearch", {})
+      .get("/userAccount/userSearch", {})
       .then(function (response) {
         state.userInfo = response.data.data;
 
@@ -122,7 +122,7 @@ export default {
       });
 
      axios
-      .get("http://localhost:8080/userAccount/getUserId", {})
+      .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
       })
@@ -132,7 +132,7 @@ export default {
     
     
     function change(){
-      axios.patch("http://localhost:8080/userAccount/editUser", {
+      axios.patch("/userAccount/editUser", {
         id: state.userId,
         name: state.userInfo.name,
         email: state.userInfo.email,

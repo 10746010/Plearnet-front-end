@@ -93,7 +93,7 @@ export default {
     };
 // 找尋自己看過的筆記
     axios
-      .get("http://localhost:8080/userAccount/historySearch", {})
+      .get("/userAccount/historySearch", {})
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;
