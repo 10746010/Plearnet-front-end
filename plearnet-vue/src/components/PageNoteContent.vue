@@ -365,7 +365,7 @@ export default {
     function love() {
       state.love += 1;
       axios
-        .get("http://localhost:8080/topic/pressLike?topicId=" + nowNoteID, {})
+        .get("/topic/pressLike?topicId=" + nowNoteID, {})
         .then(function (response) {
           console.log(response);
         })
@@ -393,7 +393,7 @@ export default {
 
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
     axios
-      .get("http://localhost:8080/userAccount/getUserId", {})
+      .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
       })
@@ -403,7 +403,7 @@ export default {
 
     // 找使用者名字
     axios
-      .get("http://localhost:8080/userAccount/userSearch", {})
+      .get("/userAccount/userSearch", {})
       .then(function (response) {
         state.username = response.data.data.name;
       })
@@ -414,14 +414,14 @@ export default {
     // 按收藏
     function subscribe() {
       state.small = true;
-      axios.post("http://localhost:8080/topic/addCollect", {
+      axios.post("/topic/addCollect", {
         topicId: nowNoteID,
         userId: state.userId,
       });
     }
     // 抓筆記資料和留言
     axios
-      .get("http://localhost:8080/topic/topic?topicID=" + nowNoteID, {})
+      .get("/topic/topic?topicID=" + nowNoteID, {})
       .then(function (response) {
         state.note = response.data.data.pop();
         state.messages = response.data.data.reverse();

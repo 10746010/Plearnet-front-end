@@ -119,7 +119,7 @@ export default {
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
     const router = useRouter();
     axios
-      .get("http://localhost:8080/userAccount/getUserId", {})
+      .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
       })
@@ -133,7 +133,7 @@ export default {
         state.new_password == state.repeat_password &&
         (state.new_password != "" || state.repeat_password != "")
       ) {
-        axios.patch("http://localhost:8080/userAccount/editUser", {
+        axios.patch("/userAccount/editUser", {
           id: state.userId,
           password: state.new_password,
         });

@@ -304,7 +304,7 @@ const state = reactive({
     axios.defaults.headers.common['token'] = localStorage.getItem('token');
 
     axios
-      .get("http://localhost:8080/userAccount/getUserId", {})
+      .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
       })
@@ -315,7 +315,7 @@ const state = reactive({
 
     const createNewNote = async (title,editor,id) => {   
 
-      await axios.post("http://localhost:8080/topic/postNote", {
+      await axios.post("/topic/postNote", {
         title: title,
         content: editor,
         tagId: id,     

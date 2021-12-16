@@ -128,7 +128,7 @@ const state = reactive({
 // 找使用者ID
     
     axios
-      .get("http://localhost:8080/userAccount/getUserId", {})
+      .get("/userAccount/getUserId", {})
       .then(function (response) {
         state.userId = response.data.data.user_id;
       })
@@ -137,7 +137,7 @@ const state = reactive({
       });
 // 找收藏的筆記
      axios
-      .get(`http://localhost:8080/userAccount/collectSearch?userId=${state.userId}`, {})
+      .get(`/userAccount/collectSearch?userId=${state.userId}`, {})
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;

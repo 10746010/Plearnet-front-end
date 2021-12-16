@@ -126,7 +126,7 @@ export default {
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:8080/userAccount/userSearch", {})
+      .get("/userAccount/userSearch", {})
       .then(function (response) {
         state.userInfo = response.data.data;
       })
@@ -135,7 +135,7 @@ export default {
       });
 
     axios
-      .get("http://localhost:8080/userAccount/myNote", {})
+      .get("/userAccount/myNote", {})
       .then(function (response) {
         state.notes = response.data.data.slice(-5).reverse();
       })

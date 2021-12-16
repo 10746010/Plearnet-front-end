@@ -112,7 +112,7 @@ export default {
     const token = localStorage.getItem("token");
 // 取得興趣的所有筆記
     axios
-      .get("http://localhost:8080/topic/tagTypeSearch?tagType=1", {})
+      .get("/topic/tagTypeSearch?tagType=1", {})
       .then(function (response) {
         state.notes = response.data.data.reverse();
       })

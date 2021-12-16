@@ -370,7 +370,7 @@ export default {
 
     // 取得興趣的所有筆記的最後四個
     axios
-      .get("http://localhost:8080/topic/tagTypeSearch?tagType=1", {})
+      .get("/topic/tagTypeSearch?tagType=1", {})
       .then(function (response) {
         state.notes = response.data.data.slice(-4).reverse();
         // console.log(state.notes)
@@ -382,7 +382,7 @@ export default {
     function watch(id) {
       state.small=true
       axios
-        .get("http://localhost:8080/topic/topic?topicID=" + id, {})
+        .get("/topic/topic?topicID=" + id, {})
         .then(function (response) {         
           state.warning=response.data.data[0].content
         })

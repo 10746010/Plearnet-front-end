@@ -122,7 +122,7 @@ export default {
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
 // 找尋自己發過的筆記
     axios
-      .get("http://localhost:8080/userAccount/myNote", {})
+      .get("/userAccount/myNote", {})
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;

@@ -100,7 +100,7 @@ export default {
     };
     // 找所有筆記
     axios
-      .get("http://localhost:8080/topic/keySearch", {
+      .get("/topic/keySearch", {
         params: {
           key: keyword,
         },
