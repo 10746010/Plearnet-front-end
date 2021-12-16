@@ -63,10 +63,14 @@
                   <q-card class="q-ma-sm">
                     <!-- <img :src="notes[n - 1].img" /> -->
                     <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-                    <q-card-section>
-                      <div class="text-h6">{{ note.title }}</div>
-                      <!-- <div class="text-h6">Card #{{ notes[n - 1].title }}</div> -->
-                      <!-- <div class="text-subtitle2">{{ state.notes[n - 1].class }}</div> -->
+<!-- <q-card-section>
+                      <div class="note-title text-h6">{{ note.title }}</div>                     
+                    </q-card-section> -->
+                    <q-card-section v-if="note.title.length < 9">
+                      <div class="text-h6">{{ note.title }}</div>                     
+                    </q-card-section>
+                    <q-card-section v-else>
+                      <div class="text-h6">{{ note.title.slice(0,8)}}...</div>                     
                     </q-card-section>
                   </q-card>
                 </div>
@@ -88,18 +92,13 @@ export default {
   name: "PageSavor",
   setup() {
     const $q = useQuasar();
-
     const style = computed(() => ({
       height: $q.screen.height + "px",
-    }));
+    }));    
+
     const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852 },
-        { title: "筆記", date: 1637254937118 },
-        { title: "筆記", date: 1637254943967 },
-        { title: "筆記", date: 1637254973899 },
-        { title: "筆記", date: 1637254953820 },
-        { title: "筆記", date: 1637254953825 },
+       
       ],
     });
     const router = useRouter();
@@ -136,7 +135,6 @@ export default {
 </script>
 <style lang="sass" scoped>
 .star
-
   height: 150px
   position: relative
   top: -50px
@@ -152,7 +150,10 @@ export default {
   position: relative
   right: 50px
 
+
 .note-item
-  height: 290px
-  width: 290px
+  max-height: 290px
+  max-width: 290px
+
+
 </style>

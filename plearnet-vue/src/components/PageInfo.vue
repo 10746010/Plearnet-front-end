@@ -112,12 +112,7 @@ export default {
   setup() {
     const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852 },
-        { title: "筆記", date: 1637254937118 },
-        { title: "筆記", date: 1637254943967 },
-        { title: "筆記", date: 1637254973899 },
-        { title: "筆記", date: 1637254953820 },
-        { title: "筆記", date: 1637254953825 },
+      
       ],
       userId: null,
       userInfo: [],

@@ -97,15 +97,7 @@ export default {
   setup() {
 const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852,author:"John Doe" },
-        { title: "筆記", date: 1637254937118,author:"John John" },
-        { title: "筆記", date: 1637254943967,author:"Doe Doe" },
-        { title: "筆記", date: 1637254973899,author:"Lin" },
-        { title: "筆記", date: 1637254953820,author:"Lin" },
-        { title: "筆記", date: 1637254953825,author:"Chen Doe" }, 
-        { title: "筆記", date: 1637254953829,author:"Doe" },
-        { title: "筆記", date: 1637254953860,author:"John" },
-        { title: "筆記", date: 1637254953865,author:"John" },
+       
       ],
       userId:null,
       tags: [],

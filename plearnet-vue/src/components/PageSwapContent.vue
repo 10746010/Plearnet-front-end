@@ -14,7 +14,7 @@
             text-color="grey-9"
             icon="fas fa-arrow-left"
             round
-            to="/main"
+            to="/main/pageswap"
           />
           <div class="fit row justify-center">
             <q-card class="my-card justify-center" flat>

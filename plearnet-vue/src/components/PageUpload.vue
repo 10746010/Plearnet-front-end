@@ -97,12 +97,7 @@ export default {
   setup() {
     const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852 },
-        { title: "筆記", date: 1637254937118 },
-        { title: "筆記", date: 1637254943967 },
-        { title: "筆記", date: 1637254973899 },
-        { title: "筆記", date: 1637254953820 },
-        { title: "筆記", date: 1637254953825 },
+      
       ],
       tags: [],
       showNotes: [],
@@ -117,6 +112,12 @@ export default {
       let noteToDelete = note.date;
       let index = state.notes.findIndex((note) => note.date === noteToDelete);
       state.notes.splice(index, 1);
+      // console.log()
+      axios.delete("/topic/delNote",{
+        params: {
+          topicId: note.id,
+        },
+      })
     }
 
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
@@ -126,7 +127,6 @@ export default {
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;
-        console.log(arr)
         state.notes = arr.reverse()
         state.tags = arr.filter((item) =>
           !set.has(item.tag_name) ? set.add(item.tag_name) : false
@@ -150,6 +150,11 @@ function show(tag) {
         state.showNotes=state.notes
       }
     }
+
+
+
+
+    
     return {
       state,
       onDelete,

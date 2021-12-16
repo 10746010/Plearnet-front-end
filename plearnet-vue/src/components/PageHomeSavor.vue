@@ -1,6 +1,6 @@
 <template>
   <q-page class="relative-position">
-    <q-scroll-area class="absolute fullscreen" style="z-index: 0">
+    <q-scroll-area class="absolute fullscreen bg-black" style="z-index: 0">
       <div class="q-pa-md bg-black">
         <!-- 星球排名 -->
         <!-- 大 -->
@@ -303,13 +303,13 @@
                   <q-btn @click.prevent="watch(note.id)">
                     <q-card class="q-ma-sm">
                       <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-                      <q-card-section>
-                        <div class="text-h6">{{ note.title }}</div>
-                        <!-- <div class="text-subtitle2">
-                        {{ notes[n - 1].class }}
-                      </div> -->
-                      </q-card-section>
+                    
+                       <q-card-section v-if="note.title.length < 9">
+                      <div class="text-h6">{{ note.title }}</div>                     
+                    </q-card-section>
+                    <q-card-section v-else>
+                      <div class="text-h6">{{ note.title.slice(0,8)}}...</div>                     
+                    </q-card-section>
                     </q-card>
                   </q-btn>
                 </q-intersection>
@@ -319,7 +319,7 @@
         </div>
       </div>
       <q-dialog v-model="state.small">
-        <q-card style="width: 300px">
+        <q-card style="width: 700px">
           <q-card-section>
             <div class="text-h6"></div>
           </q-card-section>
@@ -332,8 +332,8 @@
               items-center
               content-center
             "
-          >
-            {{ state.warning }}
+            v-html="state.warning"
+          >           
           </q-card-section>
 
           <q-card-actions align="right" class="bg-white text-teal">
@@ -356,10 +356,7 @@ export default {
   setup() {
     const state = reactive({
       notes: [
-        { title: "筆記", date: 1636472865852 },
-        { title: "筆記", date: 1637254937118 },
-        { title: "筆記", date: 1637254943967 },
-        { title: "筆記", date: 1637254973899 },
+       
       ],
       warning: "",
       small:false
@@ -382,7 +379,7 @@ export default {
     function watch(id) {
       state.small=true
       axios
-        .get("/topic/topic?topicID=" + id, {})
+        .get("/topic/simpleTopic?topicID=" + id, {})
         .then(function (response) {         
           state.warning=response.data.data[0].content
         })
@@ -390,6 +387,8 @@ export default {
           console.log(error);
         });
     }
+
+    
 
     return {
       state,

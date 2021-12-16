@@ -24,7 +24,7 @@
                 <q-input
                   outlined
                   rounded
-                  v-model="name"
+                  v-model="state.name"
                   bg-color="white"
                   label="輸入希望增設的筆記 *"
                   lazy-rules
@@ -34,7 +34,7 @@
                 />
                 <div class="fit">
                   <q-input
-                    v-model="text"
+                    v-model="state.text"
                     bg-color="white"
                     outlined
                     rounded
@@ -47,7 +47,7 @@
                 <q-input
                   outlined
                   rounded
-                  v-model="name"
+                  v-model="state.name"
                   bg-color="white"
                   label="輸入希望增設的分類 *"
                   lazy-rules
@@ -57,7 +57,7 @@
                 />
                 <div class="fit">
                   <q-input
-                    v-model="text"
+                    v-model="state.text"
                     bg-color="white"
                     outlined
                     rounded
@@ -67,7 +67,7 @@
               </q-tab-panel>
             </q-tab-panels>
             <div class="q-pa-md row reverse">
-              <q-btn label="Submit" type="submit" color="primary" />
+              <q-btn label="Submit" type="submit" color="primary" @click="submitWish"/>
               <q-btn
                 label="Reset"
                 type="reset"
@@ -80,27 +80,55 @@
         </q-card>
       </div>
     </div>
+    <q-dialog v-model="state.small">
+        <q-card style="width: 300px">
+           <q-card-section>
+          <div class="text-h6"></div>
+        </q-card-section>
+          <q-card-section class="fit row text-center justify-center items-center content-center">
+            {{state.warning}}
+          </q-card-section>
+
+          <q-card-actions align="right" class="bg-white text-teal">
+            <q-btn flat label="OK" v-close-popup />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
   </q-page>
 </template>
 
 <script>
 import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { ref,reactive } from "vue";
 
 export default {
   setup() {
     const $q = useQuasar();
 
-    const name = ref(null);
-    const text = ref(null);
+    const state = reactive({
+      small:false,
+      warning:"",
+      name:"",
+      text:"",
+    });
 
-    const accept = ref(false);
+  const accept = ref(false);
+
+  function submitWish(){
+    if(state.text != "" && state.name != ""){    
+      state.warning = "送出成功"
+    } else {
+      state.warning = "不得為空"
+    }
+    state.small=true
+
+  }
+
     return {
-      tab: ref("note"),
-      name,
-      text,
+      tab: ref("note"),     
       accept,
-
+      state,
+      submitWish,
       onSubmit() {
         $q({
           color: "green-4",
@@ -111,8 +139,8 @@ export default {
       },
 
       onReset() {
-        name.value = null;
-        text.value = null;
+        state.name = null;
+        state.text = null;
       },
     };
   },
