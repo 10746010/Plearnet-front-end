@@ -303,13 +303,15 @@
                   <q-btn @click.prevent="watch(note.id)">
                     <q-card class="q-ma-sm">
                       <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-                    
-                       <q-card-section v-if="note.title.length < 9">
-                      <div class="text-h6">{{ note.title }}</div>                     
-                    </q-card-section>
-                    <q-card-section v-else>
-                      <div class="text-h6">{{ note.title.slice(0,8)}}...</div>                     
-                    </q-card-section>
+
+                      <q-card-section v-if="note.title.length < 9">
+                        <div class="text-h6">{{ note.title }}</div>
+                      </q-card-section>
+                      <q-card-section v-else>
+                        <div class="text-h6">
+                          {{ note.title.slice(0, 8) }}...
+                        </div>
+                      </q-card-section>
                     </q-card>
                   </q-btn>
                 </q-intersection>
@@ -333,7 +335,7 @@
               content-center
             "
             v-html="state.warning"
-          >           
+          >
           </q-card-section>
 
           <q-card-actions align="right" class="bg-white text-teal">
@@ -355,15 +357,12 @@ export default {
   props: {},
   setup() {
     const state = reactive({
-      notes: [
-       
-      ],
+      notes: [],
       warning: "",
-      small:false
+      small: false,
     });
 
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
-
 
     // 取得興趣的所有筆記的最後四個
     axios
@@ -377,18 +376,16 @@ export default {
       });
     // 抓筆記資料
     function watch(id) {
-      state.small=true
+      state.small = true;
       axios
         .get("/topic/simpleTopic?topicID=" + id, {})
-        .then(function (response) {         
-          state.warning=response.data.data[0].content
+        .then(function (response) {
+          state.warning = response.data.data[0].content;
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-
-    
 
     return {
       state,
