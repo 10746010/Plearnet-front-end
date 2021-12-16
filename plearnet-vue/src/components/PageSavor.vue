@@ -56,21 +56,21 @@
               v-for="note in state.notes"
               :key="note"
               once
-              transition="scale"             
+              transition="scale"
             >
-            <q-btn flat @click="watch(note.id)">
-              <div class="my-content" >
-                <q-card class="q-ma-sm">
-                  <!-- <img :src="notes[n - 1].img" /> -->
-                  <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-                  <q-card-section>
-                    <div class="text-h6">{{ note.title }}</div>
-                    <!-- <div class="text-h6">Card #{{ notes[n - 1].title }}</div> -->
-                    <!-- <div class="text-subtitle2">{{ state.notes[n - 1].class }}</div> -->
-                  </q-card-section>
-                </q-card>
-              </div>
-            </q-btn>
+              <q-btn flat @click="watch(note.id)">
+                <div class="my-content">
+                  <q-card class="q-ma-sm">
+                    <!-- <img :src="notes[n - 1].img" /> -->
+                    <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+                    <q-card-section>
+                      <div class="text-h6">{{ note.title }}</div>
+                      <!-- <div class="text-h6">Card #{{ notes[n - 1].title }}</div> -->
+                      <!-- <div class="text-subtitle2">{{ state.notes[n - 1].class }}</div> -->
+                    </q-card-section>
+                  </q-card>
+                </div>
+              </q-btn>
             </q-intersection>
           </div>
         </div>
@@ -103,14 +103,13 @@ export default {
       ],
     });
     const router = useRouter();
-    
 
     const watch = async (id) => {
       await router.push(`${id}`);
-    }
+    };
 
     const token = localStorage.getItem("token");
-// 取得興趣的所有筆記
+    // 取得興趣的所有筆記
     axios
       .get("/topic/tagTypeSearch?tagType=1", {})
       .then(function (response) {
@@ -120,19 +119,17 @@ export default {
         console.log(error);
       });
 
-    
-
     return {
       style,
       state,
       selected: "A",
       options: [
         { text: "依熱門度排序", value: "A" },
-        { text: "Two", value: "B" },
-        { text: "Three", value: "C" },
+        { text: "依上傳時間排序", value: "B" },
+        { text: "依按讚數排序", value: "C" },
       ],
       watch,
-      token
+      token,
     };
   },
 };
