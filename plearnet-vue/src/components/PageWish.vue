@@ -110,6 +110,7 @@ export default {
       warning:"",
       name:"",
       text:"",
+      
     });
 
   const accept = ref(false);

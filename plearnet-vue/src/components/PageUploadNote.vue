@@ -191,7 +191,6 @@
               </q-editor>
 
               <q-separator size="10px" color="white"/>
-              {{editor}}
               <q-card flat bordered>
                 <q-card-section v-html="editor" />
               </q-card>
@@ -322,7 +321,7 @@ const state = reactive({
         author: state.userId,
       });
 
-      await router.push("/main/pagesavor");
+      await router.push("/main/upload");
     };
 
     return {

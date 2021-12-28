@@ -8,7 +8,13 @@
       <div class="row justify-between q-pl-xl q-pr-xl">
         <div class="q-pl-xl">
           <div class="q-pl-lg q-gutter-sm">
-            <q-btn flat color="white" text-color="white" label="全部" @click.prevent="show('全部')"/>
+            <q-btn
+              flat
+              color="white"
+              text-color="white"
+              label="全部"
+              @click.prevent="show('全部')"
+            />
             <q-btn
               flat
               color="white"
@@ -17,7 +23,7 @@
               :key="tag"
               @click.prevent="show(tag.tag_name)"
               >{{ tag.tag_name }}</q-btn
-            > 
+            >
           </div>
         </div>
         <div class="q-pr-xl">
@@ -54,15 +60,23 @@
           once
           transition="scale"
         >
-          <q-card class="q-ma-sm">
-            <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+          <div>
+            <q-btn @click.prevent="watch(note.id)">
+              <q-card class="q-ma-sm">
+                <img src="https://cdn.quasar.dev/img/mountains.jpg" />
 
-            <q-card-section>
-              <div class="text-h6">{{ note.title }}</div>
-              <div class="text-subtitle2 row">by My Self <q-space /></div>
-            </q-card-section>
+                 <q-card-section v-if="note.title.length < 9">
+                  <div class="text-h6">{{ note.title }}</div>
+                <div class="text-subtitle2">by {{ note.author }}</div>
+                </q-card-section>
+                <q-card-section v-else>
+                  <div class="text-h6">{{ note.title.slice(0, 8) }}...</div>
+                <div class="text-subtitle2">by {{ note.author }}</div>
+                </q-card-section>
+              </q-card>
+            </q-btn>
 
-            <q-slide-transition>
+            <q-slide-transition class="fit row  justify-center items-center content-center">
               <div v-show="deleteButton">
                 <q-separator />
                 <q-card-section class="text-subitle2">
@@ -79,7 +93,7 @@
                 </q-card-section>
               </div>
             </q-slide-transition>
-          </q-card>
+          </div>
         </q-intersection>
       </div>
     </q-scroll-area>
@@ -89,6 +103,7 @@
 <script>
 import axios from "axios";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "PageUpload",
@@ -96,9 +111,7 @@ export default {
   props: {},
   setup() {
     const state = reactive({
-      notes: [
-      
-      ],
+      notes: [],
       tags: [],
       showNotes: [],
     });
@@ -112,55 +125,56 @@ export default {
       let noteToDelete = note.date;
       let index = state.notes.findIndex((note) => note.date === noteToDelete);
       state.notes.splice(index, 1);
-      // console.log()
-      axios.delete("/topic/delNote",{
+      axios.delete("/topic/delNote", {
         params: {
           topicId: note.id,
         },
-      })
+      });
     }
 
     axios.defaults.headers.common["token"] = localStorage.getItem("token");
-// 找尋自己發過的筆記
+    // 找尋自己發過的筆記
     axios
       .get("/userAccount/myNote", {})
       .then(function (response) {
         const set = new Set();
         const arr = response.data.data;
-        state.notes = arr.reverse()
+        state.notes = arr.reverse();
         state.tags = arr.filter((item) =>
           !set.has(item.tag_name) ? set.add(item.tag_name) : false
-        );      
+        );
         state.showNotes = state.notes;
       })
       .catch(function (error) {
         console.log(error);
       });
 
-function show(tag) {
-      if(tag != "全部"){
-        state.showNotes=[]
+    function show(tag) {
+      if (tag != "全部") {
+        state.showNotes = [];
         for (const [key, value] of Object.entries(state.notes)) {
-        state.key = key
-        if(value.tag_name == tag){
-          state.showNotes.push(value)
-        }        
+          state.key = key;
+          if (value.tag_name == tag) {
+            state.showNotes.push(value);
+          }
         }
-      }else{
-        state.showNotes=state.notes
+      } else {
+        state.showNotes = state.notes;
       }
     }
+    const router = useRouter();
 
+    const watch = async (id) => {
+      await router.push(`${id}`);
+    };
 
-
-
-    
     return {
       state,
       onDelete,
       deleteButton,
       deleteNote,
-      show
+      show,
+      watch
     };
   },
 };
